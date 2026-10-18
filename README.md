@@ -32,7 +32,7 @@ CI (GitHub Actions) runs the same three checks on every push to `main` and on pu
 - `tests/` – tests (write the test first)
 - `data/raw/` – downloaded source data (git-ignored; see `docs/data-sources.md` to re-obtain)
 - `data/processed/` – derived datasets
-- `docs/methodology.md` – audit log of analyses and data manipulations
+- `docs/methodology.md` – decision record: why analyses and data choices were made
 - `docs/data-sources.md` – where every dataset came from
 
 ## Security notes
