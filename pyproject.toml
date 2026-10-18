@@ -3,7 +3,11 @@ name = "oregon-farmland-solar"
 version = "0.1.0"
 description = "Map and dashboard tracking reasons for approval/disapproval of solar-on-farm permits in Oregon"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pydantic>=2.14.1",
+    "pyyaml>=6.0.3",
+    "rapidfuzz>=3.14.6",
+]
 
 [build-system]
 requires = ["uv_build>=0.11.32,<0.12.0"]

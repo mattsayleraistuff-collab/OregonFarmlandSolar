@@ -27,10 +27,17 @@ uv run pytest
 
 CI (GitHub Actions) runs the same three checks on every push to `main` and on pull requests.
 
+## Data model
+`project -> proceeding -> document -> reason`. Local proceedings record what a county decided; appeal proceedings record what a reviewing body (for example LUBA) did. Each coded reason has a category from `data/taxonomy/reasons.yaml`, a verbatim quote, and a PDF page number. See `docs/methodology.md` for the rules and the decision log.
+
+Source PDFs are kept locally and are not published. The repo holds structured data, quotes with page references, and a manifest of document checksums.
+
 ## Project layout
 - `src/oregon_farmland_solar/` – application code
 - `tests/` – tests (write the test first)
-- `data/raw/` – downloaded source data (git-ignored; see `docs/data-sources.md` to re-obtain)
+- `data/taxonomy/` – reason taxonomy (versioned YAML)
+- `data/records/` – structured records (JSON)
+- `data/raw/` – source PDFs and other originals (git-ignored, kept locally; see `docs/data-sources.md`)
 - `data/processed/` – derived datasets
 - `docs/methodology.md` – audit log of analyses and data manipulations
 - `docs/data-sources.md` – where every dataset came from
@@ -39,5 +46,7 @@ CI (GitHub Actions) runs the same three checks on every push to `main` and on pu
 This repository is public. Never commit API keys, tokens, or credentials. Keep them in a local `.env` file (git-ignored) and read them from environment variables.
 
 ## Known limitations
-- Scaffold only; nothing is implemented yet.
+- Schema, taxonomy and validators exist; no real decisions have been coded yet.
+- The reason taxonomy is a draft based on three sample projects.
+- Quote verification and personal-information checks run locally against the source PDFs, which are not published.
 - _TODO: add data coverage, geographic, and permit-record limitations as they are discovered._

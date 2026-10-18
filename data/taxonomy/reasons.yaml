@@ -1,0 +1,70 @@
+# Reason taxonomy for approval/denial of solar-on-farmland decisions.
+#
+# DRAFT v1: derived from skimming three sample projects (Jackson, Yamhill and Marion
+# counties). Not comprehensive. Expect to add entries as more decisions are coded.
+#
+# Rules for changing this file (also recorded in docs/methodology.md):
+#   - Never reuse or rename an id. To retire one, set status: deprecated and replaced_by.
+#   - Add new entries rather than stretching a definition.
+#   - Bump `version` and add a line to `changelog` for every change.
+version: 1
+changelog:
+  - "v1 (2026-10-18): initial draft from three sample projects."
+entries:
+  - id: no_local_authority
+    label: No local code authority for the use
+    status: active
+    definition: >-
+      The decision rests on the county code not allowing (or no longer providing standards
+      for) a solar facility in that zone, so there is no basis to approve it.
+
+  - id: state_farmland_standards
+    label: State farmland-use standards not met
+    status: active
+    definition: >-
+      The decision turns on state rules for non-farm uses on farmland (for example the
+      OAR 660-033-0130(38) solar standards, impacts on accepted farm practices, or limits
+      on high-value farmland).
+
+  - id: goal_exception_criteria
+    label: Goal exception criteria not met or met
+    status: active
+    definition: >-
+      The decision turns on whether a statewide planning goal exception (such as a Goal 3
+      reasons exception) is justified: demonstrated need, comparative locational advantage,
+      or minimal loss of resource land.
+
+  - id: neighbor_farm_impacts
+    label: Impacts on neighboring farm or agricultural uses
+    status: active
+    definition: >-
+      Adverse (or claimed adverse) effects on adjacent farm operations such as vineyards,
+      orchards or crops, including compatibility and accepted-farm-practice conflicts.
+
+  - id: visual_tourism_impacts
+    label: Visual, scenic or tourism-economy impacts
+    status: active
+    definition: >-
+      Concerns about views, scenic corridors or effects on agritourism and the local
+      visitor economy.
+
+  - id: farmland_loss
+    label: Loss of productive or high-value farmland
+    status: active
+    definition: >-
+      The amount, quality or soil class of farmland removed from production is a stated
+      basis for the outcome.
+
+  - id: inadequate_findings
+    label: Inadequate findings or evidence
+    status: active
+    definition: >-
+      The decision-maker's findings are insufficient or unsupported by substantial evidence
+      (common basis for appeal reversals and remands).
+
+  - id: other_uncoded
+    label: Other / not yet coded
+    status: active
+    definition: >-
+      Catch-all for a stated reason that fits no entry above. A free-text note is required.
+      Review periodically and promote recurring themes to new entries.
