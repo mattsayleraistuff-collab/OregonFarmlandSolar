@@ -1,17 +1,19 @@
-# Methodology and audit log
+# Methodology and decision record
 
-Purpose: make every analysis step and data manipulation reproducible and traceable.
+Purpose: record the reasoning behind analyses and data decisions so the work can be audited and reproduced.
+
+Git history already records what changed, when, and by whom, so this file does not repeat that. Link to the pull request instead.
 
 ## How to use this file
-Add one entry per analysis or data change, newest at the bottom. Commit the entry in the same commit as the code that does the work.
+Add one entry per decision or analysis, newest at the bottom. Put the entry in the same pull request as the work it explains.
 
 ## Entry template
-- **Date:**
-- **What changed / what was done:**
-- **Input data** (source, retrieval date, checksum):
-- **Code** (script/commit):
-- **Assumptions and decisions:**
-- **Known limitations / open questions:**
+- **Decision or analysis:**
+- **Why** (and alternatives rejected):
+- **Inputs** (dataset ids from `docs/data-sources.md`):
+- **Assumptions and definitions:**
+- **Limitations / open questions:**
+- **Pull request:**
 
 ## Entries
 ### 2026-10-18 - Design decisions before any data coding

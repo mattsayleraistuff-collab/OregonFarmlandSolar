@@ -39,7 +39,7 @@ Source PDFs are kept locally and are not published. The repo holds structured da
 - `data/records/` – structured records (JSON)
 - `data/raw/` – source PDFs and other originals (git-ignored, kept locally; see `docs/data-sources.md`)
 - `data/processed/` – derived datasets
-- `docs/methodology.md` – audit log of analyses and data manipulations
+- `docs/methodology.md` – decision record: why analyses and data choices were made
 - `docs/data-sources.md` – where every dataset came from
 
 ## Security notes
