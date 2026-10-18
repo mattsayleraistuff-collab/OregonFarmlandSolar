@@ -31,3 +31,14 @@ Add one entry per decision or analysis, newest at the bottom. Put the entry in t
 - **Assumptions and definitions:** farmland is recorded as the decision itself states it (exclusive farm use or high-value farmland), not re-derived. Dual-use means the decision text mentions grazing, crops or pollinator habitat under or between panels.
 - **Limitations / open questions:** the taxonomy is a draft from three projects. Tax-lot matching and parcel-level locations are deferred in favor of a county-level map, and the terms of use for tax lot data are unconfirmed. Quote checking relies on locally extracted text and tolerates ordinary OCR noise but not heavy corruption.
 - **Pull request:** #2
+
+### Hand-coding sample records: Marion County (Silver Creek Solar)
+- **Decision or analysis:** first hand-coded project (`data/records/marion-silver-creek-solar.json`): a staff report and the LUBA 2023-045 opinion, coded into 5 reasons. Added a `validate` command (`uv run ofs validate`) that runs the data checks, the personal-information scan, and, given a local PDF folder, checks every quote against the cited page of the PDF with the matching sha256.
+- **Why (and alternatives rejected):**
+  - *Reasons are attached to the proceeding whose document they appear in.* The county board's own decision was not in the sample set, so the board's grounds are coded from LUBA's summary and sit under the appeal proceeding, with a note. Alternative (open): allow a reason to explain an earlier proceeding than its document belongs to.
+  - *The staff report is coded under the local proceeding but is a recommendation, not the decision;* the reason's note says so.
+  - *Phone-number pattern excludes Oregon rule numbers* (for example OAR 660-033-0130(38)); they have the same shape as phone numbers and caused false positives.
+- **Inputs:** the two Marion County documents listed in `docs/data-sources.md`.
+- **Assumptions and definitions:** the local outcome (denied) comes from the LUBA opinion's description of the board decision; the board decision date is not stated in the sample and is left empty. Coded reasons are not yet `hand_checked`.
+- **Limitations / open questions:** the sample has only one reason category pair (state standards, no local authority); the taxonomy has no category for "local code repealed" vs. "state rule applies directly". Review pending.
+- **Pull request:** to be added

@@ -15,7 +15,11 @@ from .dataset import Dataset
 
 _PATTERNS = {
     "email": re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"),
-    "phone": re.compile(r"(?<!\d)(?:\+?1[ .-]?)?(?:\(\d{3}\)|\d{3})[ .-]?\d{3}[ .-]?\d{4}(?!\d)"),
+    # Not followed by "(" and not preceded by "OAR": Oregon rule numbers such as
+    # "OAR 660-033-0130(38)" have the same shape as a phone number.
+    "phone": re.compile(
+        r"(?<!OAR )(?<!\d)(?:\+?1[ .-]?)?(?:\(\d{3}\)|\d{3})[ .-]?\d{3}[ .-]?\d{4}(?![\d(])"
+    ),
     "ssn": re.compile(r"(?<!\d)\d{3}-\d{2}-\d{4}(?!\d)"),
 }
 

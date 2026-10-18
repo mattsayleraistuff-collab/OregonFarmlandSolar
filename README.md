@@ -25,6 +25,12 @@ uv run ruff format --check .
 uv run pytest
 ```
 
+Validate a records file (add `--pdf-dir <folder>` to also check quotes against local PDFs; needs poppler's `pdftotext`):
+
+```bash
+uv run ofs validate data/records/marion-silver-creek-solar.json
+```
+
 CI (GitHub Actions) runs the same three checks on every push to `main` and on pull requests.
 
 ## Data model
@@ -48,7 +54,7 @@ This repository is public. Never commit API keys, tokens, or credentials. Keep t
 Branch protection for `main` (pull request required, `test` check must pass, no force pushes or deletion) is documented in `.github/rulesets/protect-main.json`. GitHub does not read this file automatically; it is a copy of the ruleset imported in the repository settings, so update both together.
 
 ## Known limitations
-- Schema, taxonomy and validators exist; no real decisions have been coded yet.
+- Schema, taxonomy and validators exist; one sample project (Marion County) is coded and awaiting hand review.
 - The reason taxonomy is a draft based on three sample projects.
 - Quote verification and personal-information checks run locally against the source PDFs, which are not published.
 - _TODO: add data coverage, geographic, and permit-record limitations as they are discovered._

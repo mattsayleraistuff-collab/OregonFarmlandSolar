@@ -37,3 +37,15 @@ def test_scan_dataset_also_checks_notes(raw_dataset):
     raw_dataset["reasons"][0]["note"] = "phone 503-555-0142"
     findings = scan_dataset(Dataset.model_validate(raw_dataset))
     assert any(f.record_id == "r1" and f.kind == "phone" for f in findings)
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "criteria required by OAR 660-033-0130(38).",
+        "see OAR 660-006-0025 for forest uses",
+        "under 660-033-0130(38)(h)",
+    ],
+)
+def test_oar_rule_numbers_are_not_phone_numbers(text):
+    assert scan_text(text) == []
