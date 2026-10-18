@@ -45,6 +45,8 @@ Source PDFs are kept locally and are not published. The repo holds structured da
 ## Security notes
 This repository is public. Never commit API keys, tokens, or credentials. Keep them in a local `.env` file (git-ignored) and read them from environment variables.
 
+Branch protection for `main` (pull request required, `test` check must pass, no force pushes or deletion) is documented in `.github/rulesets/protect-main.json`. GitHub does not read this file automatically; it is a copy of the ruleset imported in the repository settings, so update both together.
+
 ## Known limitations
 - Schema, taxonomy and validators exist; no real decisions have been coded yet.
 - The reason taxonomy is a draft based on three sample projects.
