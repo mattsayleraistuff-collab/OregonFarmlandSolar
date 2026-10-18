@@ -20,12 +20,22 @@ MIN_FUZZY_CHARS = 25
 
 @dataclass(frozen=True)
 class QuoteCheck:
+    """Result of looking for a quote on a page.
+
+    Attributes:
+        found: True if the quote was located.
+        exact: True for an exact match after normalizing; False for a fuzzy match, which a
+            person should review.
+        score: 100 for an exact match, the fuzzy score for a fuzzy one, 0 if not found.
+    """
+
     found: bool
     exact: bool
     score: float
 
 
 def _squash(text: str, *, strip_line_numbers: bool) -> str:
+    """Reduces text to lowercase letters and digits so formatting differences do not matter."""
     text = unicodedata.normalize("NFKC", text).replace("­", "")
     if strip_line_numbers:
         text = re.sub(r"(?m)^[ \t]*\d{1,3}(?=[ \t])", "", text)  # margin line numbers
@@ -34,6 +44,20 @@ def _squash(text: str, *, strip_line_numbers: bool) -> str:
 
 
 def check_quote(quote: str, page_text: str) -> QuoteCheck:
+    """Looks for a quote in the text of one page.
+
+    Both sides are normalized (case, punctuation, whitespace, margin line numbers and
+    hyphenated line breaks are ignored). If there is no exact match and the quote has at
+    least ``MIN_FUZZY_CHARS`` characters, a fuzzy match at or above ``FUZZY_THRESHOLD``
+    counts, to tolerate OCR noise.
+
+    Args:
+        quote: The quote as coded.
+        page_text: Extracted text of the cited page.
+
+    Returns:
+        A QuoteCheck; empty inputs are never found.
+    """
     q = _squash(quote, strip_line_numbers=False)
     p = _squash(page_text, strip_line_numbers=True)
     if not q or not p:

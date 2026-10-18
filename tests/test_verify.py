@@ -58,3 +58,10 @@ def test_index_pdfs_keys_by_sha256(tmp_path):
     f.write_bytes(b"fake pdf bytes")
     idx = index_pdfs(tmp_path, extract=lambda p: ["p1", "p2"])
     assert idx == {hashlib.sha256(b"fake pdf bytes").hexdigest(): ["p1", "p2"]}
+
+
+def test_missing_pdf_warning_names_the_expected_file(raw_dataset):
+    ds = _real(raw_dataset)
+    ds.documents[0].file_name = "LUBA_23045_2023.pdf"
+    issues = verify_quotes(ds, {})
+    assert "LUBA_23045_2023.pdf" in issues[0].message

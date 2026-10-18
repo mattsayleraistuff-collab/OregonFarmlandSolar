@@ -39,7 +39,7 @@ CI (GitHub Actions) runs the same three checks on every push to `main` and on pu
 Source PDFs are kept locally and are not published. The repo holds structured data, quotes with page references, and a manifest of document checksums.
 
 ## Project layout
-- `src/oregon_farmland_solar/` – application code
+- `src/oregon_farmland_solar/` – application code (Google-style docstrings, enforced by ruff)
 - `tests/` – tests (write the test first)
 - `data/taxonomy/` – reason taxonomy (versioned YAML)
 - `data/records/` – structured records (JSON)

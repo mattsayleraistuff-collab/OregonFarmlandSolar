@@ -12,7 +12,19 @@ from .quotes import check_quote
 
 
 def extract_pages(pdf: Path) -> list[str]:
-    """Per-page text via poppler's pdftotext (pages are separated by form feeds)."""
+    """Extracts per-page text with poppler's ``pdftotext``.
+
+    Args:
+        pdf: Path to the PDF file.
+
+    Returns:
+        One string per page, in order. Layout is preserved so margin line numbers stay on
+        their own lines (``check_quote`` strips them).
+
+    Raises:
+        FileNotFoundError: If ``pdftotext`` is not installed.
+        subprocess.CalledProcessError: If ``pdftotext`` fails on the file.
+    """
     out = subprocess.run(
         ["pdftotext", "-layout", str(pdf), "-"], check=True, capture_output=True, text=True
     ).stdout
@@ -25,7 +37,16 @@ def extract_pages(pdf: Path) -> list[str]:
 def index_pdfs(
     pdf_dir: Path, extract: Callable[[Path], list[str]] = extract_pages
 ) -> dict[str, list[str]]:
-    """Map sha256 of each PDF under pdf_dir to its per-page text."""
+    """Reads every PDF under a folder and indexes its text by checksum.
+
+    Args:
+        pdf_dir: Folder searched recursively for ``*.pdf`` files.
+        extract: Function returning per-page text for one PDF. Replaceable so tests do not
+            need poppler.
+
+    Returns:
+        Mapping of each file's SHA-256 (lowercase hex) to its list of page texts.
+    """
     return {
         hashlib.sha256(p.read_bytes()).hexdigest(): extract(p)
         for p in sorted(Path(pdf_dir).rglob("*.pdf"))
@@ -33,7 +54,19 @@ def index_pdfs(
 
 
 def verify_quotes(ds: Dataset, pdfs: dict[str, list[str]]) -> list[Issue]:
-    """Check each real reason's quote appears on its cited page of the matching PDF."""
+    """Checks that each real reason's quote appears on its cited page.
+
+    Synthetic reasons are skipped. A document whose PDF is not in ``pdfs`` produces one
+    warning (it may simply not be on this machine); a quote that is missing, or a page
+    number out of range, is an error; a fuzzy (non-exact) match is a warning.
+
+    Args:
+        ds: Dataset to check.
+        pdfs: Page texts keyed by SHA-256, as returned by ``index_pdfs``.
+
+    Returns:
+        Issues found, possibly empty.
+    """
     issues: list[Issue] = []
     docs = {d.id: d for d in ds.documents}
     reported: set[str] = set()
@@ -45,9 +78,11 @@ def verify_quotes(ds: Dataset, pdfs: dict[str, list[str]]) -> list[Issue]:
         if pages is None:
             if doc.id not in reported:
                 reported.add(doc.id)
+                where = f" (expected file {doc.file_name!r})" if doc.file_name else ""
                 issues.append(
                     Issue(
-                        "warning", f"document {doc.id!r}: no local PDF with that sha256; unverified"
+                        "warning",
+                        f"document {doc.id!r}: no local PDF with that sha256{where}; unverified",
                     )
                 )
             continue

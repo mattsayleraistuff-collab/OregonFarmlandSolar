@@ -38,6 +38,7 @@
       "proceeding_id": "marion-silver-creek-local",
       "document_type": "staff_report",
       "sha256": "139c9aadacf92b753f20c285619add4ea6870948561e4376e7cb062030c87875",
+      "file_name": "MarionCo_Staff_Report_CU22-041.pdf",
       "page_count": 2,
       "synthetic": false
     },
@@ -46,6 +47,7 @@
       "proceeding_id": "marion-silver-creek-luba",
       "document_type": "appellate_opinion",
       "sha256": "a161030180f441f10ec3b5f87efc9022b4b6e00b40e6c11afb9ccda450573722",
+      "file_name": "LUBA_23045_2023.pdf",
       "page_count": 18,
       "synthetic": false
     }

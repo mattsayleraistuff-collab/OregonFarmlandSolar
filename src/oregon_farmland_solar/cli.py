@@ -14,6 +14,14 @@ DEFAULT_TAXONOMY = Path("data/taxonomy/reasons.yaml")
 
 
 def _validate(args: argparse.Namespace) -> int:
+    """Runs all checks on a records file and prints the issues.
+
+    Args:
+        args: Parsed arguments with ``records``, ``taxonomy``, ``pdf_dir`` and ``blocklist``.
+
+    Returns:
+        0 if there are no errors (warnings are allowed), otherwise 1.
+    """
     ds = load_dataset(args.records)
     issues: list[Issue] = check_dataset(ds, load_taxonomy(args.taxonomy))
 
@@ -40,6 +48,14 @@ def _validate(args: argparse.Namespace) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Command line entry point.
+
+    Args:
+        argv: Arguments without the program name; defaults to ``sys.argv[1:]``.
+
+    Returns:
+        Process exit code.
+    """
     parser = argparse.ArgumentParser(prog="ofs")
     sub = parser.add_subparsers(dest="command", required=True)
     v = sub.add_parser("validate", help="check a records file")

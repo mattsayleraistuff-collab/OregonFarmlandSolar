@@ -26,12 +26,29 @@ _PATTERNS = {
 
 @dataclass(frozen=True)
 class Finding:
+    """A possible piece of personal information.
+
+    Attributes:
+        kind: "email", "phone", "ssn" or "blocklist".
+        match: The text that matched.
+        record_id: Id of the reason it was found in, when scanning a dataset.
+    """
+
     kind: str
     match: str
     record_id: str | None = None
 
 
 def scan_text(text: str, blocklist: Iterable[str] = ()) -> list[Finding]:
+    """Scans one string for candidate personal information.
+
+    Args:
+        text: Text to scan.
+        blocklist: Names or terms to flag, matched case-insensitively.
+
+    Returns:
+        One Finding per match, possibly empty.
+    """
     findings = [
         Finding(kind, m.group()) for kind, rx in _PATTERNS.items() for m in rx.finditer(text)
     ]
@@ -43,6 +60,15 @@ def scan_text(text: str, blocklist: Iterable[str] = ()) -> list[Finding]:
 
 
 def scan_dataset(ds: Dataset, blocklist: Iterable[str] = ()) -> list[Finding]:
+    """Scans the quote and note of every reason in a dataset.
+
+    Args:
+        ds: Dataset to scan.
+        blocklist: Names or terms to flag, matched case-insensitively.
+
+    Returns:
+        Findings with ``record_id`` set to the reason they came from.
+    """
     blocklist = list(blocklist)
     out: list[Finding] = []
     for r in ds.reasons:
