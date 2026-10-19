@@ -8,8 +8,9 @@ Status: scaffold only. No data, analysis, or app code yet.
 ## Scope and coverage
 This tracks the reasons given in the decisions we have, not every solar-on-farmland permit in Oregon.
 
-- **Records:** county decisions obtained through a public records request, plus three hand-collected LUBA appeals (sample cases).
-- **Outcomes:** the *county outcome* is the headline result. An *appeal outcome (where in our records)* is shown only where we hold a LUBA or court document. We do not claim a "final" outcome: a county decision may have been appealed, remanded or reversed without a record of that here.
+- **Records:** county decisions from a public records request, plus three hand-collected LUBA appeals (sample cases). The agency confirmed the county records include **approved decisions only**: no denied or withdrawn applications. County records do not carry local decision numbers.
+- **Outcomes:** the *county outcome* is the headline result (approved, for every county record). An *appeal outcome (where in our records)* is shown only where we hold a LUBA or court document. We do not claim a "final" outcome: a county decision may have been appealed, remanded or reversed without a record of that here.
+- **Denials:** the only denials in the data are the three LUBA sample cases. The county records cannot show how often projects are denied, why denials differ from approvals, or approval rates of any kind.
 - **LUBA samples:** appealed cases skew toward contested projects, and three cases are far too few for rates. They are reported separately as case studies, with no percentages, and never pooled with county decisions.
 - **Not covered:** appeals and court decisions we did not collect, projects decided outside the records request, and anything after the records were gathered.
 
@@ -67,5 +68,5 @@ Branch protection for `main` (pull request required, `test` check must pass, no 
 - Schema, taxonomy and validators exist; two sample projects (Marion, Yamhill) are coded; Marion is hand-checked, Yamhill awaits review.
 - The reason taxonomy is a draft based on three sample projects.
 - Quote verification and personal-information checks run locally against the source PDFs, which are not published.
-- Coverage is limited to the records obtained (see Scope and coverage); appeal and court outcomes are incomplete.
+- Coverage is limited to the records obtained (see Scope and coverage): county records are approvals only, and appeal and court outcomes are incomplete.
 - _TODO: add geographic and permit-record limitations as they are discovered._
