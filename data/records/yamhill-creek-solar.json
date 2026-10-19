@@ -48,22 +48,22 @@
       "proceeding_id": "yamhill-creek-local",
       "document_id": "yamhill-creek-luba-opinion",
       "category": "farmland_loss",
-      "quote": "On balance, the comprehensive plan goals support preservation of farmland instead of the proposed non-farm use solar facility.",
-      "pdf_page": 40,
-      "printed_page": "40",
-      "note": "County board's overall conclusion on plan consistency (YCZO 1202.02(B)), quoted by LUBA. LUBA treated this as the strongest basis for denial.",
-      "hand_checked": true
+      "quote": "The county further balances the Comprehensive Plan goals and policies in favor of farmland protection because a solar facility can be located on non-farmland.",
+      "pdf_page": 41,
+      "printed_page": "41",
+      "note": "County board's final weighing under YCZO 1202.02(B), quoted by LUBA: alternative sites on non-farmland were available. The same section's overall 'on balance' conclusion restates the individual findings and is not coded separately.",
+      "hand_checked": false
     },
     {
       "id": "yamhill-r2",
       "proceeding_id": "yamhill-creek-local",
       "document_id": "yamhill-creek-luba-opinion",
-      "category": "state_farmland_standards",
-      "quote": "The applicant did not carry its burden to establish that soil compaction from installation and use of the solar photovoltaic panels for 20-30 years would not have long-term impacts that would reduce the productivity of soil on the subject property for crop production.",
-      "pdf_page": 29,
-      "printed_page": "29",
-      "note": "County board finding under OAR 660-033-0130(38)(f)(C), quoted by LUBA in a footnote. LUBA did not rule on the state-rule grounds because one sufficient basis was upheld.",
-      "hand_checked": true
+      "category": "farmland_loss",
+      "quote": "soil compaction and herbicide use over the life of the facility could adversely impact the soils for agricultural use after the facility is decommissioned",
+      "pdf_page": 23,
+      "printed_page": "23",
+      "note": "County finding under the plan's soil-resources goal (Agricultural Lands Goal 2), as summarized by LUBA. LUBA found it supported by substantial evidence (p.25). Replaces an earlier quote from the state soil standard, which LUBA did not review.",
+      "hand_checked": false
     },
     {
       "id": "yamhill-r3",
