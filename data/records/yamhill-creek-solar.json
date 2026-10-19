@@ -52,7 +52,7 @@
       "pdf_page": 41,
       "printed_page": "41",
       "note": "County board's final weighing under YCZO 1202.02(B), quoted by LUBA: alternative sites on non-farmland were available. The same section's overall 'on balance' conclusion restates the individual findings and is not coded separately.",
-      "hand_checked": false
+      "hand_checked": true
     },
     {
       "id": "yamhill-r2",
@@ -62,8 +62,8 @@
       "quote": "soil compaction and herbicide use over the life of the facility could adversely impact the soils for agricultural use after the facility is decommissioned",
       "pdf_page": 23,
       "printed_page": "23",
-      "note": "County finding under the plan's soil-resources goal (Agricultural Lands Goal 2), as summarized by LUBA. LUBA found it supported by substantial evidence (p.25). Replaces an earlier quote from the state soil standard, which LUBA did not review.",
-      "hand_checked": false
+      "note": "County finding under the plan's soil-resources goal (Agricultural Lands Goal 2), as summarized by LUBA. LUBA found it supported by substantial evidence (p.25). Replaces an earlier quote from the state soil standard, which LUBA did not review. The county's Goal 2 finding had three concerns; this quote is the third (compaction and herbicide use). LUBA also upheld the second (chemical runoff or aluminum leaching), calling the two alternative bases for the county's conclusion; that second concern is not coded separately. LUBA found no evidence for the first (heavy construction and shading) but held that did not matter (pdf pp.24-26).",
+      "hand_checked": true
     },
     {
       "id": "yamhill-r3",
