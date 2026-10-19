@@ -19,6 +19,16 @@ class TaxonomyError(ValueError):
 
 @dataclass(frozen=True)
 class Entry:
+    """One reason category.
+
+    Attributes:
+        id: Stable lower snake_case id. Never renamed or reused.
+        label: Short display name.
+        definition: What belongs in this category.
+        status: "active" or "deprecated".
+        replaced_by: Id of the entry that supersedes a deprecated one.
+    """
+
     id: str
     label: str
     definition: str
@@ -28,20 +38,43 @@ class Entry:
 
 @dataclass(frozen=True)
 class Taxonomy:
+    """A loaded, validated reason taxonomy.
+
+    Attributes:
+        version: Taxonomy version number from the file.
+        entries: All entries, active and deprecated.
+    """
+
     version: int
     entries: tuple[Entry, ...]
 
     def ids(self) -> set[str]:
+        """Returns the ids of all entries, including deprecated ones."""
         return {e.id for e in self.entries}
 
     def active_ids(self) -> set[str]:
+        """Returns the ids of entries that may be used for new coding."""
         return {e.id for e in self.entries if e.status == "active"}
 
     def get(self, entry_id: str) -> Entry | None:
+        """Returns the entry with the given id, or None if there is none."""
         return next((e for e in self.entries if e.id == entry_id), None)
 
 
 def load_taxonomy(path: str | Path) -> Taxonomy:
+    """Loads and validates a taxonomy YAML file.
+
+    Args:
+        path: Path to the YAML file.
+
+    Returns:
+        The validated Taxonomy.
+
+    Raises:
+        TaxonomyError: If the file is malformed, has duplicate or badly formed ids, an
+            invalid status, a deprecated entry without a valid ``replaced_by``, or lacks
+            the catch-all ``other_uncoded`` entry.
+    """
     raw = yaml.safe_load(Path(path).read_text(encoding="utf-8"))
     if not isinstance(raw, dict) or "entries" not in raw or "version" not in raw:
         raise TaxonomyError("taxonomy must be a mapping with 'version' and 'entries'")

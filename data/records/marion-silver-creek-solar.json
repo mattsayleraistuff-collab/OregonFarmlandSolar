@@ -1,0 +1,112 @@
+{
+  "projects": [
+    {
+      "id": "marion-silver-creek",
+      "name": "Silver Creek Solar (Marion County CU 22-041)",
+      "county": "Marion",
+      "source_type": "luba",
+      "acres": 30.31,
+      "land_class_as_stated": "FT (Farm/Timber) zone; high-value farmland by soil type; Christmas trees",
+      "synthetic": false
+    }
+  ],
+  "proceedings": [
+    {
+      "id": "marion-silver-creek-local",
+      "project_id": "marion-silver-creek",
+      "level": "local",
+      "body": "Marion County Board of Commissioners",
+      "decision_date": null,
+      "citation": "CU 22-041",
+      "local_outcome": "denied",
+      "synthetic": false
+    },
+    {
+      "id": "marion-silver-creek-luba",
+      "project_id": "marion-silver-creek",
+      "level": "appeal",
+      "body": "Oregon Land Use Board of Appeals",
+      "decision_date": "2023-09-21",
+      "citation": "LUBA No. 2023-045",
+      "appeal_outcome": "affirmed",
+      "synthetic": false
+    }
+  ],
+  "documents": [
+    {
+      "id": "marion-silver-creek-staff-report",
+      "proceeding_id": "marion-silver-creek-local",
+      "document_type": "staff_report",
+      "sha256": "139c9aadacf92b753f20c285619add4ea6870948561e4376e7cb062030c87875",
+      "file_name": "MarionCo_Staff_Report_CU22-041.pdf",
+      "page_count": 2,
+      "synthetic": false
+    },
+    {
+      "id": "marion-silver-creek-luba-opinion",
+      "proceeding_id": "marion-silver-creek-luba",
+      "document_type": "appellate_opinion",
+      "sha256": "a161030180f441f10ec3b5f87efc9022b4b6e00b40e6c11afb9ccda450573722",
+      "file_name": "LUBA_23045_2023.pdf",
+      "page_count": 18,
+      "synthetic": false
+    }
+  ],
+  "reasons": [
+    {
+      "id": "marion-sc-r1",
+      "proceeding_id": "marion-silver-creek-local",
+      "document_id": "marion-silver-creek-staff-report",
+      "category": "no_local_authority",
+      "quote": "Since the County removed those standards from its code and removed the provisions for allowing solar arrays as a conditional use, there is not a means to permit solar arrays on farmland.",
+      "pdf_page": 2,
+      "printed_page": "2",
+      "note": "Planning staff recommendation to the hearings officer (Dec 8, 2022), not the final decision.",
+      "hand_checked": true
+    },
+    {
+      "id": "marion-sc-r2",
+      "proceeding_id": "marion-silver-creek-luba",
+      "document_id": "marion-silver-creek-luba-opinion",
+      "category": "state_farmland_standards",
+      "quote": "not provided sufficient evidence to satisfy the criteria required by OAR 660-033-0130(38).",
+      "pdf_page": 5,
+      "printed_page": "5",
+      "note": "County board's ground for denial, as summarized by LUBA.",
+      "hand_checked": true
+    },
+    {
+      "id": "marion-sc-r3",
+      "proceeding_id": "marion-silver-creek-luba",
+      "document_id": "marion-silver-creek-luba-opinion",
+      "category": "no_local_authority",
+      "quote": "Without the criteria of MCC 17.120.110, a photo voltaic solar power generation facility cannot be approved in Marion County on high-value soils.",
+      "pdf_page": 7,
+      "printed_page": "7",
+      "note": "County board's finding, quoted by LUBA (Record 35-36).",
+      "hand_checked": true
+    },
+    {
+      "id": "marion-sc-r4",
+      "proceeding_id": "marion-silver-creek-luba",
+      "document_id": "marion-silver-creek-luba-opinion",
+      "category": "state_farmland_standards",
+      "quote": "pursuant to ORS 197.646(3), OAR 660-033-0130(38) applies directly, notwithstanding ORS 215.416(8).",
+      "pdf_page": 9,
+      "printed_page": "9",
+      "note": "LUBA reason for affirming: state rule applies directly because the county repealed its implementing code.",
+      "hand_checked": true
+    },
+    {
+      "id": "marion-sc-r5",
+      "proceeding_id": "marion-silver-creek-luba",
+      "document_id": "marion-silver-creek-luba-opinion",
+      "category": "state_farmland_standards",
+      "quote": "We conclude that LCDC did not exceed its statutory authority by adopting regulations that apply to high-value farmland in a mixed-use zone.",
+      "pdf_page": 18,
+      "printed_page": "18",
+      "note": "LUBA reason for affirming (third assignment of error).",
+      "hand_checked": true
+    }
+  ]
+}
