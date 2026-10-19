@@ -1,0 +1,113 @@
+{
+  "projects": [
+    {
+      "id": "yamhill-creek",
+      "name": "Yamhill Creek Solar",
+      "county": "Yamhill",
+      "source_type": "luba",
+      "acres": 27.8,
+      "land_class_as_stated": "EFU (EF-80); high-value farmland (Yamhill-Carlton Viticulture Area); about 12 percent high-value soils",
+      "synthetic": false
+    }
+  ],
+  "proceedings": [
+    {
+      "id": "yamhill-creek-local",
+      "project_id": "yamhill-creek",
+      "level": "local",
+      "body": "Yamhill County Board of Commissioners",
+      "decision_date": "2018-01-25",
+      "local_outcome": "denied",
+      "synthetic": false
+    },
+    {
+      "id": "yamhill-creek-luba",
+      "project_id": "yamhill-creek",
+      "level": "appeal",
+      "body": "Oregon Land Use Board of Appeals",
+      "decision_date": "2018-10-03",
+      "citation": "LUBA No. 2018-009",
+      "appeal_outcome": "affirmed",
+      "synthetic": false
+    }
+  ],
+  "documents": [
+    {
+      "id": "yamhill-creek-luba-opinion",
+      "proceeding_id": "yamhill-creek-luba",
+      "document_type": "appellate_opinion",
+      "sha256": "879718643b38b3adfddbc674c4ad768c4ed8351e85b05eb02d0029db1d446e23",
+      "file_name": "LUBA_18009_2018.pdf",
+      "page_count": 43,
+      "synthetic": false
+    }
+  ],
+  "reasons": [
+    {
+      "id": "yamhill-r1",
+      "proceeding_id": "yamhill-creek-luba",
+      "document_id": "yamhill-creek-luba-opinion",
+      "category": "farmland_loss",
+      "quote": "On balance, the comprehensive plan goals support preservation of farmland instead of the proposed non-farm use solar facility.",
+      "pdf_page": 40,
+      "printed_page": "40",
+      "note": "County board's overall conclusion on plan consistency (YCZO 1202.02(B)), quoted by LUBA. LUBA treated this as the strongest basis for denial.",
+      "hand_checked": false
+    },
+    {
+      "id": "yamhill-r2",
+      "proceeding_id": "yamhill-creek-luba",
+      "document_id": "yamhill-creek-luba-opinion",
+      "category": "state_farmland_standards",
+      "quote": "The applicant did not carry its burden to establish that soil compaction from installation and use of the solar photovoltaic panels for 20-30 years would not have long-term impacts that would reduce the productivity of soil on the subject property for crop production.",
+      "pdf_page": 29,
+      "printed_page": "29",
+      "note": "County board finding under OAR 660-033-0130(38)(f)(C), quoted by LUBA in a footnote. LUBA did not rule on the state-rule grounds because one sufficient basis was upheld.",
+      "hand_checked": false
+    },
+    {
+      "id": "yamhill-r3",
+      "proceeding_id": "yamhill-creek-luba",
+      "document_id": "yamhill-creek-luba-opinion",
+      "category": "visual_tourism_impacts",
+      "quote": "The open space character is not insured by the industrialization that would occur if this proposal were approved.",
+      "pdf_page": 30,
+      "printed_page": "30",
+      "note": "County board finding on open space and aesthetic qualities (gateway to the viticulture area), quoted by LUBA.",
+      "hand_checked": false
+    },
+    {
+      "id": "yamhill-r4",
+      "proceeding_id": "yamhill-creek-luba",
+      "document_id": "yamhill-creek-luba-opinion",
+      "category": "visual_tourism_impacts",
+      "quote": "is not in the short or long-term economic interest of the county",
+      "pdf_page": 33,
+      "printed_page": "33",
+      "note": "LUBA summarizing the county's economic-development finding: siting solar on high-value farmland, citing testimony on harm to the tourism and wine industries.",
+      "hand_checked": false
+    },
+    {
+      "id": "yamhill-r5",
+      "proceeding_id": "yamhill-creek-luba",
+      "document_id": "yamhill-creek-luba-opinion",
+      "category": "other_uncoded",
+      "quote": "the industrial use is proposed outside the urban growth boundary, in an undesirable location, without an adequate buffer to prevent adverse impacts to surrounding properties",
+      "pdf_page": 35,
+      "printed_page": "35",
+      "note": "County board finding under industrial-development plan policies, quoted by LUBA. Siting outside an urban growth boundary and lack of buffer to neighbors does not fit an existing category; candidate for a new one.",
+      "hand_checked": false
+    },
+    {
+      "id": "yamhill-r6",
+      "proceeding_id": "yamhill-creek-luba",
+      "document_id": "yamhill-creek-luba-opinion",
+      "category": "other_uncoded",
+      "quote": "the county's ultimate conclusion that the balance of the applicable goals and policies weigh against the proposed use is not reversible on appeal.",
+      "pdf_page": 41,
+      "printed_page": "41",
+      "note": "LUBA reason for affirming: deference to the county's weighing of plan policies (ORS 197.829(1)); LUBA did not address the other grounds for denial. Appeal-level reason; possible 'deferential review' category.",
+      "hand_checked": false
+    }
+  ]
+}

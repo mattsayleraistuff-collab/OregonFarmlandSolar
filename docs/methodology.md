@@ -42,3 +42,14 @@ Add one entry per decision or analysis, newest at the bottom. Put the entry in t
 - **Assumptions and definitions:** the local outcome (denied) comes from the LUBA opinion's description of the board decision; the board decision date is not stated in the sample and is left empty. Coded reasons are not yet `hand_checked`.
 - **Limitations / open questions:** the sample has only one reason category pair (state standards, no local authority); the taxonomy has no category for "local code repealed" vs. "state rule applies directly". Review pending.
 - **Pull request:** to be added
+
+### Hand-coding sample records: Yamhill County (Yamhill Creek Solar)
+- **Decision or analysis:** second hand-coded project (`data/records/yamhill-creek-solar.json`): the LUBA 2018-009 opinion, coded into 6 reasons (5 are the county board's grounds for denial as quoted or summarized by LUBA, 1 is LUBA's reason for affirming). Added `tests/test_records.py` so every committed records file is validated (structure, taxonomy, personal-information scan) in CI.
+- **Why (and alternatives rejected):**
+  - *Only the board's final order is recorded as the local proceeding.* The planning commission approved the application first and the board reversed it 2-1 on appeal; no document for the planning commission decision is in the sample, so it is not recorded.
+  - *Coded a subset of the county's grounds.* The board denied on six approval standards and weighed more than two dozen plan policies; LUBA upheld one sufficient basis (plan consistency) and did not rule on the rest. The reasons coded are the main distinct grounds, not every sub-finding.
+  - *Same convention as Marion:* the board's grounds sit under the appeal proceeding because LUBA's opinion is the document that quotes them (open design question, see the Marion entry).
+- **Inputs:** `LUBA_18009_2018.pdf` (see `docs/data-sources.md`).
+- **Assumptions and definitions:** `acres` is the 27.8-acre parcel; the facility is 12 acres. Land class is recorded as stated (EFU, high-value farmland by viticulture area).
+- **Limitations / open questions:** two reasons use `other_uncoded` (siting outside an urban growth boundary without a buffer; LUBA deference to the county's weighing). If these recur in the full records, they are candidates for new taxonomy categories. Reasons are not yet `hand_checked`.
+- **Pull request:** to be added
