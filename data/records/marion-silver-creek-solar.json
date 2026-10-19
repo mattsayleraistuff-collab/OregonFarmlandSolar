@@ -62,7 +62,7 @@
       "pdf_page": 2,
       "printed_page": "2",
       "note": "Planning staff recommendation to the hearings officer (Dec 8, 2022), not the final decision.",
-      "hand_checked": false
+      "hand_checked": true
     },
     {
       "id": "marion-sc-r2",
@@ -73,7 +73,7 @@
       "pdf_page": 5,
       "printed_page": "5",
       "note": "County board's ground for denial, as summarized by LUBA.",
-      "hand_checked": false
+      "hand_checked": true
     },
     {
       "id": "marion-sc-r3",
@@ -84,7 +84,7 @@
       "pdf_page": 7,
       "printed_page": "7",
       "note": "County board's finding, quoted by LUBA (Record 35-36).",
-      "hand_checked": false
+      "hand_checked": true
     },
     {
       "id": "marion-sc-r4",
@@ -95,7 +95,7 @@
       "pdf_page": 9,
       "printed_page": "9",
       "note": "LUBA reason for affirming: state rule applies directly because the county repealed its implementing code.",
-      "hand_checked": false
+      "hand_checked": true
     },
     {
       "id": "marion-sc-r5",
@@ -106,7 +106,7 @@
       "pdf_page": 18,
       "printed_page": "18",
       "note": "LUBA reason for affirming (third assignment of error).",
-      "hand_checked": false
+      "hand_checked": true
     }
   ]
 }
