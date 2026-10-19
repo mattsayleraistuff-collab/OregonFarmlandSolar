@@ -9,7 +9,7 @@ from pathlib import Path
 
 from pydantic import BaseModel, ConfigDict
 
-from .models import REASON_BEARING_TYPES, Document, Proceeding, Project, Reason
+from .models import REASON_BEARING_TYPES, Document, Level, Proceeding, Project, Reason
 from .taxonomy import CATCH_ALL_ID, Taxonomy
 
 
@@ -57,9 +57,10 @@ def check_dataset(ds: Dataset, taxonomy: Taxonomy) -> list[Issue]:
 
     Checks for duplicate ids, references to records that do not exist, synthetic flags that
     disagree down the chain, real documents without a checksum, reasons on document types
-    that cannot carry them, reasons citing a document from another proceeding or a page past
-    the end, categories missing from the taxonomy (deprecated ones warn), and
-    ``other_uncoded`` without a note.
+    that cannot carry them, reasons whose document is from another project or cannot
+    explain the reason's proceeding (only an appeal opinion may explain the local decision it
+    reviewed), reasons citing a page past the end, categories missing from the taxonomy
+    (deprecated ones warn), and ``other_uncoded`` without a note.
 
     Args:
         ds: Dataset to check.
@@ -115,8 +116,17 @@ def check_dataset(ds: Dataset, taxonomy: Taxonomy) -> list[Issue]:
         if doc is None:
             err(f"reason {r.id!r} references unknown document {r.document_id!r}")
         if doc is not None:
-            if proc is not None and doc.proceeding_id != proc.id:
-                err(f"reason {r.id!r}: document {doc.id!r} belongs to {doc.proceeding_id!r}")
+            doc_proc = proceedings.get(doc.proceeding_id)
+            if proc is not None and doc_proc is not None and doc_proc.id != proc.id:
+                # A reason may come from a different proceeding's document only when an
+                # appeal opinion quotes or summarizes the local decision it reviewed.
+                if doc_proc.project_id != proc.project_id:
+                    err(f"reason {r.id!r}: document {doc.id!r} is from a different project")
+                elif not (proc.level is Level.LOCAL and doc_proc.level is Level.APPEAL):
+                    err(
+                        f"reason {r.id!r}: document {doc.id!r} (from {doc_proc.id!r}) "
+                        f"cannot explain proceeding {proc.id!r}"
+                    )
             if doc.document_type not in REASON_BEARING_TYPES:
                 err(f"reason {r.id!r}: document {doc.id!r} is not a reason-bearing type")
             if r.synthetic != doc.synthetic:

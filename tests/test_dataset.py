@@ -73,9 +73,27 @@ def test_reason_must_reference_existing_proceeding_and_document(raw_dataset, tax
     assert any("nope" in e for e in _errors(bad, taxonomy_path))
 
 
-def test_reason_document_must_belong_to_reason_proceeding(raw_dataset, taxonomy_path):
-    raw_dataset["reasons"][0]["document_id"] = "d-luba"  # belongs to pr-appeal
-    assert any("belongs to" in e for e in _errors(raw_dataset, taxonomy_path))
+def test_appeal_opinion_may_supply_reason_for_the_local_decision(raw_dataset, taxonomy_path):
+    # The county's own grounds are often only available as quoted in the LUBA opinion.
+    raw_dataset["reasons"][0]["document_id"] = "d-luba"  # issued in pr-appeal
+    assert _errors(raw_dataset, taxonomy_path) == []
+
+
+def test_county_document_cannot_supply_reason_for_the_appeal(raw_dataset, taxonomy_path):
+    raw_dataset["reasons"][0]["proceeding_id"] = "pr-appeal"  # but d-order is the county's
+    assert any("cannot explain" in e for e in _errors(raw_dataset, taxonomy_path))
+
+
+def test_reason_and_document_must_be_in_the_same_project(raw_dataset, taxonomy_path):
+    raw_dataset["projects"].append({**raw_dataset["projects"][0], "id": "p2"})
+    raw_dataset["proceedings"].append(
+        {**raw_dataset["proceedings"][1], "id": "pr-appeal-2", "project_id": "p2"}
+    )
+    raw_dataset["documents"].append(
+        {**raw_dataset["documents"][1], "id": "d-luba-2", "proceeding_id": "pr-appeal-2"}
+    )
+    raw_dataset["reasons"][0]["document_id"] = "d-luba-2"
+    assert any("different project" in e for e in _errors(raw_dataset, taxonomy_path))
 
 
 def test_reasons_only_on_reason_bearing_documents(raw_dataset, taxonomy_path):

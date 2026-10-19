@@ -6,6 +6,7 @@ One row per dataset. Raw files live in `data/raw/` (git-ignored); record how to 
 |-----------|------|-----------|-----|-----------|-----------------|---------|-------|
 | `MarionCo_Staff_Report_CU22-041.pdf` | Marion Co. staff report, CU 22-041 (2 pp) | Marion County Planning Division | not recorded | not recorded | public record | `139c9aadacf92b753f20c285619add4ea6870948561e4376e7cb062030c87875` | Local copy only; manually downloaded sample |
 | `LUBA_23045_2023.pdf` | Silver Creek Solar, LLC v. Marion County, LUBA No. 2023-045 (18 pp) | Oregon LUBA | not recorded | not recorded | public record | `a161030180f441f10ec3b5f87efc9022b4b6e00b40e6c11afb9ccda450573722` | Local copy only; manually downloaded sample |
+| `LUBA_18009_2018.pdf` | Yamhill Creek Solar, LLC v. Yamhill County, LUBA No. 2018-009 (43 pp) | Oregon LUBA | not recorded | not recorded | public record | `879718643b38b3adfddbc674c4ad768c4ed8351e85b05eb02d0029db1d446e23` | Local copy only; manually downloaded sample |
 
 ## File names and case numbers
 LUBA file names in `data/raw/` use the case number with the dash removed, then the decision year: `LUBA_23045_2023.pdf` is **LUBA No. 2023-045** (case year 2023, number 045). The first digits are the year the appeal was filed, so a remand years later keeps the original number (`LUBA_17066_2017.pdf` and `LUBA_17066_2019_remand.pdf` are both LUBA No. 2017-066).
