@@ -53,3 +53,10 @@ Add one entry per decision or analysis, newest at the bottom. Put the entry in t
 - **Assumptions and definitions:** `acres` is the 27.8-acre parcel; the facility is 12 acres. Land class is recorded as stated (EFU, high-value farmland by viticulture area).
 - **Limitations / open questions:** two reasons use `other_uncoded` (siting outside an urban growth boundary without a buffer; LUBA deference to the county's weighing). If these recur in the full records, they are candidates for new taxonomy categories. Reasons are not yet `hand_checked`.
 - **Pull request:** to be added
+
+### A reason belongs to the decision it explains, not the document that quotes it
+- **Decision or analysis:** `Reason.proceeding_id` is the proceeding whose outcome the reason explains. A reason for the county's decision stays under the local proceeding even when the only source is a LUBA opinion quoting the county's findings; LUBA's own reasons for affirming, reversing or remanding stay under the appeal proceeding. This supersedes the convention used in the Marion and Yamhill entries above.
+- **Why (and alternatives rejected):** the dashboard counts the county's grounds for approval or denial, and in the sample set those grounds are available only as LUBA quotes them. Attaching them to the appeal would drop them from county-level counts. The alternative (a second field marking "reasons for the local decision") was rejected as redundant: the proceeding and the document already say which decision a reason explains and where the text was found.
+- **Assumptions and definitions:** an appeal document may supply reasons for the local proceeding of the same project; no other cross-proceeding link is allowed (a county document cannot explain an appeal, and nothing crosses projects). `validate` enforces this.
+- **Limitations / open questions:** a reason quoted second-hand by LUBA is LUBA's characterization of the county's finding, so the note on each such reason says so. Where the county's own decision is later obtained, its reasons should be coded from that document and the LUBA-quoted duplicates removed.
+- **Pull request:** to be added

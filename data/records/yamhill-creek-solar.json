@@ -45,7 +45,7 @@
   "reasons": [
     {
       "id": "yamhill-r1",
-      "proceeding_id": "yamhill-creek-luba",
+      "proceeding_id": "yamhill-creek-local",
       "document_id": "yamhill-creek-luba-opinion",
       "category": "farmland_loss",
       "quote": "On balance, the comprehensive plan goals support preservation of farmland instead of the proposed non-farm use solar facility.",
@@ -56,7 +56,7 @@
     },
     {
       "id": "yamhill-r2",
-      "proceeding_id": "yamhill-creek-luba",
+      "proceeding_id": "yamhill-creek-local",
       "document_id": "yamhill-creek-luba-opinion",
       "category": "state_farmland_standards",
       "quote": "The applicant did not carry its burden to establish that soil compaction from installation and use of the solar photovoltaic panels for 20-30 years would not have long-term impacts that would reduce the productivity of soil on the subject property for crop production.",
@@ -67,7 +67,7 @@
     },
     {
       "id": "yamhill-r3",
-      "proceeding_id": "yamhill-creek-luba",
+      "proceeding_id": "yamhill-creek-local",
       "document_id": "yamhill-creek-luba-opinion",
       "category": "visual_tourism_impacts",
       "quote": "The open space character is not insured by the industrialization that would occur if this proposal were approved.",
@@ -78,7 +78,7 @@
     },
     {
       "id": "yamhill-r4",
-      "proceeding_id": "yamhill-creek-luba",
+      "proceeding_id": "yamhill-creek-local",
       "document_id": "yamhill-creek-luba-opinion",
       "category": "visual_tourism_impacts",
       "quote": "is not in the short or long-term economic interest of the county",
@@ -89,7 +89,7 @@
     },
     {
       "id": "yamhill-r5",
-      "proceeding_id": "yamhill-creek-luba",
+      "proceeding_id": "yamhill-creek-local",
       "document_id": "yamhill-creek-luba-opinion",
       "category": "other_uncoded",
       "quote": "the industrial use is proposed outside the urban growth boundary, in an undesirable location, without an adequate buffer to prevent adverse impacts to surrounding properties",

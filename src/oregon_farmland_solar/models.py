@@ -182,8 +182,12 @@ class Reason(_Record):
     """One coded reason for (or against) a decision, backed by a verbatim quote.
 
     Attributes:
-        proceeding_id: Id of the Proceeding the reason belongs to.
-        document_id: Id of the Document the quote comes from.
+        proceeding_id: Id of the Proceeding whose outcome the reason explains. For the
+            county's grounds this is the local proceeding, even when the only source is an
+            appeal opinion that quotes them.
+        document_id: Id of the Document the quote comes from. Usually issued in the same
+            proceeding; an appeal opinion may also supply reasons for the local decision it
+            reviewed.
         category: Id of an entry in the reason taxonomy.
         quote: Verbatim text from the document, checked against the cited page.
         pdf_page: 1-based index of the page within the PDF (not the printed page number).
