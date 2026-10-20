@@ -1,11 +1,13 @@
-"""Command line entry point: `uv run ofs validate data/records/<file>.json`."""
+"""Command line entry point: `uv run ofs validate|synth|counties`."""
 
 from __future__ import annotations
 
 import argparse
 import json
+from datetime import date
 from pathlib import Path
 
+from . import geo
 from .dataset import Issue, check_dataset, load_dataset
 from .pii import scan_dataset
 from .synthetic import DEFAULT_COUNT, DEFAULT_SEED, generate
@@ -67,6 +69,40 @@ def _synth(args: argparse.Namespace) -> int:
     return 0
 
 
+def _counties(args: argparse.Namespace) -> int:
+    """Builds the Oregon county boundary layer from the BLM feature service.
+
+    Args:
+        args: Parsed arguments with ``out_dir`` and ``raw_dir``.
+
+    Returns:
+        0 on success.
+    """
+    prov = geo.build_counties(geo.fetch_layer, Path(args.out_dir), Path(args.raw_dir), date.today())
+    print(
+        f"Wrote {prov['feature_count_derived']} Oregon counties to {args.out_dir} "
+        f"(raw sha256 {prov['raw_sha256'][:12]}...)"
+    )
+    return 0
+
+
+def _simplify_counties(args: argparse.Namespace) -> int:
+    """Simplifies the county geometry for the web and updates the provenance file.
+
+    Args:
+        args: Parsed arguments with ``percent``, ``out_dir`` and ``raw_dir``.
+
+    Returns:
+        0 on success.
+    """
+    prov = geo.simplify_counties(Path(args.out_dir), Path(args.raw_dir), args.percent)
+    print(
+        f"Simplified to {args.percent:g}% with mapshaper {geo.MAPSHAPER_VERSION}; "
+        f"derived sha256 {prov['derived_sha256'][:12]}..."
+    )
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     """Command line entry point.
 
@@ -89,6 +125,17 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("--count", type=int, default=DEFAULT_COUNT)
     s.add_argument("--out", default=str(DEFAULT_SYNTH_OUT))
     s.set_defaults(func=_synth)
+    c = sub.add_parser("counties", help="download and build the Oregon county boundary layer")
+    c.add_argument("--out-dir", default="data/geo")
+    c.add_argument("--raw-dir", default="data/raw/geo")
+    c.set_defaults(func=_counties)
+    sc = sub.add_parser(
+        "simplify-counties", help="simplify the county layer for the web (needs Node.js)"
+    )
+    sc.add_argument("--percent", type=float, default=5)
+    sc.add_argument("--out-dir", default="data/geo")
+    sc.add_argument("--raw-dir", default="data/raw/geo")
+    sc.set_defaults(func=_simplify_counties)
     args = parser.parse_args(argv)
     return args.func(args)
 

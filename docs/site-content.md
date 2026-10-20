@@ -11,3 +11,4 @@ A running list of things the public site has to say, not just the repo docs. Add
 | Who petitioned changes how to read a LUBA result | A "denied" assignment supports a denial when the applicant appealed and an approval when an opponent appealed. | `docs/methodology.md` (LUBA terms) | no |
 | LUBA cases are shown separately, never pooled | They are coded more narrowly (only grounds LUBA upheld). | `docs/methodology.md` (coding rule) | no |
 | Machine-extracted versus hand-checked | Once bulk processing exists, reasons not reviewed by a person are labelled. | `hand_checked` field | no |
+| Boundary credit and generalization | Credit "Bureau of Land Management (BLM), Oregon State Office" where the county layer is shown, and say the boundaries are for display and are not legal boundaries or surveys. | `data/geo/oregon-counties.provenance.json` | no |

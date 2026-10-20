@@ -1,0 +1,29 @@
+{
+  "layer": "BLM OR County Boundaries Polygon Hub",
+  "item_page": "https://geohub.oregon.gov/datasets/51d396ec311d449fa2f6cb1141d496f2_1",
+  "service_url": "https://services1.arcgis.com/KbxwQRRfWyEYLgp4/arcgis/rest/services/BLM_OR_County_Boundaries_Polygon_Hub/FeatureServer/1",
+  "query_url": "https://services1.arcgis.com/KbxwQRRfWyEYLgp4/arcgis/rest/services/BLM_OR_County_Boundaries_Polygon_Hub/FeatureServer/1/query?where=1%3D1&outFields=COUNTY_NAME,COBCODE&outSR=4326&f=geojson",
+  "credit": "Bureau of Land Management (BLM), Oregon State Office",
+  "terms": "Provided by BLM 'as is'. Cite BLM as the source of derived products; describe any modifications and do not imply BLM endorsed them; not a legal document or survey; BLM may update the data without notice.",
+  "accessed": "2026-10-20",
+  "raw_file": "data/raw/geo/blm-or-county-boundaries.geojson (kept locally, not committed)",
+  "raw_sha256": "2ac175ebe55afc002d1713524dcddbf38ce37836d9c4532987c8641849ece13e",
+  "derived_file": "data/geo/oregon-counties.geojson",
+  "derived_sha256": "ccfd22815fe361514b587739a1fafaff5772f737662a3c8c86fd276c6b393326",
+  "feature_count_raw": 75,
+  "feature_count_derived": 36,
+  "steps": [
+    "Requested GeoJSON from the layer's query service with outSR=4326 (server reprojects from NAD83 to WGS84 longitude/latitude).",
+    "Kept features whose COBCODE starts with 'OR' (the layer also holds Washington).",
+    "Added fips ('41' + the three digits of COBCODE) and name (matched to our county list); kept COBCODE as cobcode. The query asked only for COUNTY_NAME and COBCODE, so no other source attributes were requested.",
+    "Checked: exactly 36 counties, unique FIPS, name and code agree.",
+    "Simplified geometry to 5% of vertices with mapshaper 0.7.92 (keep-shapes, coordinate precision 0.0001 degrees), then re-checked 36 features and properties."
+  ],
+  "full_resolution_sha256": "70504c82eecc468ecd0e60bd86d14abf3aa6304779361ca156e65cb10d07339d",
+  "simplification": {
+    "tool": "mapshaper 0.7.92",
+    "command": "npx --yes mapshaper@0.7.92 <full-resolution file> -simplify 5% keep-shapes -o <output> precision=0.0001",
+    "percent": 5.0,
+    "note": "Generalized for display; shared borders simplified together. Not for measurement or legal use. The full-resolution file is rebuilt by `ofs counties`."
+  }
+}
