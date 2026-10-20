@@ -1,0 +1,121 @@
+{
+  "projects": [
+    {
+      "id": "jackson-or-solar-7",
+      "name": "OR Solar 7 (Jackson County)",
+      "county": "Jackson",
+      "source_type": "luba",
+      "acres": 80,
+      "land_class_as_stated": "EFU; high-value irrigated farmland, majority Class I soils; adjacent to the Medford urban growth boundary",
+      "synthetic": false
+    }
+  ],
+  "proceedings": [
+    {
+      "id": "jackson-or-solar-7-local",
+      "project_id": "jackson-or-solar-7",
+      "level": "local",
+      "body": "Jackson County Board of Commissioners",
+      "decision_date": "2017-06-14",
+      "local_outcome": "approved_with_conditions",
+      "synthetic": false
+    },
+    {
+      "id": "jackson-or-solar-7-luba-2017",
+      "project_id": "jackson-or-solar-7",
+      "level": "appeal",
+      "body": "Oregon Land Use Board of Appeals",
+      "decision_date": "2017-10-27",
+      "citation": "LUBA No. 2017-066 (76 Or LUBA 270)",
+      "appeal_outcome": "reversed",
+      "synthetic": false
+    },
+    {
+      "id": "jackson-or-solar-7-luba-2019",
+      "project_id": "jackson-or-solar-7",
+      "level": "appeal",
+      "body": "Oregon Land Use Board of Appeals (on remand from the Court of Appeals)",
+      "decision_date": "2019-12-05",
+      "citation": "LUBA No. 2017-066 (on remand)",
+      "appeal_outcome": "reversed",
+      "synthetic": false
+    }
+  ],
+  "documents": [
+    {
+      "id": "jackson-or-solar-7-luba-2017-opinion",
+      "proceeding_id": "jackson-or-solar-7-luba-2017",
+      "document_type": "appellate_opinion",
+      "sha256": "050ca34bb4dd1b6295b5c42fa6b4a1f37df9e5ce9701812a99dba1fdfe952fbc",
+      "file_name": "LUBA_17066_2017.pdf",
+      "page_count": 37,
+      "synthetic": false
+    },
+    {
+      "id": "jackson-or-solar-7-luba-2019-opinion",
+      "proceeding_id": "jackson-or-solar-7-luba-2019",
+      "document_type": "appellate_opinion",
+      "sha256": "ef928732e4142183ae3551f6a3b9921fd75fb9ea40a6560df1d58ec907a98a06",
+      "file_name": "LUBA_17066_2019_remand.pdf",
+      "page_count": 5,
+      "synthetic": false
+    }
+  ],
+  "reasons": [
+    {
+      "id": "jackson-r1",
+      "proceeding_id": "jackson-or-solar-7-local",
+      "document_id": "jackson-or-solar-7-luba-2017-opinion",
+      "category": "goal_exception_criteria",
+      "quote": "establish a general requirement to utilize renewable resources, including the in-[s]tate siting of renewable energy production facilities such as the proposed project",
+      "pdf_page": 12,
+      "printed_page": "12",
+      "note": "County finding supporting the Goal 3 exception: Goal 13 creates a 'demonstrated need' (first of two alternative bases for approval), quoted by LUBA. LUBA rejected it.",
+      "hand_checked": true
+    },
+    {
+      "id": "jackson-r2",
+      "proceeding_id": "jackson-or-solar-7-local",
+      "document_id": "jackson-or-solar-7-luba-2017-opinion",
+      "category": "goal_exception_criteria",
+      "quote": "The proximity of Sage Substation provides a significant comparative advantage, would benefit the local economy, and as approved, does not involve a loss of resource lands.",
+      "pdf_page": 23,
+      "printed_page": "23",
+      "note": "County finding 2.6 supporting the exception as rural industrial development (second of two alternative bases for approval), quoted by LUBA in a footnote. LUBA and later the Court of Appeals rejected it.",
+      "hand_checked": true
+    },
+    {
+      "id": "jackson-r3",
+      "proceeding_id": "jackson-or-solar-7-local",
+      "document_id": "jackson-or-solar-7-luba-2017-opinion",
+      "category": "other_uncoded",
+      "quote": "The development will also result in a significant increase in the tax revenues received by the County for the subject property. Thus, the proposed project will benefit the local economy.",
+      "pdf_page": 24,
+      "printed_page": "24",
+      "note": "County finding on local economic benefit (part of finding 2.6), quoted by LUBA in a footnote. Economic benefit does not fit an existing category; likely recurring in approvals, so a candidate for a new category.",
+      "hand_checked": true
+    },
+    {
+      "id": "jackson-r4",
+      "proceeding_id": "jackson-or-solar-7-luba-2017",
+      "document_id": "jackson-or-solar-7-luba-2017-opinion",
+      "category": "goal_exception_criteria",
+      "quote": "the county erred in concluding that Goal 13 includes a requirement to promote the development of renewable energy such as the proposed solar facility",
+      "pdf_page": 17,
+      "printed_page": "17",
+      "note": "LUBA reason for reversing: Goal 13 imposes no requirement to promote renewable energy, so no 'demonstrated need' exception. The 2019 remand opinion reverses 'for the reasons explained in our prior decision, as modified by the Court of Appeals', so this ground is taken as standing (the Court of Appeals opinion is not in the sample set).",
+      "hand_checked": true
+    },
+    {
+      "id": "jackson-r5",
+      "proceeding_id": "jackson-or-solar-7-luba-2019",
+      "document_id": "jackson-or-solar-7-luba-2019-opinion",
+      "category": "goal_exception_criteria",
+      "quote": "it concluded that the solar facility was not \"industrial development\" for purposes of OAR 660-004-0022(3)(c)",
+      "pdf_page": 5,
+      "printed_page": "5",
+      "note": "Court of Appeals reasoning, as reported by LUBA on remand, for reversing the rural-industrial basis. The Court of Appeals disagreed with LUBA's 2017 reasoning on the urban substation, so that ground is not coded.",
+      "hand_checked": true
+    }
+  ]
+}

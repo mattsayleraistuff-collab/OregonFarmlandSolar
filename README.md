@@ -65,7 +65,7 @@ This repository is public. Never commit API keys, tokens, or credentials. Keep t
 Branch protection for `main` (pull request required, `test` check must pass, no force pushes or deletion) is documented in `.github/rulesets/protect-main.json`. GitHub does not read this file automatically; it is a copy of the ruleset imported in the repository settings, so update both together.
 
 ## Known limitations
-- Schema, taxonomy and validators exist; two sample projects (Marion, Yamhill) are coded; Marion is hand-checked, Yamhill awaits review.
+- Schema, taxonomy and validators exist; three sample projects (Marion, Yamhill, Jackson) are coded; Marion and Yamhill are hand-checked, Jackson awaits review.
 - The reason taxonomy is a draft based on three sample projects.
 - Quote verification and personal-information checks run locally against the source PDFs, which are not published.
 - Coverage is limited to the records obtained (see Scope and coverage): county records are approvals only, and appeal and court outcomes are incomplete.
