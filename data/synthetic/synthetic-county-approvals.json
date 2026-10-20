@@ -1,0 +1,2890 @@
+{
+  "projects": [
+    {
+      "id": "syn-001",
+      "synthetic": true,
+      "name": "Synthetic Solar 001",
+      "county": "Malheur",
+      "source_type": "county",
+      "acres": 171.5,
+      "land_class_as_stated": "EFU",
+      "dual_use": true
+    },
+    {
+      "id": "syn-002",
+      "synthetic": true,
+      "name": "Synthetic Solar 002",
+      "county": "Harney",
+      "source_type": "county",
+      "acres": 65.2,
+      "land_class_as_stated": "EFU, non-high-value farmland",
+      "dual_use": null
+    },
+    {
+      "id": "syn-003",
+      "synthetic": true,
+      "name": "Synthetic Solar 003",
+      "county": "Douglas",
+      "source_type": "county",
+      "acres": 97.6,
+      "land_class_as_stated": "EFU",
+      "dual_use": true
+    },
+    {
+      "id": "syn-004",
+      "synthetic": true,
+      "name": "Synthetic Solar 004",
+      "county": "Wasco",
+      "source_type": "county",
+      "acres": 23.5,
+      "land_class_as_stated": "EFU",
+      "dual_use": false
+    },
+    {
+      "id": "syn-005",
+      "synthetic": true,
+      "name": "Synthetic Solar 005",
+      "county": "Clackamas",
+      "source_type": "county",
+      "acres": 171.5,
+      "land_class_as_stated": "EFU, non-high-value farmland",
+      "dual_use": true
+    },
+    {
+      "id": "syn-006",
+      "synthetic": true,
+      "name": "Synthetic Solar 006",
+      "county": "Morrow",
+      "source_type": "county",
+      "acres": 116.0,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": false
+    },
+    {
+      "id": "syn-007",
+      "synthetic": true,
+      "name": "Synthetic Solar 007",
+      "county": "Benton",
+      "source_type": "county",
+      "acres": 64.4,
+      "land_class_as_stated": "EFU, non-high-value farmland",
+      "dual_use": null
+    },
+    {
+      "id": "syn-008",
+      "synthetic": true,
+      "name": "Synthetic Solar 008",
+      "county": "Wasco",
+      "source_type": "county",
+      "acres": 80.3,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": false
+    },
+    {
+      "id": "syn-009",
+      "synthetic": true,
+      "name": "Synthetic Solar 009",
+      "county": "Wasco",
+      "source_type": "county",
+      "acres": 168.3,
+      "land_class_as_stated": "EFU, non-high-value farmland",
+      "dual_use": null
+    },
+    {
+      "id": "syn-010",
+      "synthetic": true,
+      "name": "Synthetic Solar 010",
+      "county": "Wasco",
+      "source_type": "county",
+      "acres": 93.0,
+      "land_class_as_stated": "EFU, non-high-value farmland",
+      "dual_use": true
+    },
+    {
+      "id": "syn-011",
+      "synthetic": true,
+      "name": "Synthetic Solar 011",
+      "county": "Yamhill",
+      "source_type": "county",
+      "acres": 34.7,
+      "land_class_as_stated": "EFU",
+      "dual_use": null
+    },
+    {
+      "id": "syn-012",
+      "synthetic": true,
+      "name": "Synthetic Solar 012",
+      "county": "Crook",
+      "source_type": "county",
+      "acres": 7.3,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": null
+    },
+    {
+      "id": "syn-013",
+      "synthetic": true,
+      "name": "Synthetic Solar 013",
+      "county": "Columbia",
+      "source_type": "county",
+      "acres": 192.2,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": true
+    },
+    {
+      "id": "syn-014",
+      "synthetic": true,
+      "name": "Synthetic Solar 014",
+      "county": "Clatsop",
+      "source_type": "county",
+      "acres": 132.5,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": null
+    },
+    {
+      "id": "syn-015",
+      "synthetic": true,
+      "name": "Synthetic Solar 015",
+      "county": "Union",
+      "source_type": "county",
+      "acres": 88.4,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": false
+    },
+    {
+      "id": "syn-016",
+      "synthetic": true,
+      "name": "Synthetic Solar 016",
+      "county": "Coos",
+      "source_type": "county",
+      "acres": 183.1,
+      "land_class_as_stated": "EFU, non-high-value farmland",
+      "dual_use": false
+    },
+    {
+      "id": "syn-017",
+      "synthetic": true,
+      "name": "Synthetic Solar 017",
+      "county": "Malheur",
+      "source_type": "county",
+      "acres": 15.7,
+      "land_class_as_stated": "EFU, non-high-value farmland",
+      "dual_use": false
+    },
+    {
+      "id": "syn-018",
+      "synthetic": true,
+      "name": "Synthetic Solar 018",
+      "county": "Columbia",
+      "source_type": "county",
+      "acres": 139.4,
+      "land_class_as_stated": "EFU",
+      "dual_use": false
+    },
+    {
+      "id": "syn-019",
+      "synthetic": true,
+      "name": "Synthetic Solar 019",
+      "county": "Harney",
+      "source_type": "county",
+      "acres": 119.7,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": false
+    },
+    {
+      "id": "syn-020",
+      "synthetic": true,
+      "name": "Synthetic Solar 020",
+      "county": "Wallowa",
+      "source_type": "county",
+      "acres": 8.3,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": true
+    },
+    {
+      "id": "syn-021",
+      "synthetic": true,
+      "name": "Synthetic Solar 021",
+      "county": "Clackamas",
+      "source_type": "county",
+      "acres": 27.4,
+      "land_class_as_stated": "EFU, non-high-value farmland",
+      "dual_use": null
+    },
+    {
+      "id": "syn-022",
+      "synthetic": true,
+      "name": "Synthetic Solar 022",
+      "county": "Klamath",
+      "source_type": "county",
+      "acres": 55.6,
+      "land_class_as_stated": "EFU, non-high-value farmland",
+      "dual_use": null
+    },
+    {
+      "id": "syn-023",
+      "synthetic": true,
+      "name": "Synthetic Solar 023",
+      "county": "Yamhill",
+      "source_type": "county",
+      "acres": 63.4,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": false
+    },
+    {
+      "id": "syn-024",
+      "synthetic": true,
+      "name": "Synthetic Solar 024",
+      "county": "Josephine",
+      "source_type": "county",
+      "acres": 76.2,
+      "land_class_as_stated": "EFU, non-high-value farmland",
+      "dual_use": false
+    },
+    {
+      "id": "syn-025",
+      "synthetic": true,
+      "name": "Synthetic Solar 025",
+      "county": "Hood River",
+      "source_type": "county",
+      "acres": 157.0,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": null
+    },
+    {
+      "id": "syn-026",
+      "synthetic": true,
+      "name": "Synthetic Solar 026",
+      "county": "Jackson",
+      "source_type": "county",
+      "acres": 177.4,
+      "land_class_as_stated": "EFU, non-high-value farmland",
+      "dual_use": true
+    },
+    {
+      "id": "syn-027",
+      "synthetic": true,
+      "name": "Synthetic Solar 027",
+      "county": "Tillamook",
+      "source_type": "county",
+      "acres": 197.6,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": null
+    },
+    {
+      "id": "syn-028",
+      "synthetic": true,
+      "name": "Synthetic Solar 028",
+      "county": "Columbia",
+      "source_type": "county",
+      "acres": 181.4,
+      "land_class_as_stated": "EFU",
+      "dual_use": true
+    },
+    {
+      "id": "syn-029",
+      "synthetic": true,
+      "name": "Synthetic Solar 029",
+      "county": "Marion",
+      "source_type": "county",
+      "acres": 22.4,
+      "land_class_as_stated": "EFU, non-high-value farmland",
+      "dual_use": null
+    },
+    {
+      "id": "syn-030",
+      "synthetic": true,
+      "name": "Synthetic Solar 030",
+      "county": "Lincoln",
+      "source_type": "county",
+      "acres": 27.5,
+      "land_class_as_stated": "EFU, non-high-value farmland",
+      "dual_use": true
+    },
+    {
+      "id": "syn-031",
+      "synthetic": true,
+      "name": "Synthetic Solar 031",
+      "county": "Gilliam",
+      "source_type": "county",
+      "acres": 188.8,
+      "land_class_as_stated": "EFU",
+      "dual_use": true
+    },
+    {
+      "id": "syn-032",
+      "synthetic": true,
+      "name": "Synthetic Solar 032",
+      "county": "Multnomah",
+      "source_type": "county",
+      "acres": 50.8,
+      "land_class_as_stated": "EFU",
+      "dual_use": null
+    },
+    {
+      "id": "syn-033",
+      "synthetic": true,
+      "name": "Synthetic Solar 033",
+      "county": "Sherman",
+      "source_type": "county",
+      "acres": 171.4,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": true
+    },
+    {
+      "id": "syn-034",
+      "synthetic": true,
+      "name": "Synthetic Solar 034",
+      "county": "Harney",
+      "source_type": "county",
+      "acres": 118.1,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": false
+    },
+    {
+      "id": "syn-035",
+      "synthetic": true,
+      "name": "Synthetic Solar 035",
+      "county": "Coos",
+      "source_type": "county",
+      "acres": 98.5,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": null
+    },
+    {
+      "id": "syn-036",
+      "synthetic": true,
+      "name": "Synthetic Solar 036",
+      "county": "Harney",
+      "source_type": "county",
+      "acres": 80.5,
+      "land_class_as_stated": "EFU",
+      "dual_use": true
+    },
+    {
+      "id": "syn-037",
+      "synthetic": true,
+      "name": "Synthetic Solar 037",
+      "county": "Douglas",
+      "source_type": "county",
+      "acres": 122.6,
+      "land_class_as_stated": "EFU, non-high-value farmland",
+      "dual_use": null
+    },
+    {
+      "id": "syn-038",
+      "synthetic": true,
+      "name": "Synthetic Solar 038",
+      "county": "Wallowa",
+      "source_type": "county",
+      "acres": 153.2,
+      "land_class_as_stated": "EFU, non-high-value farmland",
+      "dual_use": null
+    },
+    {
+      "id": "syn-039",
+      "synthetic": true,
+      "name": "Synthetic Solar 039",
+      "county": "Polk",
+      "source_type": "county",
+      "acres": 53.5,
+      "land_class_as_stated": "EFU",
+      "dual_use": null
+    },
+    {
+      "id": "syn-040",
+      "synthetic": true,
+      "name": "Synthetic Solar 040",
+      "county": "Washington",
+      "source_type": "county",
+      "acres": 87.8,
+      "land_class_as_stated": "EFU",
+      "dual_use": null
+    },
+    {
+      "id": "syn-041",
+      "synthetic": true,
+      "name": "Synthetic Solar 041",
+      "county": "Columbia",
+      "source_type": "county",
+      "acres": 44.3,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": false
+    },
+    {
+      "id": "syn-042",
+      "synthetic": true,
+      "name": "Synthetic Solar 042",
+      "county": "Wallowa",
+      "source_type": "county",
+      "acres": 138.5,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": true
+    },
+    {
+      "id": "syn-043",
+      "synthetic": true,
+      "name": "Synthetic Solar 043",
+      "county": "Lane",
+      "source_type": "county",
+      "acres": 23.4,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": null
+    },
+    {
+      "id": "syn-044",
+      "synthetic": true,
+      "name": "Synthetic Solar 044",
+      "county": "Morrow",
+      "source_type": "county",
+      "acres": 23.8,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": null
+    },
+    {
+      "id": "syn-045",
+      "synthetic": true,
+      "name": "Synthetic Solar 045",
+      "county": "Hood River",
+      "source_type": "county",
+      "acres": 44.8,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": true
+    },
+    {
+      "id": "syn-046",
+      "synthetic": true,
+      "name": "Synthetic Solar 046",
+      "county": "Josephine",
+      "source_type": "county",
+      "acres": 65.0,
+      "land_class_as_stated": "EFU, non-high-value farmland",
+      "dual_use": true
+    },
+    {
+      "id": "syn-047",
+      "synthetic": true,
+      "name": "Synthetic Solar 047",
+      "county": "Union",
+      "source_type": "county",
+      "acres": 49.2,
+      "land_class_as_stated": "EFU",
+      "dual_use": false
+    },
+    {
+      "id": "syn-048",
+      "synthetic": true,
+      "name": "Synthetic Solar 048",
+      "county": "Jackson",
+      "source_type": "county",
+      "acres": 177.1,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": false
+    },
+    {
+      "id": "syn-049",
+      "synthetic": true,
+      "name": "Synthetic Solar 049",
+      "county": "Coos",
+      "source_type": "county",
+      "acres": 73.4,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": false
+    },
+    {
+      "id": "syn-050",
+      "synthetic": true,
+      "name": "Synthetic Solar 050",
+      "county": "Grant",
+      "source_type": "county",
+      "acres": 155.1,
+      "land_class_as_stated": "EFU, non-high-value farmland",
+      "dual_use": true
+    },
+    {
+      "id": "syn-051",
+      "synthetic": true,
+      "name": "Synthetic Solar 051",
+      "county": "Linn",
+      "source_type": "county",
+      "acres": 43.3,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": true
+    },
+    {
+      "id": "syn-052",
+      "synthetic": true,
+      "name": "Synthetic Solar 052",
+      "county": "Wallowa",
+      "source_type": "county",
+      "acres": 60.9,
+      "land_class_as_stated": "EFU",
+      "dual_use": true
+    },
+    {
+      "id": "syn-053",
+      "synthetic": true,
+      "name": "Synthetic Solar 053",
+      "county": "Baker",
+      "source_type": "county",
+      "acres": 166.3,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": false
+    },
+    {
+      "id": "syn-054",
+      "synthetic": true,
+      "name": "Synthetic Solar 054",
+      "county": "Jackson",
+      "source_type": "county",
+      "acres": 59.5,
+      "land_class_as_stated": "EFU",
+      "dual_use": false
+    },
+    {
+      "id": "syn-055",
+      "synthetic": true,
+      "name": "Synthetic Solar 055",
+      "county": "Deschutes",
+      "source_type": "county",
+      "acres": 174.1,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": null
+    },
+    {
+      "id": "syn-056",
+      "synthetic": true,
+      "name": "Synthetic Solar 056",
+      "county": "Jackson",
+      "source_type": "county",
+      "acres": 41.5,
+      "land_class_as_stated": "EFU, non-high-value farmland",
+      "dual_use": null
+    },
+    {
+      "id": "syn-057",
+      "synthetic": true,
+      "name": "Synthetic Solar 057",
+      "county": "Josephine",
+      "source_type": "county",
+      "acres": 147.0,
+      "land_class_as_stated": "EFU",
+      "dual_use": null
+    },
+    {
+      "id": "syn-058",
+      "synthetic": true,
+      "name": "Synthetic Solar 058",
+      "county": "Polk",
+      "source_type": "county",
+      "acres": 115.4,
+      "land_class_as_stated": "EFU, non-high-value farmland",
+      "dual_use": true
+    },
+    {
+      "id": "syn-059",
+      "synthetic": true,
+      "name": "Synthetic Solar 059",
+      "county": "Gilliam",
+      "source_type": "county",
+      "acres": 147.9,
+      "land_class_as_stated": "EFU, high-value farmland",
+      "dual_use": false
+    },
+    {
+      "id": "syn-060",
+      "synthetic": true,
+      "name": "Synthetic Solar 060",
+      "county": "Crook",
+      "source_type": "county",
+      "acres": 79.4,
+      "land_class_as_stated": "EFU, non-high-value farmland",
+      "dual_use": null
+    }
+  ],
+  "proceedings": [
+    {
+      "id": "syn-001-local",
+      "synthetic": true,
+      "project_id": "syn-001",
+      "level": "local",
+      "body": "Malheur County Board of Commissioners",
+      "decision_date": "2017-03-02",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-002-local",
+      "synthetic": true,
+      "project_id": "syn-002",
+      "level": "local",
+      "body": "Harney County Board of Commissioners",
+      "decision_date": "2025-12-21",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-003-local",
+      "synthetic": true,
+      "project_id": "syn-003",
+      "level": "local",
+      "body": "Douglas County Board of Commissioners",
+      "decision_date": "2015-04-18",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-004-local",
+      "synthetic": true,
+      "project_id": "syn-004",
+      "level": "local",
+      "body": "Wasco County Board of Commissioners",
+      "decision_date": "2025-10-19",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-005-local",
+      "synthetic": true,
+      "project_id": "syn-005",
+      "level": "local",
+      "body": "Clackamas County Board of Commissioners",
+      "decision_date": "2013-04-18",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-006-local",
+      "synthetic": true,
+      "project_id": "syn-006",
+      "level": "local",
+      "body": "Morrow County Board of Commissioners",
+      "decision_date": "2013-09-01",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-007-local",
+      "synthetic": true,
+      "project_id": "syn-007",
+      "level": "local",
+      "body": "Benton County Board of Commissioners",
+      "decision_date": "2023-08-06",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-008-local",
+      "synthetic": true,
+      "project_id": "syn-008",
+      "level": "local",
+      "body": "Wasco County Board of Commissioners",
+      "decision_date": "2012-06-12",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-009-local",
+      "synthetic": true,
+      "project_id": "syn-009",
+      "level": "local",
+      "body": "Wasco County Board of Commissioners",
+      "decision_date": "2019-12-20",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-010-local",
+      "synthetic": true,
+      "project_id": "syn-010",
+      "level": "local",
+      "body": "Wasco County Board of Commissioners",
+      "decision_date": "2012-11-09",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-011-local",
+      "synthetic": true,
+      "project_id": "syn-011",
+      "level": "local",
+      "body": "Yamhill County Board of Commissioners",
+      "decision_date": "2012-05-25",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-012-local",
+      "synthetic": true,
+      "project_id": "syn-012",
+      "level": "local",
+      "body": "Crook County Board of Commissioners",
+      "decision_date": "2020-01-17",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-013-local",
+      "synthetic": true,
+      "project_id": "syn-013",
+      "level": "local",
+      "body": "Columbia County Board of Commissioners",
+      "decision_date": "2015-04-24",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-014-local",
+      "synthetic": true,
+      "project_id": "syn-014",
+      "level": "local",
+      "body": "Clatsop County Board of Commissioners",
+      "decision_date": "2016-12-31",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-015-local",
+      "synthetic": true,
+      "project_id": "syn-015",
+      "level": "local",
+      "body": "Union County Board of Commissioners",
+      "decision_date": "2013-05-19",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-016-local",
+      "synthetic": true,
+      "project_id": "syn-016",
+      "level": "local",
+      "body": "Coos County Board of Commissioners",
+      "decision_date": "2012-11-18",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-017-local",
+      "synthetic": true,
+      "project_id": "syn-017",
+      "level": "local",
+      "body": "Malheur County Board of Commissioners",
+      "decision_date": "2017-05-31",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-018-local",
+      "synthetic": true,
+      "project_id": "syn-018",
+      "level": "local",
+      "body": "Columbia County Board of Commissioners",
+      "decision_date": "2024-08-28",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-019-local",
+      "synthetic": true,
+      "project_id": "syn-019",
+      "level": "local",
+      "body": "Harney County Board of Commissioners",
+      "decision_date": "2022-10-10",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-020-local",
+      "synthetic": true,
+      "project_id": "syn-020",
+      "level": "local",
+      "body": "Wallowa County Board of Commissioners",
+      "decision_date": "2019-06-21",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-021-local",
+      "synthetic": true,
+      "project_id": "syn-021",
+      "level": "local",
+      "body": "Clackamas County Board of Commissioners",
+      "decision_date": "2025-06-19",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-022-local",
+      "synthetic": true,
+      "project_id": "syn-022",
+      "level": "local",
+      "body": "Klamath County Board of Commissioners",
+      "decision_date": "2024-07-23",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-023-local",
+      "synthetic": true,
+      "project_id": "syn-023",
+      "level": "local",
+      "body": "Yamhill County Board of Commissioners",
+      "decision_date": "2020-05-25",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-024-local",
+      "synthetic": true,
+      "project_id": "syn-024",
+      "level": "local",
+      "body": "Josephine County Board of Commissioners",
+      "decision_date": "2013-12-27",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-025-local",
+      "synthetic": true,
+      "project_id": "syn-025",
+      "level": "local",
+      "body": "Hood River County Board of Commissioners",
+      "decision_date": "2013-04-13",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-026-local",
+      "synthetic": true,
+      "project_id": "syn-026",
+      "level": "local",
+      "body": "Jackson County Board of Commissioners",
+      "decision_date": "2023-03-23",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-027-local",
+      "synthetic": true,
+      "project_id": "syn-027",
+      "level": "local",
+      "body": "Tillamook County Board of Commissioners",
+      "decision_date": "2018-12-12",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-028-local",
+      "synthetic": true,
+      "project_id": "syn-028",
+      "level": "local",
+      "body": "Columbia County Board of Commissioners",
+      "decision_date": "2013-03-18",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-029-local",
+      "synthetic": true,
+      "project_id": "syn-029",
+      "level": "local",
+      "body": "Marion County Board of Commissioners",
+      "decision_date": "2015-11-27",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-030-local",
+      "synthetic": true,
+      "project_id": "syn-030",
+      "level": "local",
+      "body": "Lincoln County Board of Commissioners",
+      "decision_date": "2015-06-13",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-031-local",
+      "synthetic": true,
+      "project_id": "syn-031",
+      "level": "local",
+      "body": "Gilliam County Board of Commissioners",
+      "decision_date": "2017-07-21",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-032-local",
+      "synthetic": true,
+      "project_id": "syn-032",
+      "level": "local",
+      "body": "Multnomah County Board of Commissioners",
+      "decision_date": "2023-09-08",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-033-local",
+      "synthetic": true,
+      "project_id": "syn-033",
+      "level": "local",
+      "body": "Sherman County Board of Commissioners",
+      "decision_date": "2019-02-11",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-034-local",
+      "synthetic": true,
+      "project_id": "syn-034",
+      "level": "local",
+      "body": "Harney County Board of Commissioners",
+      "decision_date": "2014-10-29",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-035-local",
+      "synthetic": true,
+      "project_id": "syn-035",
+      "level": "local",
+      "body": "Coos County Board of Commissioners",
+      "decision_date": "2021-02-18",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-036-local",
+      "synthetic": true,
+      "project_id": "syn-036",
+      "level": "local",
+      "body": "Harney County Board of Commissioners",
+      "decision_date": "2014-09-07",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-037-local",
+      "synthetic": true,
+      "project_id": "syn-037",
+      "level": "local",
+      "body": "Douglas County Board of Commissioners",
+      "decision_date": "2025-02-21",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-038-local",
+      "synthetic": true,
+      "project_id": "syn-038",
+      "level": "local",
+      "body": "Wallowa County Board of Commissioners",
+      "decision_date": "2015-10-11",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-039-local",
+      "synthetic": true,
+      "project_id": "syn-039",
+      "level": "local",
+      "body": "Polk County Board of Commissioners",
+      "decision_date": "2025-01-23",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-040-local",
+      "synthetic": true,
+      "project_id": "syn-040",
+      "level": "local",
+      "body": "Washington County Board of Commissioners",
+      "decision_date": "2014-06-17",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-041-local",
+      "synthetic": true,
+      "project_id": "syn-041",
+      "level": "local",
+      "body": "Columbia County Board of Commissioners",
+      "decision_date": "2012-11-11",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-042-local",
+      "synthetic": true,
+      "project_id": "syn-042",
+      "level": "local",
+      "body": "Wallowa County Board of Commissioners",
+      "decision_date": "2018-06-18",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-043-local",
+      "synthetic": true,
+      "project_id": "syn-043",
+      "level": "local",
+      "body": "Lane County Board of Commissioners",
+      "decision_date": "2022-07-24",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-044-local",
+      "synthetic": true,
+      "project_id": "syn-044",
+      "level": "local",
+      "body": "Morrow County Board of Commissioners",
+      "decision_date": "2015-04-17",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-045-local",
+      "synthetic": true,
+      "project_id": "syn-045",
+      "level": "local",
+      "body": "Hood River County Board of Commissioners",
+      "decision_date": "2013-10-08",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-046-local",
+      "synthetic": true,
+      "project_id": "syn-046",
+      "level": "local",
+      "body": "Josephine County Board of Commissioners",
+      "decision_date": "2016-05-08",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-047-local",
+      "synthetic": true,
+      "project_id": "syn-047",
+      "level": "local",
+      "body": "Union County Board of Commissioners",
+      "decision_date": "2022-05-18",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-048-local",
+      "synthetic": true,
+      "project_id": "syn-048",
+      "level": "local",
+      "body": "Jackson County Board of Commissioners",
+      "decision_date": "2013-10-30",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-049-local",
+      "synthetic": true,
+      "project_id": "syn-049",
+      "level": "local",
+      "body": "Coos County Board of Commissioners",
+      "decision_date": "2017-01-10",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-050-local",
+      "synthetic": true,
+      "project_id": "syn-050",
+      "level": "local",
+      "body": "Grant County Board of Commissioners",
+      "decision_date": "2014-12-26",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-051-local",
+      "synthetic": true,
+      "project_id": "syn-051",
+      "level": "local",
+      "body": "Linn County Board of Commissioners",
+      "decision_date": "2023-12-10",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-052-local",
+      "synthetic": true,
+      "project_id": "syn-052",
+      "level": "local",
+      "body": "Wallowa County Board of Commissioners",
+      "decision_date": "2016-04-01",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-053-local",
+      "synthetic": true,
+      "project_id": "syn-053",
+      "level": "local",
+      "body": "Baker County Board of Commissioners",
+      "decision_date": "2015-07-09",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-054-local",
+      "synthetic": true,
+      "project_id": "syn-054",
+      "level": "local",
+      "body": "Jackson County Board of Commissioners",
+      "decision_date": "2022-09-16",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-055-local",
+      "synthetic": true,
+      "project_id": "syn-055",
+      "level": "local",
+      "body": "Deschutes County Board of Commissioners",
+      "decision_date": "2015-03-22",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-056-local",
+      "synthetic": true,
+      "project_id": "syn-056",
+      "level": "local",
+      "body": "Jackson County Board of Commissioners",
+      "decision_date": "2022-09-04",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-057-local",
+      "synthetic": true,
+      "project_id": "syn-057",
+      "level": "local",
+      "body": "Josephine County Board of Commissioners",
+      "decision_date": "2015-11-28",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-058-local",
+      "synthetic": true,
+      "project_id": "syn-058",
+      "level": "local",
+      "body": "Polk County Board of Commissioners",
+      "decision_date": "2017-10-25",
+      "local_outcome": "approved_with_conditions"
+    },
+    {
+      "id": "syn-059-local",
+      "synthetic": true,
+      "project_id": "syn-059",
+      "level": "local",
+      "body": "Gilliam County Board of Commissioners",
+      "decision_date": "2013-09-26",
+      "local_outcome": "approved"
+    },
+    {
+      "id": "syn-060-local",
+      "synthetic": true,
+      "project_id": "syn-060",
+      "level": "local",
+      "body": "Crook County Board of Commissioners",
+      "decision_date": "2020-07-19",
+      "local_outcome": "approved_with_conditions"
+    }
+  ],
+  "documents": [
+    {
+      "id": "syn-001-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-001-local",
+      "document_type": "county_decision",
+      "page_count": 24
+    },
+    {
+      "id": "syn-002-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-002-local",
+      "document_type": "county_decision",
+      "page_count": 18
+    },
+    {
+      "id": "syn-003-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-003-local",
+      "document_type": "county_decision",
+      "page_count": 28
+    },
+    {
+      "id": "syn-004-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-004-local",
+      "document_type": "county_decision",
+      "page_count": 27
+    },
+    {
+      "id": "syn-005-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-005-local",
+      "document_type": "county_decision",
+      "page_count": 14
+    },
+    {
+      "id": "syn-006-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-006-local",
+      "document_type": "county_decision",
+      "page_count": 20
+    },
+    {
+      "id": "syn-007-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-007-local",
+      "document_type": "county_decision",
+      "page_count": 16
+    },
+    {
+      "id": "syn-008-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-008-local",
+      "document_type": "county_decision",
+      "page_count": 6
+    },
+    {
+      "id": "syn-009-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-009-local",
+      "document_type": "county_decision",
+      "page_count": 31
+    },
+    {
+      "id": "syn-010-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-010-local",
+      "document_type": "county_decision",
+      "page_count": 24
+    },
+    {
+      "id": "syn-011-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-011-local",
+      "document_type": "county_decision",
+      "page_count": 15
+    },
+    {
+      "id": "syn-012-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-012-local",
+      "document_type": "county_decision",
+      "page_count": 18
+    },
+    {
+      "id": "syn-013-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-013-local",
+      "document_type": "county_decision",
+      "page_count": 12
+    },
+    {
+      "id": "syn-014-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-014-local",
+      "document_type": "county_decision",
+      "page_count": 12
+    },
+    {
+      "id": "syn-015-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-015-local",
+      "document_type": "county_decision",
+      "page_count": 36
+    },
+    {
+      "id": "syn-016-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-016-local",
+      "document_type": "county_decision",
+      "page_count": 10
+    },
+    {
+      "id": "syn-017-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-017-local",
+      "document_type": "county_decision",
+      "page_count": 8
+    },
+    {
+      "id": "syn-018-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-018-local",
+      "document_type": "county_decision",
+      "page_count": 14
+    },
+    {
+      "id": "syn-019-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-019-local",
+      "document_type": "county_decision",
+      "page_count": 13
+    },
+    {
+      "id": "syn-020-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-020-local",
+      "document_type": "county_decision",
+      "page_count": 37
+    },
+    {
+      "id": "syn-021-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-021-local",
+      "document_type": "county_decision",
+      "page_count": 25
+    },
+    {
+      "id": "syn-022-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-022-local",
+      "document_type": "county_decision",
+      "page_count": 12
+    },
+    {
+      "id": "syn-023-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-023-local",
+      "document_type": "county_decision",
+      "page_count": 35
+    },
+    {
+      "id": "syn-024-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-024-local",
+      "document_type": "county_decision",
+      "page_count": 29
+    },
+    {
+      "id": "syn-025-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-025-local",
+      "document_type": "county_decision",
+      "page_count": 11
+    },
+    {
+      "id": "syn-026-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-026-local",
+      "document_type": "county_decision",
+      "page_count": 35
+    },
+    {
+      "id": "syn-027-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-027-local",
+      "document_type": "county_decision",
+      "page_count": 38
+    },
+    {
+      "id": "syn-028-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-028-local",
+      "document_type": "county_decision",
+      "page_count": 26
+    },
+    {
+      "id": "syn-029-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-029-local",
+      "document_type": "county_decision",
+      "page_count": 22
+    },
+    {
+      "id": "syn-030-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-030-local",
+      "document_type": "county_decision",
+      "page_count": 14
+    },
+    {
+      "id": "syn-031-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-031-local",
+      "document_type": "county_decision",
+      "page_count": 16
+    },
+    {
+      "id": "syn-032-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-032-local",
+      "document_type": "county_decision",
+      "page_count": 18
+    },
+    {
+      "id": "syn-033-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-033-local",
+      "document_type": "county_decision",
+      "page_count": 23
+    },
+    {
+      "id": "syn-034-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-034-local",
+      "document_type": "county_decision",
+      "page_count": 39
+    },
+    {
+      "id": "syn-035-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-035-local",
+      "document_type": "county_decision",
+      "page_count": 26
+    },
+    {
+      "id": "syn-036-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-036-local",
+      "document_type": "county_decision",
+      "page_count": 33
+    },
+    {
+      "id": "syn-037-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-037-local",
+      "document_type": "county_decision",
+      "page_count": 25
+    },
+    {
+      "id": "syn-038-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-038-local",
+      "document_type": "county_decision",
+      "page_count": 16
+    },
+    {
+      "id": "syn-039-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-039-local",
+      "document_type": "county_decision",
+      "page_count": 37
+    },
+    {
+      "id": "syn-040-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-040-local",
+      "document_type": "county_decision",
+      "page_count": 35
+    },
+    {
+      "id": "syn-041-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-041-local",
+      "document_type": "county_decision",
+      "page_count": 37
+    },
+    {
+      "id": "syn-042-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-042-local",
+      "document_type": "county_decision",
+      "page_count": 14
+    },
+    {
+      "id": "syn-043-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-043-local",
+      "document_type": "county_decision",
+      "page_count": 15
+    },
+    {
+      "id": "syn-044-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-044-local",
+      "document_type": "county_decision",
+      "page_count": 12
+    },
+    {
+      "id": "syn-045-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-045-local",
+      "document_type": "county_decision",
+      "page_count": 9
+    },
+    {
+      "id": "syn-046-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-046-local",
+      "document_type": "county_decision",
+      "page_count": 11
+    },
+    {
+      "id": "syn-047-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-047-local",
+      "document_type": "county_decision",
+      "page_count": 10
+    },
+    {
+      "id": "syn-048-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-048-local",
+      "document_type": "county_decision",
+      "page_count": 22
+    },
+    {
+      "id": "syn-049-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-049-local",
+      "document_type": "county_decision",
+      "page_count": 8
+    },
+    {
+      "id": "syn-050-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-050-local",
+      "document_type": "county_decision",
+      "page_count": 18
+    },
+    {
+      "id": "syn-051-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-051-local",
+      "document_type": "county_decision",
+      "page_count": 21
+    },
+    {
+      "id": "syn-052-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-052-local",
+      "document_type": "county_decision",
+      "page_count": 8
+    },
+    {
+      "id": "syn-053-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-053-local",
+      "document_type": "county_decision",
+      "page_count": 35
+    },
+    {
+      "id": "syn-054-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-054-local",
+      "document_type": "county_decision",
+      "page_count": 34
+    },
+    {
+      "id": "syn-055-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-055-local",
+      "document_type": "county_decision",
+      "page_count": 21
+    },
+    {
+      "id": "syn-056-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-056-local",
+      "document_type": "county_decision",
+      "page_count": 23
+    },
+    {
+      "id": "syn-057-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-057-local",
+      "document_type": "county_decision",
+      "page_count": 6
+    },
+    {
+      "id": "syn-058-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-058-local",
+      "document_type": "county_decision",
+      "page_count": 19
+    },
+    {
+      "id": "syn-059-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-059-local",
+      "document_type": "county_decision",
+      "page_count": 31
+    },
+    {
+      "id": "syn-060-doc",
+      "synthetic": true,
+      "proceeding_id": "syn-060-local",
+      "document_type": "county_decision",
+      "page_count": 6
+    }
+  ],
+  "reasons": [
+    {
+      "id": "syn-001-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-001-local",
+      "document_id": "syn-001-doc",
+      "category": "farmland_loss",
+      "quote": "[SYNTHETIC] The site has limited agricultural productivity and little high-value soil is affected.",
+      "pdf_page": 2,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-002-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-002-local",
+      "document_id": "syn-002-doc",
+      "category": "goal_exception_criteria",
+      "quote": "[SYNTHETIC] The applicant has met the criteria for the requested exception.",
+      "pdf_page": 7,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-002-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-002-local",
+      "document_id": "syn-002-doc",
+      "category": "farmland_loss",
+      "quote": "[SYNTHETIC] The impact on productive farmland is small and the land can return to farm use.",
+      "pdf_page": 1,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-002-r3",
+      "synthetic": true,
+      "proceeding_id": "syn-002-local",
+      "document_id": "syn-002-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] The facility will not significantly change farm practices on surrounding lands.",
+      "pdf_page": 12,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-003-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-003-local",
+      "document_id": "syn-003-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The proposal satisfies the state farmland-use standards for a photovoltaic facility.",
+      "pdf_page": 17,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-004-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-004-local",
+      "document_id": "syn-004-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] Visual effects are limited by the proposed setbacks and landscaping.",
+      "pdf_page": 23,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-005-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-005-local",
+      "document_id": "syn-005-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The proposal satisfies the state farmland-use standards for a photovoltaic facility.",
+      "pdf_page": 1,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-005-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-005-local",
+      "document_id": "syn-005-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] The facility will not significantly change farm practices on surrounding lands.",
+      "pdf_page": 2,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-006-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-006-local",
+      "document_id": "syn-006-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The proposal satisfies the state farmland-use standards for a photovoltaic facility.",
+      "pdf_page": 16,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-006-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-006-local",
+      "document_id": "syn-006-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] The facility is screened and will not significantly affect scenic or tourism values.",
+      "pdf_page": 8,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-007-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-007-local",
+      "document_id": "syn-007-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The proposal satisfies the state farmland-use standards for a photovoltaic facility.",
+      "pdf_page": 4,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-007-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-007-local",
+      "document_id": "syn-007-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] The facility will not significantly change farm practices on surrounding lands.",
+      "pdf_page": 10,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-007-r3",
+      "synthetic": true,
+      "proceeding_id": "syn-007-local",
+      "document_id": "syn-007-doc",
+      "category": "goal_exception_criteria",
+      "quote": "[SYNTHETIC] The applicant has met the criteria for the requested exception.",
+      "pdf_page": 2,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-008-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-008-local",
+      "document_id": "syn-008-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] No significant increase in the cost of nearby farm practices was shown.",
+      "pdf_page": 6,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-008-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-008-local",
+      "document_id": "syn-008-doc",
+      "category": "goal_exception_criteria",
+      "quote": "[SYNTHETIC] The exception criteria are satisfied for the proposed site.",
+      "pdf_page": 3,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-008-r3",
+      "synthetic": true,
+      "proceeding_id": "syn-008-local",
+      "document_id": "syn-008-doc",
+      "category": "farmland_loss",
+      "quote": "[SYNTHETIC] The impact on productive farmland is small and the land can return to farm use.",
+      "pdf_page": 3,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-009-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-009-local",
+      "document_id": "syn-009-doc",
+      "category": "goal_exception_criteria",
+      "quote": "[SYNTHETIC] The applicant has met the criteria for the requested exception.",
+      "pdf_page": 15,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-010-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-010-local",
+      "document_id": "syn-010-doc",
+      "category": "farmland_loss",
+      "quote": "[SYNTHETIC] The site has limited agricultural productivity and little high-value soil is affected.",
+      "pdf_page": 23,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-010-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-010-local",
+      "document_id": "syn-010-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] The facility will not significantly change farm practices on surrounding lands.",
+      "pdf_page": 24,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-010-r3",
+      "synthetic": true,
+      "proceeding_id": "syn-010-local",
+      "document_id": "syn-010-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] Visual effects are limited by the proposed setbacks and landscaping.",
+      "pdf_page": 14,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-011-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-011-local",
+      "document_id": "syn-011-doc",
+      "category": "farmland_loss",
+      "quote": "[SYNTHETIC] The site has limited agricultural productivity and little high-value soil is affected.",
+      "pdf_page": 7,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-011-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-011-local",
+      "document_id": "syn-011-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] No significant increase in the cost of nearby farm practices was shown.",
+      "pdf_page": 13,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-011-r3",
+      "synthetic": true,
+      "proceeding_id": "syn-011-local",
+      "document_id": "syn-011-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The proposal satisfies the state farmland-use standards for a photovoltaic facility.",
+      "pdf_page": 6,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-012-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-012-local",
+      "document_id": "syn-012-doc",
+      "category": "farmland_loss",
+      "quote": "[SYNTHETIC] The site has limited agricultural productivity and little high-value soil is affected.",
+      "pdf_page": 5,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-012-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-012-local",
+      "document_id": "syn-012-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] The facility is screened and will not significantly affect scenic or tourism values.",
+      "pdf_page": 16,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-012-r3",
+      "synthetic": true,
+      "proceeding_id": "syn-012-local",
+      "document_id": "syn-012-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The proposal satisfies the state farmland-use standards for a photovoltaic facility.",
+      "pdf_page": 13,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-013-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-013-local",
+      "document_id": "syn-013-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] No significant increase in the cost of nearby farm practices was shown.",
+      "pdf_page": 6,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-013-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-013-local",
+      "document_id": "syn-013-doc",
+      "category": "goal_exception_criteria",
+      "quote": "[SYNTHETIC] The exception criteria are satisfied for the proposed site.",
+      "pdf_page": 1,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-014-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-014-local",
+      "document_id": "syn-014-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The facility meets the siting standards for solar on agricultural land.",
+      "pdf_page": 3,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-015-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-015-local",
+      "document_id": "syn-015-doc",
+      "category": "goal_exception_criteria",
+      "quote": "[SYNTHETIC] The exception criteria are satisfied for the proposed site.",
+      "pdf_page": 5,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-015-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-015-local",
+      "document_id": "syn-015-doc",
+      "category": "farmland_loss",
+      "quote": "[SYNTHETIC] The impact on productive farmland is small and the land can return to farm use.",
+      "pdf_page": 33,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-015-r3",
+      "synthetic": true,
+      "proceeding_id": "syn-015-local",
+      "document_id": "syn-015-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] The facility is screened and will not significantly affect scenic or tourism values.",
+      "pdf_page": 12,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-016-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-016-local",
+      "document_id": "syn-016-doc",
+      "category": "farmland_loss",
+      "quote": "[SYNTHETIC] The impact on productive farmland is small and the land can return to farm use.",
+      "pdf_page": 5,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-016-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-016-local",
+      "document_id": "syn-016-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] The facility will not significantly change farm practices on surrounding lands.",
+      "pdf_page": 9,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-016-r3",
+      "synthetic": true,
+      "proceeding_id": "syn-016-local",
+      "document_id": "syn-016-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The facility meets the siting standards for solar on agricultural land.",
+      "pdf_page": 10,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-017-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-017-local",
+      "document_id": "syn-017-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] No significant increase in the cost of nearby farm practices was shown.",
+      "pdf_page": 6,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-018-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-018-local",
+      "document_id": "syn-018-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] Visual effects are limited by the proposed setbacks and landscaping.",
+      "pdf_page": 4,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-018-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-018-local",
+      "document_id": "syn-018-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] The facility will not significantly change farm practices on surrounding lands.",
+      "pdf_page": 1,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-019-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-019-local",
+      "document_id": "syn-019-doc",
+      "category": "goal_exception_criteria",
+      "quote": "[SYNTHETIC] The applicant has met the criteria for the requested exception.",
+      "pdf_page": 5,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-019-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-019-local",
+      "document_id": "syn-019-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] No significant increase in the cost of nearby farm practices was shown.",
+      "pdf_page": 2,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-019-r3",
+      "synthetic": true,
+      "proceeding_id": "syn-019-local",
+      "document_id": "syn-019-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] Visual effects are limited by the proposed setbacks and landscaping.",
+      "pdf_page": 2,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-020-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-020-local",
+      "document_id": "syn-020-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] Visual effects are limited by the proposed setbacks and landscaping.",
+      "pdf_page": 18,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-021-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-021-local",
+      "document_id": "syn-021-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The proposal satisfies the state farmland-use standards for a photovoltaic facility.",
+      "pdf_page": 12,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-022-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-022-local",
+      "document_id": "syn-022-doc",
+      "category": "goal_exception_criteria",
+      "quote": "[SYNTHETIC] The applicant has met the criteria for the requested exception.",
+      "pdf_page": 6,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-022-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-022-local",
+      "document_id": "syn-022-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] The facility is screened and will not significantly affect scenic or tourism values.",
+      "pdf_page": 12,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-022-r3",
+      "synthetic": true,
+      "proceeding_id": "syn-022-local",
+      "document_id": "syn-022-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] No significant increase in the cost of nearby farm practices was shown.",
+      "pdf_page": 1,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-023-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-023-local",
+      "document_id": "syn-023-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] The facility will not significantly change farm practices on surrounding lands.",
+      "pdf_page": 7,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-023-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-023-local",
+      "document_id": "syn-023-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] Visual effects are limited by the proposed setbacks and landscaping.",
+      "pdf_page": 10,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-024-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-024-local",
+      "document_id": "syn-024-doc",
+      "category": "farmland_loss",
+      "quote": "[SYNTHETIC] The impact on productive farmland is small and the land can return to farm use.",
+      "pdf_page": 29,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-025-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-025-local",
+      "document_id": "syn-025-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The facility meets the siting standards for solar on agricultural land.",
+      "pdf_page": 3,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-025-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-025-local",
+      "document_id": "syn-025-doc",
+      "category": "farmland_loss",
+      "quote": "[SYNTHETIC] The site has limited agricultural productivity and little high-value soil is affected.",
+      "pdf_page": 1,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-026-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-026-local",
+      "document_id": "syn-026-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The facility meets the siting standards for solar on agricultural land.",
+      "pdf_page": 23,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-026-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-026-local",
+      "document_id": "syn-026-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] The facility will not significantly change farm practices on surrounding lands.",
+      "pdf_page": 18,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-026-r3",
+      "synthetic": true,
+      "proceeding_id": "syn-026-local",
+      "document_id": "syn-026-doc",
+      "category": "goal_exception_criteria",
+      "quote": "[SYNTHETIC] The applicant has met the criteria for the requested exception.",
+      "pdf_page": 19,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-027-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-027-local",
+      "document_id": "syn-027-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] The facility will not significantly change farm practices on surrounding lands.",
+      "pdf_page": 8,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-027-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-027-local",
+      "document_id": "syn-027-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] The facility is screened and will not significantly affect scenic or tourism values.",
+      "pdf_page": 11,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-028-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-028-local",
+      "document_id": "syn-028-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The facility meets the siting standards for solar on agricultural land.",
+      "pdf_page": 1,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-028-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-028-local",
+      "document_id": "syn-028-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] The facility will not significantly change farm practices on surrounding lands.",
+      "pdf_page": 26,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-029-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-029-local",
+      "document_id": "syn-029-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] The facility is screened and will not significantly affect scenic or tourism values.",
+      "pdf_page": 13,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-030-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-030-local",
+      "document_id": "syn-030-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] The facility is screened and will not significantly affect scenic or tourism values.",
+      "pdf_page": 5,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-031-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-031-local",
+      "document_id": "syn-031-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The proposal satisfies the state farmland-use standards for a photovoltaic facility.",
+      "pdf_page": 7,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-031-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-031-local",
+      "document_id": "syn-031-doc",
+      "category": "farmland_loss",
+      "quote": "[SYNTHETIC] The impact on productive farmland is small and the land can return to farm use.",
+      "pdf_page": 9,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-032-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-032-local",
+      "document_id": "syn-032-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] The facility will not significantly change farm practices on surrounding lands.",
+      "pdf_page": 2,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-033-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-033-local",
+      "document_id": "syn-033-doc",
+      "category": "goal_exception_criteria",
+      "quote": "[SYNTHETIC] The applicant has met the criteria for the requested exception.",
+      "pdf_page": 17,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-033-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-033-local",
+      "document_id": "syn-033-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The facility meets the siting standards for solar on agricultural land.",
+      "pdf_page": 9,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-034-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-034-local",
+      "document_id": "syn-034-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] The facility will not significantly change farm practices on surrounding lands.",
+      "pdf_page": 32,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-035-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-035-local",
+      "document_id": "syn-035-doc",
+      "category": "goal_exception_criteria",
+      "quote": "[SYNTHETIC] The applicant has met the criteria for the requested exception.",
+      "pdf_page": 8,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-035-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-035-local",
+      "document_id": "syn-035-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] The facility will not significantly change farm practices on surrounding lands.",
+      "pdf_page": 20,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-036-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-036-local",
+      "document_id": "syn-036-doc",
+      "category": "farmland_loss",
+      "quote": "[SYNTHETIC] The impact on productive farmland is small and the land can return to farm use.",
+      "pdf_page": 6,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-036-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-036-local",
+      "document_id": "syn-036-doc",
+      "category": "goal_exception_criteria",
+      "quote": "[SYNTHETIC] The applicant has met the criteria for the requested exception.",
+      "pdf_page": 8,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-037-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-037-local",
+      "document_id": "syn-037-doc",
+      "category": "goal_exception_criteria",
+      "quote": "[SYNTHETIC] The exception criteria are satisfied for the proposed site.",
+      "pdf_page": 9,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-037-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-037-local",
+      "document_id": "syn-037-doc",
+      "category": "farmland_loss",
+      "quote": "[SYNTHETIC] The impact on productive farmland is small and the land can return to farm use.",
+      "pdf_page": 17,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-038-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-038-local",
+      "document_id": "syn-038-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] No significant increase in the cost of nearby farm practices was shown.",
+      "pdf_page": 12,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-038-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-038-local",
+      "document_id": "syn-038-doc",
+      "category": "goal_exception_criteria",
+      "quote": "[SYNTHETIC] The exception criteria are satisfied for the proposed site.",
+      "pdf_page": 8,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-038-r3",
+      "synthetic": true,
+      "proceeding_id": "syn-038-local",
+      "document_id": "syn-038-doc",
+      "category": "farmland_loss",
+      "quote": "[SYNTHETIC] The site has limited agricultural productivity and little high-value soil is affected.",
+      "pdf_page": 8,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-039-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-039-local",
+      "document_id": "syn-039-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] Visual effects are limited by the proposed setbacks and landscaping.",
+      "pdf_page": 15,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-039-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-039-local",
+      "document_id": "syn-039-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The facility meets the siting standards for solar on agricultural land.",
+      "pdf_page": 26,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-040-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-040-local",
+      "document_id": "syn-040-doc",
+      "category": "goal_exception_criteria",
+      "quote": "[SYNTHETIC] The applicant has met the criteria for the requested exception.",
+      "pdf_page": 24,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-041-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-041-local",
+      "document_id": "syn-041-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] The facility will not significantly change farm practices on surrounding lands.",
+      "pdf_page": 17,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-041-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-041-local",
+      "document_id": "syn-041-doc",
+      "category": "farmland_loss",
+      "quote": "[SYNTHETIC] The impact on productive farmland is small and the land can return to farm use.",
+      "pdf_page": 37,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-042-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-042-local",
+      "document_id": "syn-042-doc",
+      "category": "farmland_loss",
+      "quote": "[SYNTHETIC] The site has limited agricultural productivity and little high-value soil is affected.",
+      "pdf_page": 11,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-043-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-043-local",
+      "document_id": "syn-043-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The proposal satisfies the state farmland-use standards for a photovoltaic facility.",
+      "pdf_page": 3,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-044-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-044-local",
+      "document_id": "syn-044-doc",
+      "category": "farmland_loss",
+      "quote": "[SYNTHETIC] The site has limited agricultural productivity and little high-value soil is affected.",
+      "pdf_page": 6,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-044-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-044-local",
+      "document_id": "syn-044-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The proposal satisfies the state farmland-use standards for a photovoltaic facility.",
+      "pdf_page": 10,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-044-r3",
+      "synthetic": true,
+      "proceeding_id": "syn-044-local",
+      "document_id": "syn-044-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] Visual effects are limited by the proposed setbacks and landscaping.",
+      "pdf_page": 4,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-045-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-045-local",
+      "document_id": "syn-045-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The proposal satisfies the state farmland-use standards for a photovoltaic facility.",
+      "pdf_page": 4,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-045-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-045-local",
+      "document_id": "syn-045-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] The facility will not significantly change farm practices on surrounding lands.",
+      "pdf_page": 2,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-045-r3",
+      "synthetic": true,
+      "proceeding_id": "syn-045-local",
+      "document_id": "syn-045-doc",
+      "category": "goal_exception_criteria",
+      "quote": "[SYNTHETIC] The exception criteria are satisfied for the proposed site.",
+      "pdf_page": 2,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-046-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-046-local",
+      "document_id": "syn-046-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] The facility will not significantly change farm practices on surrounding lands.",
+      "pdf_page": 8,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-046-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-046-local",
+      "document_id": "syn-046-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] The facility is screened and will not significantly affect scenic or tourism values.",
+      "pdf_page": 5,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-046-r3",
+      "synthetic": true,
+      "proceeding_id": "syn-046-local",
+      "document_id": "syn-046-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The facility meets the siting standards for solar on agricultural land.",
+      "pdf_page": 10,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-047-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-047-local",
+      "document_id": "syn-047-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The facility meets the siting standards for solar on agricultural land.",
+      "pdf_page": 7,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-047-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-047-local",
+      "document_id": "syn-047-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] The facility will not significantly change farm practices on surrounding lands.",
+      "pdf_page": 3,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-048-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-048-local",
+      "document_id": "syn-048-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] The facility will not significantly change farm practices on surrounding lands.",
+      "pdf_page": 6,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-049-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-049-local",
+      "document_id": "syn-049-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The facility meets the siting standards for solar on agricultural land.",
+      "pdf_page": 4,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-049-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-049-local",
+      "document_id": "syn-049-doc",
+      "category": "farmland_loss",
+      "quote": "[SYNTHETIC] The site has limited agricultural productivity and little high-value soil is affected.",
+      "pdf_page": 5,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-049-r3",
+      "synthetic": true,
+      "proceeding_id": "syn-049-local",
+      "document_id": "syn-049-doc",
+      "category": "goal_exception_criteria",
+      "quote": "[SYNTHETIC] The applicant has met the criteria for the requested exception.",
+      "pdf_page": 4,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-050-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-050-local",
+      "document_id": "syn-050-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] The facility is screened and will not significantly affect scenic or tourism values.",
+      "pdf_page": 14,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-050-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-050-local",
+      "document_id": "syn-050-doc",
+      "category": "farmland_loss",
+      "quote": "[SYNTHETIC] The site has limited agricultural productivity and little high-value soil is affected.",
+      "pdf_page": 4,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-050-r3",
+      "synthetic": true,
+      "proceeding_id": "syn-050-local",
+      "document_id": "syn-050-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The facility meets the siting standards for solar on agricultural land.",
+      "pdf_page": 1,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-051-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-051-local",
+      "document_id": "syn-051-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The proposal satisfies the state farmland-use standards for a photovoltaic facility.",
+      "pdf_page": 18,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-052-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-052-local",
+      "document_id": "syn-052-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] The facility will not significantly change farm practices on surrounding lands.",
+      "pdf_page": 2,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-052-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-052-local",
+      "document_id": "syn-052-doc",
+      "category": "goal_exception_criteria",
+      "quote": "[SYNTHETIC] The applicant has met the criteria for the requested exception.",
+      "pdf_page": 6,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-052-r3",
+      "synthetic": true,
+      "proceeding_id": "syn-052-local",
+      "document_id": "syn-052-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] The facility is screened and will not significantly affect scenic or tourism values.",
+      "pdf_page": 1,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-053-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-053-local",
+      "document_id": "syn-053-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The facility meets the siting standards for solar on agricultural land.",
+      "pdf_page": 12,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-053-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-053-local",
+      "document_id": "syn-053-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] The facility is screened and will not significantly affect scenic or tourism values.",
+      "pdf_page": 18,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-054-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-054-local",
+      "document_id": "syn-054-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The proposal satisfies the state farmland-use standards for a photovoltaic facility.",
+      "pdf_page": 1,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-054-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-054-local",
+      "document_id": "syn-054-doc",
+      "category": "goal_exception_criteria",
+      "quote": "[SYNTHETIC] The applicant has met the criteria for the requested exception.",
+      "pdf_page": 7,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-054-r3",
+      "synthetic": true,
+      "proceeding_id": "syn-054-local",
+      "document_id": "syn-054-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] The facility is screened and will not significantly affect scenic or tourism values.",
+      "pdf_page": 3,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-055-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-055-local",
+      "document_id": "syn-055-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The facility meets the siting standards for solar on agricultural land.",
+      "pdf_page": 16,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-055-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-055-local",
+      "document_id": "syn-055-doc",
+      "category": "farmland_loss",
+      "quote": "[SYNTHETIC] The impact on productive farmland is small and the land can return to farm use.",
+      "pdf_page": 3,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-056-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-056-local",
+      "document_id": "syn-056-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The proposal satisfies the state farmland-use standards for a photovoltaic facility.",
+      "pdf_page": 6,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-056-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-056-local",
+      "document_id": "syn-056-doc",
+      "category": "goal_exception_criteria",
+      "quote": "[SYNTHETIC] The applicant has met the criteria for the requested exception.",
+      "pdf_page": 3,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-057-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-057-local",
+      "document_id": "syn-057-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] Visual effects are limited by the proposed setbacks and landscaping.",
+      "pdf_page": 2,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-057-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-057-local",
+      "document_id": "syn-057-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The proposal satisfies the state farmland-use standards for a photovoltaic facility.",
+      "pdf_page": 5,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-058-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-058-local",
+      "document_id": "syn-058-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] The facility is screened and will not significantly affect scenic or tourism values.",
+      "pdf_page": 5,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-059-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-059-local",
+      "document_id": "syn-059-doc",
+      "category": "visual_tourism_impacts",
+      "quote": "[SYNTHETIC] Visual effects are limited by the proposed setbacks and landscaping.",
+      "pdf_page": 11,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-059-r2",
+      "synthetic": true,
+      "proceeding_id": "syn-059-local",
+      "document_id": "syn-059-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] The facility will not significantly change farm practices on surrounding lands.",
+      "pdf_page": 29,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-059-r3",
+      "synthetic": true,
+      "proceeding_id": "syn-059-local",
+      "document_id": "syn-059-doc",
+      "category": "state_farmland_standards",
+      "quote": "[SYNTHETIC] The proposal satisfies the state farmland-use standards for a photovoltaic facility.",
+      "pdf_page": 1,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    },
+    {
+      "id": "syn-060-r1",
+      "synthetic": true,
+      "proceeding_id": "syn-060-local",
+      "document_id": "syn-060-doc",
+      "category": "neighbor_farm_impacts",
+      "quote": "[SYNTHETIC] No significant increase in the cost of nearby farm practices was shown.",
+      "pdf_page": 1,
+      "note": "Synthetic: invented to test the layout. Not a real finding.",
+      "hand_checked": false
+    }
+  ]
+}
