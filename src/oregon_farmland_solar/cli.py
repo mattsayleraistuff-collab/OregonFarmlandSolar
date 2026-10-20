@@ -1,4 +1,4 @@
-"""Command line entry point: `uv run ofs validate|synth|counties|site-data`."""
+"""Command line entry point: `uv run ofs validate|synth|counties|site-data|stage-site`."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ import json
 from datetime import date
 from pathlib import Path
 
-from . import geo, site_data
+from . import geo, publish, site_data
 from .dataset import Issue, check_dataset, load_dataset
 from .pii import scan_dataset
 from .synthetic import DEFAULT_COUNT, DEFAULT_SEED, generate
@@ -125,6 +125,20 @@ def _site_data(args: argparse.Namespace) -> int:
     return 0
 
 
+def _stage_site(args: argparse.Namespace) -> int:
+    """Builds the folder that is published to GitHub Pages.
+
+    Args:
+        args: Parsed arguments with ``site_dir``, ``geo`` and ``out``.
+
+    Returns:
+        0 on success.
+    """
+    publish.stage_site(Path(args.site_dir), Path(args.geo), Path(args.out))
+    print(f"Staged the site in {args.out}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     """Command line entry point.
 
@@ -164,6 +178,11 @@ def main(argv: list[str] | None = None) -> int:
     sd.add_argument("--taxonomy", default=str(DEFAULT_TAXONOMY))
     sd.add_argument("--out", default="site/data/site-data.json")
     sd.set_defaults(func=_site_data)
+    st = sub.add_parser("stage-site", help="stage the static site for GitHub Pages")
+    st.add_argument("--site-dir", default="site")
+    st.add_argument("--geo", default="data/geo/oregon-counties.geojson")
+    st.add_argument("--out", default="_site")
+    st.set_defaults(func=_stage_site)
     args = parser.parse_args(argv)
     return args.func(args)
 
