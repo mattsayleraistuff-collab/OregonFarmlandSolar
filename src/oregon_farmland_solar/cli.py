@@ -3,14 +3,17 @@
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 
 from .dataset import Issue, check_dataset, load_dataset
 from .pii import scan_dataset
+from .synthetic import DEFAULT_COUNT, DEFAULT_SEED, generate
 from .taxonomy import load_taxonomy
 from .verify import index_pdfs, verify_quotes
 
 DEFAULT_TAXONOMY = Path("data/taxonomy/reasons.yaml")
+DEFAULT_SYNTH_OUT = Path("data/synthetic/synthetic-county-approvals.json")
 
 
 def _validate(args: argparse.Namespace) -> int:
@@ -47,6 +50,23 @@ def _validate(args: argparse.Namespace) -> int:
     return 0
 
 
+def _synth(args: argparse.Namespace) -> int:
+    """Writes a synthetic records file.
+
+    Args:
+        args: Parsed arguments with ``seed``, ``count`` and ``out``.
+
+    Returns:
+        0 on success.
+    """
+    data = generate(args.seed, args.count)
+    out = Path(args.out)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+    print(f"Wrote {len(data['projects'])} synthetic projects to {out}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     """Command line entry point.
 
@@ -64,6 +84,11 @@ def main(argv: list[str] | None = None) -> int:
     v.add_argument("--pdf-dir", help="local folder of source PDFs; verifies quotes if given")
     v.add_argument("--blocklist", help="local text file of names/terms to flag, one per line")
     v.set_defaults(func=_validate)
+    s = sub.add_parser("synth", help="write seeded synthetic demo records")
+    s.add_argument("--seed", type=int, default=DEFAULT_SEED)
+    s.add_argument("--count", type=int, default=DEFAULT_COUNT)
+    s.add_argument("--out", default=str(DEFAULT_SYNTH_OUT))
+    s.set_defaults(func=_synth)
     args = parser.parse_args(argv)
     return args.func(args)
 
