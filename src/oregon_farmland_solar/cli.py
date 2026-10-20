@@ -1,4 +1,4 @@
-"""Command line entry point: `uv run ofs validate|synth|counties`."""
+"""Command line entry point: `uv run ofs validate|synth|counties|site-data`."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ import json
 from datetime import date
 from pathlib import Path
 
-from . import geo
+from . import geo, site_data
 from .dataset import Issue, check_dataset, load_dataset
 from .pii import scan_dataset
 from .synthetic import DEFAULT_COUNT, DEFAULT_SEED, generate
@@ -103,6 +103,28 @@ def _simplify_counties(args: argparse.Namespace) -> int:
     return 0
 
 
+def _site_data(args: argparse.Namespace) -> int:
+    """Builds the JSON file the website reads from the real and synthetic records.
+
+    Args:
+        args: Parsed arguments with ``records_dir``, ``synthetic``, ``taxonomy`` and ``out``.
+
+    Returns:
+        0 on success.
+    """
+    real = site_data.load_merged(sorted(Path(args.records_dir).glob("*.json")))
+    synth = site_data.load_merged([Path(args.synthetic)])
+    data = site_data.build_site_data(real, synth, load_taxonomy(args.taxonomy))
+    out = Path(args.out)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(
+        f"Wrote {data['real']['n_projects']} real and {data['synthetic']['n_projects']} "
+        f"synthetic projects to {out}"
+    )
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     """Command line entry point.
 
@@ -136,6 +158,12 @@ def main(argv: list[str] | None = None) -> int:
     sc.add_argument("--out-dir", default="data/geo")
     sc.add_argument("--raw-dir", default="data/raw/geo")
     sc.set_defaults(func=_simplify_counties)
+    sd = sub.add_parser("site-data", help="build the JSON the website reads")
+    sd.add_argument("--records-dir", default="data/records")
+    sd.add_argument("--synthetic", default=str(DEFAULT_SYNTH_OUT))
+    sd.add_argument("--taxonomy", default=str(DEFAULT_TAXONOMY))
+    sd.add_argument("--out", default="site/data/site-data.json")
+    sd.set_defaults(func=_site_data)
     args = parser.parse_args(argv)
     return args.func(args)
 
