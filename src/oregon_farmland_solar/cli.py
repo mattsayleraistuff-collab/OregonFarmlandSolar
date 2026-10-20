@@ -86,6 +86,23 @@ def _counties(args: argparse.Namespace) -> int:
     return 0
 
 
+def _simplify_counties(args: argparse.Namespace) -> int:
+    """Simplifies the county geometry for the web and updates the provenance file.
+
+    Args:
+        args: Parsed arguments with ``percent``, ``out_dir`` and ``raw_dir``.
+
+    Returns:
+        0 on success.
+    """
+    prov = geo.simplify_counties(Path(args.out_dir), Path(args.raw_dir), args.percent)
+    print(
+        f"Simplified to {args.percent:g}% with mapshaper {geo.MAPSHAPER_VERSION}; "
+        f"derived sha256 {prov['derived_sha256'][:12]}..."
+    )
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     """Command line entry point.
 
@@ -112,6 +129,13 @@ def main(argv: list[str] | None = None) -> int:
     c.add_argument("--out-dir", default="data/geo")
     c.add_argument("--raw-dir", default="data/raw/geo")
     c.set_defaults(func=_counties)
+    sc = sub.add_parser(
+        "simplify-counties", help="simplify the county layer for the web (needs Node.js)"
+    )
+    sc.add_argument("--percent", type=float, default=5)
+    sc.add_argument("--out-dir", default="data/geo")
+    sc.add_argument("--raw-dir", default="data/raw/geo")
+    sc.set_defaults(func=_simplify_counties)
     args = parser.parse_args(argv)
     return args.func(args)
 

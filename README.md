@@ -54,7 +54,10 @@ Build the Oregon county boundary layer for the map (needs network access; writes
 
 ```bash
 uv run ofs counties
+uv run ofs simplify-counties --percent 5   # needs Node.js; makes the web-sized file
 ```
+
+The full-resolution layer is about 8.5 MB, so the committed `data/geo/oregon-counties.geojson` is simplified to about 240 KB for display only. The provenance file records the steps and checksums.
 
 CI (GitHub Actions) runs the same three checks on every push to `main` and on pull requests.
 

@@ -2,6 +2,7 @@
 
 import json
 from datetime import date
+from pathlib import Path
 
 import pytest
 
@@ -11,6 +12,8 @@ from oregon_farmland_solar.cli import main
 from oregon_farmland_solar.synthetic import OREGON_COUNTIES
 
 COMMITTED = REPO_ROOT / "data" / "geo" / "oregon-counties.geojson"
+COMMITTED_PROV = REPO_ROOT / "data" / "geo" / "oregon-counties.provenance.json"
+MAX_COMMITTED_BYTES = 1_000_000
 WA_DUPLICATES = ("BENTON", "COLUMBIA", "DOUGLAS", "GRANT", "JEFFERSON", "LINCOLN")
 
 
@@ -151,3 +154,116 @@ def test_committed_file_has_the_36_oregon_counties():
     data = json.loads(COMMITTED.read_text())
     assert {f["properties"]["name"] for f in data["features"]} == set(OREGON_COUNTIES)
     assert len(data["features"]) == 36
+
+
+@pytest.mark.skipif(not COMMITTED.exists(), reason="county boundaries not built yet")
+def test_committed_file_is_small_enough_for_a_web_page():
+    assert COMMITTED.stat().st_size <= MAX_COMMITTED_BYTES
+
+
+@pytest.mark.skipif(not COMMITTED.exists(), reason="county boundaries not built yet")
+def test_committed_file_matches_its_provenance_checksum():
+    prov = json.loads(COMMITTED_PROV.read_text())
+    assert prov["derived_sha256"] == geo.sha256_hex(COMMITTED.read_bytes())
+
+
+def _fake_mapshaper(calls):
+    """A runner that 'simplifies' by copying the input file, and records how it was called."""
+
+    def run(cmd):
+        calls.append(cmd)
+        src = cmd[cmd.index("mapshaper@" + geo.MAPSHAPER_VERSION) + 1]
+        out = cmd[cmd.index("-o") + 1]
+        Path(out).write_bytes(Path(src).read_bytes())
+
+    return run
+
+
+def _built(tmp_path):
+    raw_bytes = json.dumps(_raw()).encode()
+    geo.build_counties(
+        lambda url: raw_bytes, tmp_path / "geo", tmp_path / "raw", date(2026, 10, 20)
+    )
+    return tmp_path / "geo", tmp_path / "raw"
+
+
+def test_build_also_keeps_the_full_resolution_file_locally(tmp_path):
+    out_dir, raw_dir = _built(tmp_path)
+    assert (raw_dir / geo.FULL_NAME).exists()
+    assert (out_dir / geo.DERIVED_NAME).read_bytes() == (raw_dir / geo.FULL_NAME).read_bytes()
+
+
+def test_simplify_runs_pinned_mapshaper_with_the_percentage(tmp_path):
+    out_dir, raw_dir = _built(tmp_path)
+    calls = []
+    geo.simplify_counties(out_dir, raw_dir, 5, runner=_fake_mapshaper(calls))
+    cmd = calls[0]
+    assert cmd[:3] == ["npx", "--yes", f"mapshaper@{geo.MAPSHAPER_VERSION}"]
+    assert "5%" in cmd
+    assert "keep-shapes" in cmd
+
+
+def test_simplify_updates_the_provenance(tmp_path):
+    out_dir, raw_dir = _built(tmp_path)
+    before = json.loads((out_dir / geo.PROVENANCE_NAME).read_text())
+    geo.simplify_counties(out_dir, raw_dir, 5, runner=_fake_mapshaper([]))
+    after = json.loads((out_dir / geo.PROVENANCE_NAME).read_text())
+    assert after["raw_sha256"] == before["raw_sha256"]
+    assert after["full_resolution_sha256"] == before["derived_sha256"]
+    assert after["derived_sha256"] == geo.sha256_hex((out_dir / geo.DERIVED_NAME).read_bytes())
+    assert after["simplification"]["percent"] == 5
+    assert after["simplification"]["tool"] == f"mapshaper {geo.MAPSHAPER_VERSION}"
+
+
+def test_simplify_keeps_36_features_and_properties_one_feature_per_line(tmp_path):
+    out_dir, raw_dir = _built(tmp_path)
+    geo.simplify_counties(out_dir, raw_dir, 5, runner=_fake_mapshaper([]))
+    text = (out_dir / geo.DERIVED_NAME).read_text()
+    data = json.loads(text)
+    assert len(data["features"]) == 36
+    assert all(set(f["properties"]) == {"fips", "name", "cobcode"} for f in data["features"])
+    assert len(text.strip().splitlines()) == 38  # header, 36 features, footer
+
+
+def test_simplify_rejects_a_result_that_lost_counties(tmp_path):
+    out_dir, raw_dir = _built(tmp_path)
+
+    def lossy(cmd):
+        out = cmd[cmd.index("-o") + 1]
+        data = json.loads(
+            Path(cmd[cmd.index("mapshaper@" + geo.MAPSHAPER_VERSION) + 1]).read_text()
+        )
+        data["features"] = data["features"][:35]
+        Path(out).write_text(json.dumps(data))
+
+    with pytest.raises(ValueError, match="36"):
+        geo.simplify_counties(out_dir, raw_dir, 5, runner=lossy)
+
+
+def test_simplify_percent_must_be_between_0_and_100(tmp_path):
+    out_dir, raw_dir = _built(tmp_path)
+    for bad in (0, 100, -5, 150):
+        with pytest.raises(ValueError):
+            geo.simplify_counties(out_dir, raw_dir, bad, runner=_fake_mapshaper([]))
+
+
+def test_simplify_needs_the_full_resolution_file(tmp_path):
+    with pytest.raises(FileNotFoundError):
+        geo.simplify_counties(tmp_path / "geo", tmp_path / "raw", 5, runner=_fake_mapshaper([]))
+
+
+def test_cli_simplify_counties(tmp_path, monkeypatch):
+    out_dir, raw_dir = _built(tmp_path)
+    monkeypatch.setattr(geo, "run_command", _fake_mapshaper([]))
+    code = main(
+        [
+            "simplify-counties",
+            "--percent",
+            "5",
+            "--out-dir",
+            str(out_dir),
+            "--raw-dir",
+            str(raw_dir),
+        ]
+    )
+    assert code == 0

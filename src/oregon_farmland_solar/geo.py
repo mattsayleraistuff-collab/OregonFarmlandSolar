@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import subprocess
 import urllib.request
 from collections.abc import Callable
 from datetime import date
@@ -37,6 +38,8 @@ ITEM_PAGE = "https://geohub.oregon.gov/datasets/51d396ec311d449fa2f6cb1141d496f2
 CREDIT = "Bureau of Land Management (BLM), Oregon State Office"
 
 RAW_NAME = "blm-or-county-boundaries.geojson"
+# Full-resolution Oregon counties (kept locally, git-ignored); the committed file may be simplified.
+FULL_NAME = "oregon-counties.full.geojson"
 DERIVED_NAME = "oregon-counties.geojson"
 PROVENANCE_NAME = "oregon-counties.provenance.json"
 
@@ -82,7 +85,11 @@ OREGON_FIPS: dict[str, str] = {
 
 _BY_UPPER_NAME = {name.upper(): name for name in OREGON_COUNTIES}
 
+# Pinned so a simplification can be reproduced exactly; run through npx (needs Node.js).
+MAPSHAPER_VERSION = "0.7.92"
+
 Fetcher = Callable[[str], bytes]
+Runner = Callable[[list[str]], None]
 
 
 def sha256_hex(data: bytes) -> str:
@@ -106,6 +113,18 @@ def fetch_layer(url: str) -> bytes:
         raise ValueError("only https URLs are allowed")
     with urllib.request.urlopen(url, timeout=60) as resp:  # noqa: S310 (scheme checked above)
         return resp.read()
+
+
+def run_command(cmd: list[str]) -> None:
+    """Runs a command and raises if it fails.
+
+    Args:
+        cmd: The command and its arguments.
+
+    Raises:
+        subprocess.CalledProcessError: If the command exits with an error.
+    """
+    subprocess.run(cmd, check=True)  # noqa: S603 (fixed argument list, no shell)
 
 
 def oregon_counties(raw: dict[str, Any]) -> dict[str, Any]:
@@ -191,6 +210,7 @@ def build_counties(
     raw_dir.mkdir(parents=True, exist_ok=True)
     out_dir.mkdir(parents=True, exist_ok=True)
     (raw_dir / RAW_NAME).write_bytes(raw_bytes)
+    (raw_dir / FULL_NAME).write_text(derived_text, encoding="utf-8")
     (out_dir / DERIVED_NAME).write_text(derived_text, encoding="utf-8")
 
     prov = {
@@ -223,4 +243,91 @@ def build_counties(
         ],
     }
     (out_dir / PROVENANCE_NAME).write_text(json.dumps(prov, indent=2) + "\n", encoding="utf-8")
+    return prov
+
+
+def simplify_counties(
+    out_dir: Path,
+    raw_dir: Path,
+    percent: float,
+    runner: Runner | None = None,
+) -> dict[str, Any]:
+    """Simplifies the county geometry for the web and records it in the provenance file.
+
+    Uses mapshaper, which simplifies shared borders together so neighboring counties still
+    fit with no gaps or overlaps (simplifying each polygon alone would not). The full
+    resolution file in ``raw_dir`` is the input and is never changed. The result replaces the
+    committed derived file in ``out_dir``.
+
+    Args:
+        out_dir: Folder with the derived file and provenance (committed to git).
+        raw_dir: Folder with the full-resolution file written by ``build_counties``.
+        percent: Share of vertices to keep, greater than 0 and less than 100.
+        runner: Function that runs a command; defaults to ``run_command``. Tests inject a fake.
+
+    Returns:
+        The updated provenance record.
+
+    Raises:
+        ValueError: If ``percent`` is out of range or the result does not have exactly the 36
+            Oregon counties with the expected properties.
+        FileNotFoundError: If the full-resolution file or the provenance file is missing.
+    """
+    if not 0 < percent < 100:
+        raise ValueError("percent must be greater than 0 and less than 100")
+    full = raw_dir / FULL_NAME
+    prov_path = out_dir / PROVENANCE_NAME
+    if not full.exists() or not prov_path.exists():
+        raise FileNotFoundError(f"run `ofs counties` first: need {full} and {prov_path}")
+    run = runner or run_command
+
+    tmp = raw_dir / "oregon-counties.simplified.tmp.geojson"
+    cmd = [
+        "npx",
+        "--yes",
+        f"mapshaper@{MAPSHAPER_VERSION}",
+        str(full),
+        "-simplify",
+        f"{percent:g}%",
+        "keep-shapes",
+        "-o",
+        str(tmp),
+        "precision=0.0001",
+    ]
+    run(cmd)
+
+    result = json.loads(tmp.read_text(encoding="utf-8"))
+    tmp.unlink()
+    if len(result["features"]) != len(OREGON_COUNTIES):
+        raise ValueError(
+            f"expected {len(OREGON_COUNTIES)} counties after simplifying, "
+            f"found {len(result['features'])}"
+        )
+    if any(set(f["properties"]) != {"fips", "name", "cobcode"} for f in result["features"]):
+        raise ValueError("simplified features lost or gained properties")
+    text = _dump_collection(result)
+    (out_dir / DERIVED_NAME).write_text(text, encoding="utf-8")
+
+    prov = json.loads(prov_path.read_text(encoding="utf-8"))
+    prov["full_resolution_sha256"] = sha256_hex(full.read_bytes())
+    prov["derived_sha256"] = sha256_hex(text.encode("utf-8"))
+    prov["simplification"] = {
+        "tool": f"mapshaper {MAPSHAPER_VERSION}",
+        "command": " ".join(
+            cmd[:3] + ["<full-resolution file>"] + cmd[4:8] + ["<output>"] + cmd[9:]
+        ),
+        "percent": percent,
+        "note": (
+            "Generalized for display; shared borders simplified together. Not for measurement "
+            "or legal use. The full-resolution file is rebuilt by `ofs counties`."
+        ),
+    }
+    prov["steps"] = [
+        step for step in prov["steps"] if not step.startswith("Geometry unchanged")
+    ] + [
+        f"Simplified geometry to {percent:g}% of vertices with mapshaper {MAPSHAPER_VERSION} "
+        "(keep-shapes, coordinate precision 0.0001 degrees), then re-checked 36 features and "
+        "properties.",
+    ]
+    prov_path.write_text(json.dumps(prov, indent=2) + "\n", encoding="utf-8")
     return prov
