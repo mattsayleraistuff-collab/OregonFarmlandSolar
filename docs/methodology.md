@@ -15,6 +15,15 @@ Add one entry per decision or analysis, newest at the bottom. Put the entry in t
 - **Limitations / open questions:**
 - **Pull request:**
 
+## LUBA terms used in this project
+Words are used here the way LUBA uses them, which depends on whose argument is being judged.
+- **Assignment of error (and subassignment):** a petitioner's argument that the decision under review is wrong for a stated reason.
+- **Sustained:** LUBA agrees with the petitioner, so the error is valid. A valid error leads to reversal or remand unless the decision has another sufficient basis (see the last point).
+- **Denied:** LUBA rejects the petitioner's argument, so the decision stands on that point. It does not count toward reversal or remand.
+- **Upheld (this project's word):** a ground of the decision that LUBA reviewed and did not disturb. Use "upheld" for the decision-maker's ground and keep "sustained" and "denied" for the petitioner's assignments, because the same event reads opposite ways depending on who petitioned. When the applicant petitions against a denial (Yamhill), a denied assignment means the county's ground was upheld. When an opponent petitions against an approval (Jackson), a sustained assignment means the county's ground was rejected.
+- **Valid is not the same as decisive.** LUBA can find an error valid and still affirm, if another independent ground supports the result. In Yamhill, LUBA found no evidence for the first Goal 2 finding and affirmed anyway, because the second and third findings were alternative bases.
+- **Not reached:** LUBA does not rule on an assignment because another one already decides the outcome. These are untested, not upheld.
+
 ## Entries
 
 ### Initial data model and data-handling rules
@@ -68,7 +77,7 @@ Add one entry per decision or analysis, newest at the bottom. Put the entry in t
 - **Limitations / open questions:** selection bias is likely (LUBA samples are appealed cases; the records request may over- or under-represent approvals). Check what the request returns when the files arrive, including any field recording that a decision was appealed.
 
 ### Coding rule for LUBA-sourced reasons: only grounds LUBA reviewed and upheld
-- **Decision or analysis:** when the source is a LUBA opinion, code only the county grounds that LUBA reviewed and sustained. Where LUBA affirmed on one sufficient basis and did not rule on the county's other grounds, the unreviewed grounds are not coded; this entry records that they exist.
+- **Decision or analysis:** when the source is a LUBA opinion, code only the county grounds that LUBA reviewed and upheld. Where LUBA affirmed on one sufficient basis and did not rule on the county's other grounds, the unreviewed grounds are not coded; this entry records that they exist.
 - **Why (and alternatives rejected):** LUBA affirms a denial if at least one ground survives and does not rule on the rest (it would be an advisory opinion). A ground LUBA never reached is untested, not validated, so coding it alongside upheld grounds would suggest it carried the same weight. Coding every county ground, as will be done for un-appealed county decisions, was rejected for the LUBA cases to keep them to what actually decided the outcome. A per-reason "upheld / not reached" field was rejected as unnecessary under this rule.
 - **Applied to:** Yamhill Creek Solar. The county denied on six approval standards (OAR 660-033-0130(38)(f)(B) and (C); YCZO 1202.02(B), 1202.02(D), 1202.02(F); YCZO 1101.02(A)(4)). LUBA reviewed only YCZO 1202.02(B) (consistency with comprehensive plan goals and policies, weighed together) and upheld it, so the grounds coded are the findings under that standard. The soil-compaction reason (yamhill-r2) was swapped from the state-standard finding, which LUBA did not review, to the county's finding under the plan's soil-resources goal, which LUBA upheld. The summary "On balance" conclusion restates the individual findings and is not coded separately (see the one-reason-per-ground rule below).
 - **Coding rule (all sources):** one reason per distinct ground; a summary or conclusion is coded only if it adds a ground the details do not.
