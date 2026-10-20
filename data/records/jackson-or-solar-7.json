@@ -71,7 +71,7 @@
       "pdf_page": 12,
       "printed_page": "12",
       "note": "County finding supporting the Goal 3 exception: Goal 13 creates a 'demonstrated need' (first of two alternative bases for approval), quoted by LUBA. LUBA rejected it.",
-      "hand_checked": false
+      "hand_checked": true
     },
     {
       "id": "jackson-r2",
@@ -82,7 +82,7 @@
       "pdf_page": 23,
       "printed_page": "23",
       "note": "County finding 2.6 supporting the exception as rural industrial development (second of two alternative bases for approval), quoted by LUBA in a footnote. LUBA and later the Court of Appeals rejected it.",
-      "hand_checked": false
+      "hand_checked": true
     },
     {
       "id": "jackson-r3",
@@ -93,7 +93,7 @@
       "pdf_page": 24,
       "printed_page": "24",
       "note": "County finding on local economic benefit (part of finding 2.6), quoted by LUBA in a footnote. Economic benefit does not fit an existing category; likely recurring in approvals, so a candidate for a new category.",
-      "hand_checked": false
+      "hand_checked": true
     },
     {
       "id": "jackson-r4",
@@ -104,7 +104,7 @@
       "pdf_page": 17,
       "printed_page": "17",
       "note": "LUBA reason for reversing: Goal 13 imposes no requirement to promote renewable energy, so no 'demonstrated need' exception. The 2019 remand opinion reverses 'for the reasons explained in our prior decision, as modified by the Court of Appeals', so this ground is taken as standing (the Court of Appeals opinion is not in the sample set).",
-      "hand_checked": false
+      "hand_checked": true
     },
     {
       "id": "jackson-r5",
@@ -115,7 +115,7 @@
       "pdf_page": 5,
       "printed_page": "5",
       "note": "Court of Appeals reasoning, as reported by LUBA on remand, for reversing the rural-industrial basis. The Court of Appeals disagreed with LUBA's 2017 reasoning on the urban substation, so that ground is not coded.",
-      "hand_checked": false
+      "hand_checked": true
     }
   ]
 }
