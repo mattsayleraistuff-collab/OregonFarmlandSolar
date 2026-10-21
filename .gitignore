@@ -19,3 +19,6 @@ data/raw/*
 # Local-only files (PI blocklists, extracted full text, scratch)
 .local/
 data/local/
+
+# Staged GitHub Pages output
+_site/
