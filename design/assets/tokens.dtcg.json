@@ -1,0 +1,679 @@
+{
+  "$description": "Oregon Farmland Solar design tokens (W3C Design Tokens format). Colour tokens carry the light value in $value and the dark value in $extensions.mode.dark.",
+  "color": {
+    "surface": {
+      "bg": {
+        "$type": "color",
+        "$value": "#F7F6F2",
+        "$description": "Page background. Text on it: ink, ink-muted, accent.",
+        "$extensions": {
+          "mode": {
+            "dark": "#101418"
+          }
+        }
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "#FFFFFF",
+        "$description": "Cards, tables, inputs, panels. Text on it: ink, ink-muted, accent.",
+        "$extensions": {
+          "mode": {
+            "dark": "#181E24"
+          }
+        }
+      },
+      "sunken": {
+        "$type": "color",
+        "$value": "#ECEAE3",
+        "$description": "Recessed areas: table headers, empty states, map counties with no cases. Text on it: ink, ink-muted.",
+        "$extensions": {
+          "mode": {
+            "dark": "#0B0E11"
+          }
+        }
+      }
+    },
+    "line": {
+      "border": {
+        "$type": "color",
+        "$value": "#CFCBC0",
+        "$description": "DECORATIVE dividers only (table rows, card edges). Never the only edge of a control: 1.5:1 / 1.8:1.",
+        "$extensions": {
+          "mode": {
+            "dark": "#38414B"
+          }
+        }
+      },
+      "border-strong": {
+        "$type": "color",
+        "$value": "#6F6B60",
+        "$description": "Edges of inputs, buttons, chips, map county outlines, chart axes. 4.4:1+ on bg, surface and sunken in both themes (needs 3:1).",
+        "$extensions": {
+          "mode": {
+            "dark": "#8794A2"
+          }
+        }
+      }
+    },
+    "text": {
+      "ink": {
+        "$type": "color",
+        "$value": "#1D1F21",
+        "$description": "Primary text and chart mark outlines on bg, surface, sunken, info-bg, caution-bg (13:1+).",
+        "$extensions": {
+          "mode": {
+            "dark": "#ECEFF2"
+          }
+        }
+      },
+      "ink-muted": {
+        "$type": "color",
+        "$value": "#4A4F55",
+        "$description": "Secondary text, captions, table meta on bg, surface, sunken (6.8:1+). Not for disabled controls.",
+        "$extensions": {
+          "mode": {
+            "dark": "#AEB7C0"
+          }
+        }
+      }
+    },
+    "action": {
+      "accent": {
+        "$type": "color",
+        "$value": "#0B4F8A",
+        "$description": "Links, primary button fill, selected states on bg and surface (7.7:1+).",
+        "$extensions": {
+          "mode": {
+            "dark": "#8EC1F5"
+          }
+        }
+      },
+      "accent-hover": {
+        "$type": "color",
+        "$value": "#083B69",
+        "$description": "Hover and pressed fill of the primary button; hovered link text.",
+        "$extensions": {
+          "mode": {
+            "dark": "#B3D6F8"
+          }
+        }
+      },
+      "on-accent": {
+        "$type": "color",
+        "$value": "#FFFFFF",
+        "$description": "Text and icons on accent fills (8.4:1 light, 9.2:1 dark).",
+        "$extensions": {
+          "mode": {
+            "dark": "#0B1B2B"
+          }
+        }
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "#B34700",
+        "$description": "Focus ring (3px solid, 2px offset) on bg, surface and sunken: 4.5:1+ light, 10:1+ dark. Never used for anything else.",
+        "$extensions": {
+          "mode": {
+            "dark": "#FFC24D"
+          }
+        }
+      }
+    },
+    "notice": {
+      "info-bg": {
+        "$type": "color",
+        "$value": "#E3EEF9",
+        "$description": "Fill of the scope (info) notice. Text on it: ink.",
+        "$extensions": {
+          "mode": {
+            "dark": "#12263A"
+          }
+        }
+      },
+      "info-border": {
+        "$type": "color",
+        "$value": "#0B4F8A",
+        "$description": "Border and icon of the scope (info) notice (7.7:1+ on bg).",
+        "$extensions": {
+          "mode": {
+            "dark": "#8EC1F5"
+          }
+        }
+      },
+      "caution-bg": {
+        "$type": "color",
+        "$value": "#FFF1D6",
+        "$description": "Fill of the \"not pooled, not final\" notice. Text on it: ink.",
+        "$extensions": {
+          "mode": {
+            "dark": "#2B2110"
+          }
+        }
+      },
+      "caution-border": {
+        "$type": "color",
+        "$value": "#8A5300",
+        "$description": "Border and icon of the caution notice (5.8:1+ on bg).",
+        "$extensions": {
+          "mode": {
+            "dark": "#E0A030"
+          }
+        }
+      },
+      "synth-bg": {
+        "$type": "color",
+        "$value": "#FFD23F",
+        "$description": "Synthetic-data banner fill, identical in both themes so it is never missed. Text on it: synth-ink (13:1+).",
+        "$extensions": {
+          "mode": {
+            "dark": "#FFD23F"
+          }
+        }
+      },
+      "synth-ink": {
+        "$type": "color",
+        "$value": "#1A1400",
+        "$description": "Text, icons and hazard stripes on synth-bg.",
+        "$extensions": {
+          "mode": {
+            "dark": "#1A1400"
+          }
+        }
+      }
+    },
+    "outcome": {
+      "approve-bg": {
+        "$type": "color",
+        "$value": "#E1EEF9",
+        "$description": "Fill of the \"Approved\" outcome chip. Text: approve-ink.",
+        "$extensions": {
+          "mode": {
+            "dark": "#16314A"
+          }
+        }
+      },
+      "approve-ink": {
+        "$type": "color",
+        "$value": "#0A3F6E",
+        "$description": "Text of the \"Approved\" chip on approve-bg (9:1+).",
+        "$extensions": {
+          "mode": {
+            "dark": "#D3E6F9"
+          }
+        }
+      },
+      "approve-border": {
+        "$type": "color",
+        "$value": "#0B4F8A",
+        "$description": "Border of the \"Approved\" chip (3:1+ on bg and on approve-bg). Blue side of the blue/orange outcome pair.",
+        "$extensions": {
+          "mode": {
+            "dark": "#7DB7F0"
+          }
+        }
+      },
+      "deny-bg": {
+        "$type": "color",
+        "$value": "#FBE6D8",
+        "$description": "Fill of the \"Denied\" outcome chip. Text: deny-ink.",
+        "$extensions": {
+          "mode": {
+            "dark": "#3A2112"
+          }
+        }
+      },
+      "deny-ink": {
+        "$type": "color",
+        "$value": "#6E2900",
+        "$description": "Text of the \"Denied\" chip on deny-bg (8.7:1+).",
+        "$extensions": {
+          "mode": {
+            "dark": "#FBD7BF"
+          }
+        }
+      },
+      "deny-border": {
+        "$type": "color",
+        "$value": "#B34700",
+        "$description": "Border of the \"Denied\" chip (4.5:1+). Orange side of the blue/orange outcome pair, safe for red-green colour blindness.",
+        "$extensions": {
+          "mode": {
+            "dark": "#F09A5A"
+          }
+        }
+      }
+    },
+    "sequential": {
+      "seq-1": {
+        "$type": "color",
+        "$value": "#C6DBEF",
+        "$description": "Map class 1: 1 case. Lightest in light theme, darkest in dark theme (more cases = more contrast with the page in both).",
+        "$extensions": {
+          "mode": {
+            "dark": "#1F4A73"
+          }
+        }
+      },
+      "seq-2": {
+        "$type": "color",
+        "$value": "#9ECAE1",
+        "$description": "Map class 2: 2 cases.",
+        "$extensions": {
+          "mode": {
+            "dark": "#2F6EA6"
+          }
+        }
+      },
+      "seq-3": {
+        "$type": "color",
+        "$value": "#6BAED6",
+        "$description": "Map class 3: 3–4 cases.",
+        "$extensions": {
+          "mode": {
+            "dark": "#5B97CB"
+          }
+        }
+      },
+      "seq-4": {
+        "$type": "color",
+        "$value": "#2171B5",
+        "$description": "Map class 4: 5–9 cases.",
+        "$extensions": {
+          "mode": {
+            "dark": "#93C0E8"
+          }
+        }
+      },
+      "seq-5": {
+        "$type": "color",
+        "$value": "#08306B",
+        "$description": "Map class 5: 10 or more cases.",
+        "$extensions": {
+          "mode": {
+            "dark": "#D3E7F8"
+          }
+        }
+      },
+      "seq-1-ink": {
+        "$type": "color",
+        "$value": "#1D1F21",
+        "$description": "County count labels on seq-1 (11:1 light, 9.2:1 dark).",
+        "$extensions": {
+          "mode": {
+            "dark": "#FFFFFF"
+          }
+        }
+      },
+      "seq-2-ink": {
+        "$type": "color",
+        "$value": "#1D1F21",
+        "$description": "County count labels on seq-2 (9.4:1 light, 5.4:1 dark).",
+        "$extensions": {
+          "mode": {
+            "dark": "#FFFFFF"
+          }
+        }
+      },
+      "seq-3-ink": {
+        "$type": "color",
+        "$value": "#1D1F21",
+        "$description": "County count labels on seq-3 (6.8:1 light, 6.2:1 dark).",
+        "$extensions": {
+          "mode": {
+            "dark": "#0B0E11"
+          }
+        }
+      },
+      "seq-4-ink": {
+        "$type": "color",
+        "$value": "#FFFFFF",
+        "$description": "County count labels on seq-4 (5.1:1 light, 10:1 dark).",
+        "$extensions": {
+          "mode": {
+            "dark": "#0B0E11"
+          }
+        }
+      },
+      "seq-5-ink": {
+        "$type": "color",
+        "$value": "#FFFFFF",
+        "$description": "County count labels on seq-5 (12.8:1 light, 15:1 dark).",
+        "$extensions": {
+          "mode": {
+            "dark": "#0B0E11"
+          }
+        }
+      }
+    },
+    "map": {
+      "map-stroke": {
+        "$type": "color",
+        "$value": "#6F6B60",
+        "$description": "Outline of every county (0.75px). Gives each shape a 4.9:1 / 6:1 edge against the page, so no county depends on its fill for visibility.",
+        "$extensions": {
+          "mode": {
+            "dark": "#8794A2"
+          }
+        }
+      }
+    },
+    "category": {
+      "cat-1": {
+        "$type": "color",
+        "$value": "#0072B2",
+        "$description": "Category 1: No local authority for the use. Always drawn with a cat-outline stroke and the circle glyph.",
+        "$extensions": {
+          "mode": {
+            "dark": "#0072B2"
+          }
+        }
+      },
+      "cat-2": {
+        "$type": "color",
+        "$value": "#D55E00",
+        "$description": "Category 2: State farmland standards. Square glyph.",
+        "$extensions": {
+          "mode": {
+            "dark": "#D55E00"
+          }
+        }
+      },
+      "cat-3": {
+        "$type": "color",
+        "$value": "#009E73",
+        "$description": "Category 3: Goal exception criteria. Triangle glyph.",
+        "$extensions": {
+          "mode": {
+            "dark": "#009E73"
+          }
+        }
+      },
+      "cat-4": {
+        "$type": "color",
+        "$value": "#E69F00",
+        "$description": "Category 4: Neighbor farm impacts. Diamond glyph.",
+        "$extensions": {
+          "mode": {
+            "dark": "#E69F00"
+          }
+        }
+      },
+      "cat-5": {
+        "$type": "color",
+        "$value": "#56B4E9",
+        "$description": "Category 5: Visual and tourism impacts. Inverted-triangle glyph.",
+        "$extensions": {
+          "mode": {
+            "dark": "#56B4E9"
+          }
+        }
+      },
+      "cat-6": {
+        "$type": "color",
+        "$value": "#CC79A7",
+        "$description": "Category 6: Farmland loss. Hexagon glyph.",
+        "$extensions": {
+          "mode": {
+            "dark": "#CC79A7"
+          }
+        }
+      },
+      "cat-7": {
+        "$type": "color",
+        "$value": "#F0E442",
+        "$description": "Category 7: Inadequate findings. Plus glyph.",
+        "$extensions": {
+          "mode": {
+            "dark": "#F0E442"
+          }
+        }
+      },
+      "cat-8": {
+        "$type": "color",
+        "$value": "#4D4D4D",
+        "$description": "Category 8: Other (uncoded). Ring glyph. Neutral on purpose: \"uncoded\" is not a topic.",
+        "$extensions": {
+          "mode": {
+            "dark": "#4D4D4D"
+          }
+        }
+      },
+      "cat-outline": {
+        "$type": "color",
+        "$value": "{color.text.ink}",
+        "$description": "Stroke (1.5px) around every category mark. It carries the 3:1 edge, because cat-4, cat-5 and cat-7 fills are under 3:1 against surface.",
+        "$extensions": {
+          "mode": {
+            "dark": "{color.text.ink}"
+          }
+        }
+      }
+    }
+  },
+  "spacing": {
+    "space-1": {
+      "$type": "dimension",
+      "$value": "4px",
+      "$description": "Icon-to-label gap, chip padding."
+    },
+    "space-2": {
+      "$type": "dimension",
+      "$value": "8px",
+      "$description": "Gap inside controls and between chips."
+    },
+    "space-3": {
+      "$type": "dimension",
+      "$value": "12px",
+      "$description": "Control padding block; list item gap."
+    },
+    "space-4": {
+      "$type": "dimension",
+      "$value": "16px",
+      "$description": "Page gutter on phones, card padding, paragraph gap."
+    },
+    "space-5": {
+      "$type": "dimension",
+      "$value": "24px",
+      "$description": "Card padding on desktop, gap between related blocks."
+    },
+    "space-6": {
+      "$type": "dimension",
+      "$value": "32px",
+      "$description": "Gap between page regions on phones."
+    },
+    "space-7": {
+      "$type": "dimension",
+      "$value": "48px",
+      "$description": "Gap between page regions on desktop."
+    },
+    "space-8": {
+      "$type": "dimension",
+      "$value": "64px",
+      "$description": "Top and bottom padding of a page region on desktop."
+    }
+  },
+  "radius": {
+    "radius-sm": {
+      "$type": "dimension",
+      "$value": "4px",
+      "$description": "Chips, table wrappers, notice corners."
+    },
+    "radius-md": {
+      "$type": "dimension",
+      "$value": "8px",
+      "$description": "Buttons, selects, cards."
+    },
+    "radius-pill": {
+      "$type": "dimension",
+      "$value": "999px",
+      "$description": "Segmented switch only."
+    }
+  },
+  "size": {
+    "tap-target": {
+      "$type": "dimension",
+      "$value": "44px",
+      "$description": "Minimum height of every interactive control (WCAG 2.2 asks for 24px; we use 44px)."
+    },
+    "focus-width": {
+      "$type": "dimension",
+      "$value": "3px",
+      "$description": "Focus ring thickness."
+    },
+    "focus-offset": {
+      "$type": "dimension",
+      "$value": "2px",
+      "$description": "Gap between control and focus ring so the ring always sits on the page ground."
+    },
+    "content-max": {
+      "$type": "dimension",
+      "$value": "1120px",
+      "$description": "Maximum width of page content."
+    },
+    "measure": {
+      "$type": "dimension",
+      "$value": "68ch",
+      "$description": "Maximum line length for running text."
+    },
+    "mark-stroke": {
+      "$type": "dimension",
+      "$value": "1.5px",
+      "$description": "Outline of chart marks and legend swatches."
+    },
+    "map-stroke-width": {
+      "$type": "dimension",
+      "$value": "0.75px",
+      "$description": "County outline weight (3px for the selected county)."
+    }
+  },
+  "font": {
+    "family": {
+      "sans": {
+        "$type": "fontFamily",
+        "$value": [
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif"
+        ]
+      },
+      "serif": {
+        "$type": "fontFamily",
+        "$value": [
+          "Iowan Old Style",
+          "Palatino Linotype",
+          "Palatino",
+          "Book Antiqua",
+          "Georgia",
+          "serif"
+        ]
+      },
+      "mono": {
+        "$type": "fontFamily",
+        "$value": [
+          "ui-monospace",
+          "SF Mono",
+          "Cascadia Mono",
+          "Consolas",
+          "Menlo",
+          "monospace"
+        ]
+      }
+    }
+  },
+  "typography": {
+    "h1": {
+      "$type": "typography",
+      "$description": "Page title, once per page. 30px / 36px under 640px container width.",
+      "$value": {
+        "fontFamily": "{font.family.serif}",
+        "fontSize": "36px",
+        "lineHeight": "42px",
+        "fontWeight": 700
+      }
+    },
+    "h2": {
+      "$type": "typography",
+      "$description": "Region headings.",
+      "$value": {
+        "fontFamily": "{font.family.serif}",
+        "fontSize": "28px",
+        "lineHeight": "34px",
+        "fontWeight": 700
+      }
+    },
+    "h3": {
+      "$type": "typography",
+      "$description": "Card and panel headings.",
+      "$value": {
+        "fontFamily": "{font.family.serif}",
+        "fontSize": "22px",
+        "lineHeight": "28px",
+        "fontWeight": 700
+      }
+    },
+    "lead": {
+      "$type": "typography",
+      "$description": "Scope statement and region introductions. Max 68ch.",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "18px",
+        "lineHeight": "28px",
+        "fontWeight": 400
+      }
+    },
+    "body": {
+      "$type": "typography",
+      "$description": "Default text. 16px is the floor for running text.",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": 400
+      }
+    },
+    "label": {
+      "$type": "typography",
+      "$description": "Field labels, chips, table headers, legend items. 14px is the smallest size on the site.",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "14px",
+        "lineHeight": "20px",
+        "fontWeight": 600
+      }
+    },
+    "small": {
+      "$type": "typography",
+      "$description": "Captions, source lines, footnotes.",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "14px",
+        "lineHeight": "20px",
+        "fontWeight": 400
+      }
+    },
+    "stat": {
+      "$type": "typography",
+      "$description": "The one big number on Overview and county panels. Tabular figures.",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "48px",
+        "lineHeight": "52px",
+        "fontWeight": 700
+      }
+    },
+    "code": {
+      "$type": "typography",
+      "$description": "Case numbers and file names.",
+      "$value": {
+        "fontFamily": "{font.family.mono}",
+        "fontSize": "14px",
+        "lineHeight": "20px",
+        "fontWeight": 400
+      }
+    }
+  }
+}
