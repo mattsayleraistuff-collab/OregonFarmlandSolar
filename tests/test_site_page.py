@@ -94,8 +94,12 @@ def test_quotes_are_shown_by_the_config_flag():
     assert "SHOW_QUOTES" in APP
 
 
-def test_the_launch_checks_are_marked_in_the_explainer():
-    assert "VERIFY BEFORE LAUNCH" in INDEX
+def test_the_explainer_records_what_it_was_checked_against():
+    assert "VERIFY BEFORE LAUNCH" not in INDEX
+    assert "OAR 661-010-0071" in INDEX
+    assert "frequently-asked-questions" in INDEX
+    for term in ("affirm", "reverse", "remand", "dismiss", "petitioner", "respondent"):
+        assert term in INDEX.lower(), term
 
 
 def test_the_pages_workflow_installs_node_before_the_tests():
