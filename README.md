@@ -94,6 +94,15 @@ Writes `<doc-id>.candidates.json` and `<doc-id>.manifest.json` to `data/local/ex
 
 Only a model server on this computer is used. Cloud models (names ending `-cloud`) are refused unless you type a confirmation phrase, or pass `--allow-cloud` in an unattended run; you are then responsible for any personal information sent. To turn Ollama's cloud feature off, set `{"disable_ollama_cloud": true}` in `~/.ollama/server.json` (create it if missing) or set `OLLAMA_NO_CLOUD=1`, and restart Ollama.
 
+### Comparing proposed reasons with the hand-coded ones
+
+```
+uv run ofs compare data/local/extract/<doc-id>.candidates.json \
+  --records data/records/<project>.json --document <record-document-id>
+```
+
+Writes `<doc-id>.comparison.md` (readable report) and `<doc-id>.comparison.json` (counts plus checksums of the three inputs) to `data/local/compare/` (git-ignored). A proposed quote matches a hand-coded one when they overlap on the same PDF page; the category is not compared. The report lists matched, missed (with whether the quote check held the quote back), not-scanned and extra quotes. **Extras are not errors**: the hand-coded set is selective, so extras need a person's judgment. Run `ofs extract` on every page first (no `--pages`), or misses on unscanned pages are listed apart. Needs the run manifest beside the candidates file (runs made before this feature lack the scanned-page list and must be re-run).
+
 ## Data model
 `project -> proceeding -> document -> reason`. Local proceedings record what a county decided; appeal proceedings record what a reviewing body (for example LUBA) did. Each coded reason has a category from `data/taxonomy/reasons.yaml`, a verbatim quote, and a PDF page number. See `docs/methodology.md` for the rules and the decision log.
 
