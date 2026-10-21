@@ -10,7 +10,7 @@ import sys
 from datetime import UTC, date, datetime
 from pathlib import Path
 
-from . import extract, geo, publish, site_data
+from . import compare, extract, geo, publish, site_data
 from .dataset import Issue, check_dataset, load_dataset
 from .pii import scan_dataset
 from .synthetic import DEFAULT_COUNT, DEFAULT_SEED, generate
@@ -21,6 +21,7 @@ DEFAULT_TAXONOMY = Path("data/taxonomy/reasons.yaml")
 DEFAULT_SYNTH_OUT = Path("data/synthetic/synthetic-county-approvals.json")
 DEFAULT_PROMPT = Path("prompts/extract-reasons-v1.txt")
 DEFAULT_EXTRACT_OUT = Path("data/local/extract")
+DEFAULT_COMPARE_OUT = Path("data/local/compare")
 
 
 def _validate(args: argparse.Namespace) -> int:
@@ -220,6 +221,71 @@ def _extract(args: argparse.Namespace) -> int:
     return 0
 
 
+def _compare(args: argparse.Namespace) -> int:
+    """Compares a candidates file with the hand-coded reasons for the same document.
+
+    Args:
+        args: Parsed arguments with ``candidates``, ``records``, ``document``, ``out_dir``.
+
+    Returns:
+        0 on success, 1 if the document is not in the records file.
+    """
+    cand_path = Path(args.candidates)
+    rec_path = Path(args.records)
+    records = json.loads(rec_path.read_text(encoding="utf-8"))
+    known = {r["document_id"] for r in records.get("reasons", [])} | {
+        d["id"] for d in records.get("documents", [])
+    }
+    if args.document not in known:
+        print(f"ERROR: document {args.document!r} is not in {rec_path}")
+        return 1
+    hand = [r for r in records["reasons"] if r["document_id"] == args.document]
+    cands = json.loads(cand_path.read_text(encoding="utf-8"))
+    manifest_path = compare.manifest_path_for(cand_path, must_exist=True)
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    held = [{**q, "status": q.get("status", "rejected")} for q in cands.get("rejected", [])]
+    held += [{**q, "status": "review"} for q in cands.get("needs_review", [])]
+    res = compare.compare(
+        hand,
+        cands["reasons"],
+        scanned_pages=manifest["input"]["scanned_pages"],
+        held_back=held,
+    )
+    stem = cand_path.name.replace(".candidates.json", "")
+    meta = {
+        "document": args.document,
+        "candidates file": cand_path.name,
+        "model": f"{manifest['model']['name']} (digest {manifest['model']['digest']})",
+        "prompt_sha256": manifest["prompt_sha256"],
+        "pipeline_commit": manifest["pipeline_commit"],
+        "settings": manifest["settings"],
+        "pages scanned": len(res.scanned_pages),
+    }
+    out = Path(args.out_dir)
+    out.mkdir(parents=True, exist_ok=True)
+    counts = compare.summary(res, len(hand))
+    summary = {
+        **counts,
+        "document": args.document,
+        "records_sha256": compare.sha256_file(rec_path),
+        "candidates_sha256": compare.sha256_file(cand_path),
+        "manifest_sha256": compare.sha256_file(manifest_path),
+        "compare_commit": _git_commit(),
+    }
+    (out / f"{stem}.comparison.json").write_text(
+        json.dumps(summary, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
+    (out / f"{stem}.comparison.md").write_text(
+        compare.render_markdown(res, title=f"Extraction vs hand-coded: {args.document}", meta=meta),
+        encoding="utf-8",
+    )
+    print(
+        f"{counts['matched']} of {counts['matched'] + counts['missed']} hand-coded reasons found, "
+        f"{counts['missed']} missed, {counts['extras']} extras; wrote {out}/{stem}.comparison.*"
+    )
+    return 0
+
+
 def _stage_site(args: argparse.Namespace) -> int:
     """Builds the folder that is published to GitHub Pages.
 
@@ -289,6 +355,12 @@ def main(argv: list[str] | None = None) -> int:
     )
     ex.add_argument("--out-dir", default=str(DEFAULT_EXTRACT_OUT))
     ex.set_defaults(func=_extract)
+    cp = sub.add_parser("compare", help="compare extracted reasons with hand-coded ones")
+    cp.add_argument("candidates", help="a *.candidates.json file from ofs extract")
+    cp.add_argument("--records", required=True, help="records file with the hand-coded reasons")
+    cp.add_argument("--document", required=True, help="document id in the records file")
+    cp.add_argument("--out-dir", default=str(DEFAULT_COMPARE_OUT))
+    cp.set_defaults(func=_compare)
     st = sub.add_parser("stage-site", help="stage the static site for GitHub Pages")
     st.add_argument("--site-dir", default="site")
     st.add_argument("--geo", default="data/geo/oregon-counties.geojson")

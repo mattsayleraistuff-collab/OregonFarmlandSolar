@@ -527,6 +527,7 @@ def build_manifest(
             "document_id": res.doc_id,
             "pdf_sha256": res.pdf_sha256,
             "page_count": len(res.pages),
+            "scanned_pages": [p.page for p in res.pages if p.skipped is None],
         },
         "counts": {
             "accepted": sum(len(p.accepted) for p in res.pages),

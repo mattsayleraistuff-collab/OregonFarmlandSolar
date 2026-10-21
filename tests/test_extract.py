@@ -324,7 +324,12 @@ def test_manifest_records_everything_needed_to_repeat_the_run():
     assert m["prompt_sha256"] == "c" * 64
     assert m["model"] == {"name": LOCAL.name, "digest": LOCAL.digest}
     assert m["settings"] == {"temperature": 0, "seed": 42}
-    assert m["input"] == {"document_id": "doc1", "pdf_sha256": SHA, "page_count": 1}
+    assert m["input"] == {
+        "document_id": "doc1",
+        "pdf_sha256": SHA,
+        "page_count": 1,
+        "scanned_pages": [1],
+    }
     assert m["cloud"] is False
     assert m["counts"] == {"accepted": 1, "review": 0, "rejected": 0, "page_errors": 0}
     assert len(m["output_sha256"]) == 64
@@ -499,3 +504,21 @@ def test_cli_extract_refuses_a_remote_host(cli_env):
 
     base, out, _ = cli_env
     assert main([*base, "--host", "http://example.com:11434"]) == 1
+
+
+def test_manifest_lists_only_the_pages_the_model_actually_read():
+    model = FakeModel({})
+    res = _run(["", PAGE, "   "], model)
+    m = extract.build_manifest(
+        res,
+        pipeline_commit="abc",
+        prompt_sha256="c" * 64,
+        model=LOCAL,
+        temperature=0,
+        seed=42,
+        host="h",
+        cloud=False,
+        run_at="t",
+    )
+    assert m["input"]["page_count"] == 3
+    assert m["input"]["scanned_pages"] == [2]
