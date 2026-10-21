@@ -60,7 +60,11 @@ def test_the_word_final_only_appears_in_the_not_final_notice():
     for m in re.finditer(r"final", text + APP, flags=re.I):
         around = (text + APP)[max(0, m.start() - 40) : m.end() + 20].lower()
         assert (
-            "not &ldquo;final" in around or "not \\u201cfinal" in around or "findings" in around
+            "not &ldquo;final" in around
+            or "not \\u201cfinal" in around
+            or "findings" in around
+            # LUBA's own deadline wording; it is not how we label an outcome.
+            or "decision becomes final" in around
         ), around
 
 
@@ -94,8 +98,12 @@ def test_quotes_are_shown_by_the_config_flag():
     assert "SHOW_QUOTES" in APP
 
 
-def test_the_launch_checks_are_marked_in_the_explainer():
-    assert "VERIFY BEFORE LAUNCH" in INDEX
+def test_the_explainer_records_what_it_was_checked_against():
+    assert "VERIFY BEFORE LAUNCH" not in INDEX
+    assert "OAR 661-010-0071" in INDEX
+    assert "frequently-asked-questions" in INDEX
+    for term in ("affirm", "reverse", "remand", "dismiss", "petitioner", "respondent"):
+        assert term in INDEX.lower(), term
 
 
 def test_the_pages_workflow_installs_node_before_the_tests():
