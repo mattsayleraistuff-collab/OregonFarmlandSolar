@@ -17,7 +17,7 @@ This tracks the reasons given in the decisions we have, not every solar-on-farml
 Any dashboard or map built from this data must show this scope statement.
 
 ## How to use
-The site is a static page (currently a placeholder awaiting the design). To preview it locally:
+The site is a static page built to the design in `design/` (plain HTML, CSS and JavaScript; no framework, no third-party requests). It has a county map, reasons by category, three appeal examples with their quotes, an explainer and a method page, and a switch between real records and invented demo data (`?data=synthetic`). To preview it locally:
 
 ```
 uv run ofs stage-site
@@ -27,7 +27,7 @@ python3 -m http.server --directory _site 8000   # then open http://localhost:800
 Pushes to `main` deploy it to GitHub Pages through `.github/workflows/pages.yml` (Pages must be set to deploy from GitHub Actions in the repository settings).
 
 ## Installation
-Requires [uv](https://docs.astral.sh/uv/).
+Requires [uv](https://docs.astral.sh/uv/). Node.js 22 or newer is needed only to run the site's JavaScript helper tests (`tests/js`, run by pytest) and, optionally, to simplify the county layer.
 
 ```bash
 git clone https://github.com/mattsayleraistuff-collab/OregonFarmlandSolar.git
