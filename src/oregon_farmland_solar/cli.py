@@ -1,21 +1,26 @@
-"""Command line entry point: `uv run ofs validate|synth|counties|site-data|stage-site`."""
+"""Command line entry point: `uv run ofs validate|synth|counties|site-data|stage-site|extract`."""
 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
-from datetime import date
+import subprocess
+import sys
+from datetime import UTC, date, datetime
 from pathlib import Path
 
-from . import geo, publish, site_data
+from . import extract, geo, publish, site_data
 from .dataset import Issue, check_dataset, load_dataset
 from .pii import scan_dataset
 from .synthetic import DEFAULT_COUNT, DEFAULT_SEED, generate
 from .taxonomy import load_taxonomy
-from .verify import index_pdfs, verify_quotes
+from .verify import extract_pages, index_pdfs, verify_quotes
 
 DEFAULT_TAXONOMY = Path("data/taxonomy/reasons.yaml")
 DEFAULT_SYNTH_OUT = Path("data/synthetic/synthetic-county-approvals.json")
+DEFAULT_PROMPT = Path("prompts/extract-reasons-v1.txt")
+DEFAULT_EXTRACT_OUT = Path("data/local/extract")
 
 
 def _validate(args: argparse.Namespace) -> int:
@@ -125,6 +130,96 @@ def _site_data(args: argparse.Namespace) -> int:
     return 0
 
 
+def _git_commit() -> str:
+    """Returns the current git commit, with "-dirty" if there are uncommitted changes."""
+    try:
+        head = subprocess.run(
+            ["git", "rev-parse", "HEAD"], check=True, capture_output=True, text=True
+        ).stdout.strip()
+        dirty = subprocess.run(
+            ["git", "status", "--porcelain"], check=True, capture_output=True, text=True
+        ).stdout.strip()
+    except (OSError, subprocess.CalledProcessError):
+        return "unknown"
+    return head + ("-dirty" if dirty else "")
+
+
+def _parse_pages(spec: str | None, count: int) -> list[int]:
+    """Turns "3" or "2-5" or "1,4" into sorted 1-based page numbers within the document."""
+    if not spec:
+        return list(range(1, count + 1))
+    pages: set[int] = set()
+    for part in spec.split(","):
+        lo, _, hi = part.partition("-")
+        pages.update(range(int(lo), int(hi or lo) + 1))
+    return sorted(p for p in pages if 1 <= p <= count)
+
+
+def _extract(args: argparse.Namespace) -> int:
+    """Runs the local model over one PDF and writes candidate reasons and a run manifest.
+
+    Args:
+        args: Parsed arguments (see ``main``).
+
+    Returns:
+        0 on success, 1 if the model or server is refused.
+    """
+    try:
+        extract.check_host(args.host)
+        confirm = input if sys.stdin.isatty() else None
+        model = extract.check_model(
+            args.model,
+            extract.list_models(args.host),
+            allow_cloud=args.allow_cloud,
+            confirm=confirm,
+        )
+    except extract.LocalOnlyError as e:
+        print(f"ERROR: {e}")
+        return 1
+    pdf = Path(args.pdf)
+    all_pages = extract_pages(pdf)
+    wanted = _parse_pages(args.pages, len(all_pages))
+    prompt_text, prompt_sha = extract.load_prompt(Path(args.prompt))
+    # Unselected pages stay in place as blanks so page numbers and ids stay true to the PDF.
+    pages = [t if n in wanted else "" for n, t in enumerate(all_pages, start=1)]
+    res = extract.run_document(
+        doc_id=args.doc_id,
+        pdf_sha256=hashlib.sha256(pdf.read_bytes()).hexdigest(),
+        pages=pages,
+        prompt_text=prompt_text,
+        model=model,
+        send=extract.make_sender(args.host),
+        temperature=args.temperature,
+        seed=args.seed,
+    )
+    manifest = extract.build_manifest(
+        res,
+        pipeline_commit=_git_commit(),
+        prompt_sha256=prompt_sha,
+        model=model,
+        temperature=args.temperature,
+        seed=args.seed,
+        host=args.host,
+        cloud=extract.is_cloud(model),
+        run_at=datetime.now(UTC).isoformat(timespec="seconds"),
+    )
+    out = Path(args.out_dir)
+    out.mkdir(parents=True, exist_ok=True)
+    (out / f"{args.doc_id}.candidates.json").write_text(
+        json.dumps(extract.output_document(res), indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    (out / f"{args.doc_id}.manifest.json").write_text(
+        json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
+    c = manifest["counts"]
+    print(
+        f"{c['accepted']} accepted, {c['review']} to review, {c['rejected']} rejected, "
+        f"{c['page_errors']} page error(s); wrote {out}/{args.doc_id}.*.json"
+    )
+    return 0
+
+
 def _stage_site(args: argparse.Namespace) -> int:
     """Builds the folder that is published to GitHub Pages.
 
@@ -178,6 +273,22 @@ def main(argv: list[str] | None = None) -> int:
     sd.add_argument("--taxonomy", default=str(DEFAULT_TAXONOMY))
     sd.add_argument("--out", default="site/data/site-data.json")
     sd.set_defaults(func=_site_data)
+    ex = sub.add_parser("extract", help="propose reasons from a PDF with a local model")
+    ex.add_argument("pdf")
+    ex.add_argument("--doc-id", required=True, help="document id used in reason ids")
+    ex.add_argument("--pages", help="only these pages, e.g. 23 or 20-25 or 1,4")
+    ex.add_argument("--prompt", default=str(DEFAULT_PROMPT))
+    ex.add_argument("--model", default=extract.DEFAULT_MODEL)
+    ex.add_argument("--host", default=extract.DEFAULT_HOST)
+    ex.add_argument("--temperature", type=float, default=extract.DEFAULT_TEMPERATURE)
+    ex.add_argument("--seed", type=int, default=extract.DEFAULT_SEED)
+    ex.add_argument(
+        "--allow-cloud",
+        action="store_true",
+        help="allow a cloud model without asking (you accept responsibility for personal info)",
+    )
+    ex.add_argument("--out-dir", default=str(DEFAULT_EXTRACT_OUT))
+    ex.set_defaults(func=_extract)
     st = sub.add_parser("stage-site", help="stage the static site for GitHub Pages")
     st.add_argument("--site-dir", default="site")
     st.add_argument("--geo", default="data/geo/oregon-counties.geojson")

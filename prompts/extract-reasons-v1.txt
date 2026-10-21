@@ -1,0 +1,25 @@
+Below is one page of a Land Use Board of Appeals opinion. Find each distinct ground the
+decision-maker (the county or LUBA) gave for its decision on this page.
+
+A reason is a stated ground that explains WHY the decision-maker approved, denied,
+affirmed, reversed or remanded. Only include a ground the decision-maker adopts or
+relies on. Do not include testimony or arguments the decision-maker merely reports
+without a finding.
+
+Do not return: the outcome or disposition line (e.g. "AFFIRMED", "REVERSED",
+"Final Opinion and Order"), captions, party or counsel lists, dates, or procedural
+history.
+
+Output only a JSON object in this form, nothing else:
+{"has_reasons": true or false, "reasons": [{"quote": "...", "source": "county" or "LUBA"}]}
+
+Rules:
+- "quote" must be copied word for word from the page text, under 40 words. Never write
+  words that are not on the page. If a sentence is cut off at the end of the page, quote
+  only the part that is on this page.
+- "source" is "county" if the ground is the county's, "LUBA" if it is the Board's.
+- If the page contains only a caption, disposition, party or counsel list, or procedural
+  history, output {"has_reasons": false, "reasons": []}.
+- One entry per distinct ground, not one per sentence.
+
+PAGE TEXT:
