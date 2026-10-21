@@ -72,7 +72,7 @@ def test_parse_accepts_no_reasons():
         '{"reasons": []}',
         '{"has_reasons": "yes", "reasons": []}',
         '{"has_reasons": true, "reasons": [{"quote": "x"}]}',
-        '{"has_reasons": true, "reasons": [{"quote": "x", "source": "judge"}]}',
+        '{"has_reasons": true, "reasons": [{"quote": "x", "source": 7}]}',
         '{"has_reasons": true, "reasons": [{"quote": 5, "source": "county"}]}',
     ],
 )
@@ -80,6 +80,21 @@ def test_parse_reports_malformed_output_instead_of_guessing(bad):
     out = extract.parse_response(bad)
     assert out.error
     assert out.reasons == []
+
+
+def test_a_quote_with_an_unexpected_source_label_does_not_lose_the_page():
+    mixed = _reply([{"quote": GOOD, "source": "county"}, {"quote": GOOD, "source": "petitioner"}])
+    out = extract.parse_response(mixed)
+    assert out.error is None
+    assert [r.source for r in out.reasons] == ["county", "petitioner"]
+
+
+def test_gate_rejects_a_quote_labeled_as_neither_county_nor_luba():
+    ok = extract.RawReason(quote=GOOD, source="county")
+    odd = extract.RawReason(quote=GOOD + " and more words here", source="petitioner")
+    good, bad = extract.gate_quotes([ok, odd], PAGE + " and more words here")
+    assert good.status == "accepted"
+    assert (bad.status, bad.reason) == ("rejected", "unexpected_source")
 
 
 def test_parse_flags_a_contradiction_between_flag_and_list():

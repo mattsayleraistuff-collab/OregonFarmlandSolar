@@ -133,8 +133,8 @@ def parse_response(text: str) -> ParsedResponse:
         quote, source = item.get("quote"), item.get("source")
         if not isinstance(quote, str) or not quote.strip():
             return bad("a reason has no quote text")
-        if source not in SOURCES:
-            return bad(f"a reason has source {source!r}, expected one of {SOURCES}")
+        if not isinstance(source, str):
+            return bad("a reason has no source label")
         out.append(RawReason(quote=quote.strip(), source=source))
     if flag != bool(out):
         return bad("has_reasons contradicts the reasons list")
@@ -171,7 +171,8 @@ def _letters_upper_ratio(text: str) -> float:
 def gate_quotes(reasons: Sequence[RawReason], page_text: str) -> list[GatedQuote]:
     """Checks each proposed quote against the page it came from.
 
-    Rejected: too short or too long, mostly capitals (headings and disposition lines), not
+    Rejected: a source label other than county or LUBA (for example a petitioner's argument),
+    too short or too long, mostly capitals (headings and disposition lines), not
     on the page, or a repeat of an earlier quote. A fuzzy match goes to "review".
 
     Args:
@@ -191,7 +192,9 @@ def gate_quotes(reasons: Sequence[RawReason], page_text: str) -> list[GatedQuote
         def reject(why: str, *, r: RawReason = r) -> GatedQuote:
             return GatedQuote(r.quote, r.source, "rejected", why)
 
-        if norm in seen:
+        if r.source not in SOURCES:
+            out.append(reject("unexpected_source"))
+        elif norm in seen:
             out.append(reject("duplicate"))
         elif words < MIN_WORDS:
             out.append(reject("too_short"))
