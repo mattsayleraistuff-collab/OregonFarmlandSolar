@@ -60,7 +60,11 @@ def test_the_word_final_only_appears_in_the_not_final_notice():
     for m in re.finditer(r"final", text + APP, flags=re.I):
         around = (text + APP)[max(0, m.start() - 40) : m.end() + 20].lower()
         assert (
-            "not &ldquo;final" in around or "not \\u201cfinal" in around or "findings" in around
+            "not &ldquo;final" in around
+            or "not \\u201cfinal" in around
+            or "findings" in around
+            # LUBA's own deadline wording; it is not how we label an outcome.
+            or "decision becomes final" in around
         ), around
 
 
