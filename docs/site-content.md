@@ -12,3 +12,8 @@ A running list of things the public site has to say, not just the repo docs. Add
 | LUBA cases are shown separately, never pooled | They are coded more narrowly (only grounds LUBA upheld). | `docs/methodology.md` (coding rule) | no |
 | Machine-extracted versus hand-checked | Once bulk processing exists, reasons not reviewed by a person are labelled. | `hand_checked` field | no |
 | Boundary credit and generalization | Credit "Bureau of Land Management (BLM), Oregon State Office" where the county layer is shown, and say the boundaries are for display and are not legal boundaries or surveys. | `data/geo/oregon-counties.provenance.json` | no |
+| Check the LUBA explainer wording | The 21-day deadline and the affirm / reverse / remand meanings came from the design tool's general knowledge. The page marks them `VERIFY BEFORE LAUNCH`. | `site/index.html` (How appeals work) | no |
+| Check the county-records source wording | The page says the approvals are "provided by the State of Oregon" and "from the state's list". Confirm this matches how the records were actually obtained. | `site/index.html` (Method and credits, Overview) | no |
+| Decide whether to show reviewer notes | Notes on reasons are internal coding context and are not shown on the site. A public-facing note field would be needed to show any. | `data/records/*.json` (`note`) | no |
+| Reason category names | The site shows the taxonomy labels (for example "No local code authority for the use"), which differ slightly from the shorter names in the design guide. | `data/taxonomy/reasons.yaml` | no |
+| Screen-reader test | Contrast was checked by formula and the keyboard path by script. Nobody has used the page with NVDA or VoiceOver yet. | `design/accessibility.md` | no |

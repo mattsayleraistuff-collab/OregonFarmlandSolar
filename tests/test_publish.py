@@ -107,7 +107,7 @@ def test_the_site_loads_nothing_from_other_servers():
 
 
 def test_the_page_reads_the_two_data_files_by_relative_path():
-    text = (SITE / "app.js").read_text()
+    text = (SITE / "js" / "app.js").read_text()
     assert "data/site-data.json" in text
     assert "data/oregon-counties.geojson" in text
     assert not re.search(r"""fetch\(\s*["'`]/""", text)  # root-relative would break on Pages

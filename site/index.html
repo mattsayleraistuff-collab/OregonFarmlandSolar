@@ -3,60 +3,85 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Oregon Farmland Solar: placeholder build</title>
+  <title>Oregon Farmland Solar</title>
+  <meta name="description" content="Reasons Oregon counties gave when they approved solar projects on farmland, and three appeal examples. A civic data tool.">
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/site-tokens.css">
+  <link rel="stylesheet" href="css/site.css">
 </head>
-<body>
-  <header>
-    <h1>Oregon farmland solar permits: reasons for approval and denial</h1>
-    <p class="banner" role="note">Placeholder build. Layout and wording are pending the design.</p>
-  </header>
+<body class="ofs-page">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false" id="patterns"></svg>
+  <a class="ofs-skip" href="#main">Skip to content</a>
+  <div id="synth-banner" hidden></div>
+  <header class="ofs-header" id="site-header"><div class="ofs-wrap"><a class="ofs-wordmark" href="#overview">Oregon Farmland Solar</a>
+    <button class="ofs-btn is-small ofs-menu" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><svg class="ofs-icon" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 5h14M3 10h14M3 15h14"/></svg>Menu</button>
+    <nav class="ofs-nav" id="site-nav" aria-label="Main"><ul><li><a href="#overview" aria-current="page">Overview</a></li><li><a href="#map">County map</a></li><li><a href="#reasons">Reasons</a></li><li><a href="#appeal-examples">Appeal examples</a></li><li><a href="#appeals">How appeals work</a></li><li><a href="#method">Method and credits</a></li></ul></nav></div></header>
+  <div class="ofs-modebar"><div class="ofs-wrap"><fieldset class="ofs-seg"><legend>Data shown</legend><div class="ofs-segrow"><input type="radio" name="data" id="d-real" value="real" checked><label for="d-real"><svg class="ofs-icon" width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 10.5l4 4 8-9"/></svg>Real records</label><input type="radio" name="data" id="d-syn" value="synthetic"><label for="d-syn"><svg class="ofs-icon" width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 10.5l4 4 8-9"/></svg>Synthetic demo data</label></div></fieldset><p class="ofs-small" id="mode-note" style="margin:0;max-width:52ch"></p></div></div>
+  <div class="ofs-sr" id="live" aria-live="polite"></div>
+  <noscript><div class="ofs-wrap"><p class="ofs-notice is-empty">The charts and the map need JavaScript. The explanations on this page work without it.</p></div></noscript>
 
-  <main>
-    <section aria-labelledby="scope-h">
-      <h2 id="scope-h">Scope</h2>
-      <p>This shows the reasons given in the decisions we hold, not every solar-on-farmland permit in Oregon.</p>
-      <ul>
-        <li>County records come from a public records request and are approved decisions only.</li>
-        <li>The only county denials are two of three hand-collected LUBA sample cases; the third is a county approval that LUBA reversed.</li>
-        <li>We do not claim a final outcome. Appeals and court decisions we did not collect are missing.</li>
-        <li>LUBA cases are reported separately and never pooled with county decisions.</li>
-      </ul>
-    </section>
+  <main id="main">
+    <section class="ofs-region" id="overview" aria-labelledby="h-overview"><div class="ofs-wrap ofs-stack"><h1 id="h-overview">Oregon Farmland Solar</h1>
+      <p class="ofs-lead">When an Oregon county approves a solar project on farmland, it writes down why. This site shows the reasons counties gave for approvals, and walks through three cases that were appealed to the Land Use Board of Appeals.</p>
+      <div class="ofs-notice is-caution" role="note"><svg class="ofs-icon" width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 2.5l8 14H2z"/><path d="M10 8v4M10 14.5v.01"/></svg><div><p><strong>Results are not pooled, and they are not &ldquo;final&rdquo; outcomes.</strong> County records and LUBA appeal examples are separate source types. They are counted separately and never added together.</p><p><strong>County records are approvals only.</strong> Denied projects are not in our records, so this site cannot show why projects were denied or how often. We have not checked whether any approval was later appealed.</p></div></div>
+      <div id="overview-dyn" class="ofs-stack"></div>
+      <div class="ofs-chips"><a class="ofs-btn is-primary" href="#map">Explore the county map</a><a class="ofs-btn" href="#reasons">See reasons by category</a><a class="ofs-btn" href="#appeal-examples">See the appeal examples</a></div>
+    </div></section>
 
-    <section aria-labelledby="view-h">
-      <h2 id="view-h">View</h2>
-      <fieldset>
-        <legend>Data</legend>
-        <label><input type="radio" name="section" value="real" checked> Real records</label>
-        <label><input type="radio" name="section" value="synthetic"> Synthetic demo data</label>
-      </fieldset>
-      <label>Source type <select id="source"></select></label>
-      <p id="notice" class="notice" role="status" hidden></p>
-      <p id="summary"></p>
-    </section>
+    <section class="ofs-region" id="map" aria-labelledby="h-map"><div class="ofs-wrap ofs-stack"><h2 id="h-map">County map</h2>
+      <p class="ofs-lead">Darker shading means more approved projects in our records. Select a county on the map, or pick one from the list.</p>
+      <div class="ofs-notice is-caution" role="note"><svg class="ofs-icon" width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 2.5l8 14H2z"/><path d="M10 8v4M10 14.5v.01"/></svg><div><p><strong>Results are not pooled, and they are not &ldquo;final&rdquo; outcomes.</strong> County records and LUBA appeal examples are separate source types. They are counted separately and never added together.</p><p><strong>County records are approvals only.</strong> Denied projects are not in our records, so this site cannot show why projects were denied or how often. We have not checked whether any approval was later appealed.</p></div></div>
+      <div id="map-dyn" class="ofs-stack"></div>
+    </div></section>
 
-    <section aria-labelledby="map-h">
-      <h2 id="map-h">Projects by county</h2>
-      <svg id="map" role="img" aria-labelledby="map-h" viewBox="0 0 600 440"></svg>
-      <p class="credit">County boundaries: Bureau of Land Management (BLM), Oregon State Office. Generalized for display; not a legal boundary or survey.</p>
-      <table id="counties">
-        <caption>Counties with records</caption>
-        <thead><tr><th>County</th><th>Projects</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </section>
+    <section class="ofs-region" id="reasons" aria-labelledby="h-reasons"><div class="ofs-wrap ofs-stack"><h2 id="h-reasons">Reasons by category</h2>
+      <div class="ofs-notice is-caution" role="note"><svg class="ofs-icon" width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 2.5l8 14H2z"/><path d="M10 8v4M10 14.5v.01"/></svg><div><p><strong>Results are not pooled, and they are not &ldquo;final&rdquo; outcomes.</strong> County records and LUBA appeal examples are separate source types. They are counted separately and never added together.</p><p><strong>County records are approvals only.</strong> Denied projects are not in our records, so this site cannot show why projects were denied or how often. We have not checked whether any approval was later appealed.</p></div></div>
+      <p class="ofs-small" style="margin:0">Two source types, shown separately: <a href="#r-county">county records</a> &middot; <a href="#r-luba">LUBA appeal examples</a></p>
+      <div id="reasons-dyn" class="ofs-stack"></div>
+    </div></section>
 
-    <section aria-labelledby="cat-h">
-      <h2 id="cat-h">Reasons by category</h2>
-      <table id="categories">
-        <thead><tr><th>Category</th><th>Reasons</th><th>Local decision</th><th>Appeal</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </section>
+    <section class="ofs-region" id="appeal-examples" aria-labelledby="h-appeal-examples"><div class="ofs-wrap ofs-stack"><h2 id="h-appeal-examples">Appeal examples</h2>
+      <p class="ofs-lead">Three cases that were appealed to the Land Use Board of Appeals, shown on their own. They show how an appeal plays out. They are not a sample of the approvals.</p>
+      <div class="ofs-notice is-info" role="note"><svg class="ofs-icon" width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7.5"/><path d="M10 9v5M10 6v.01"/></svg><div><p><strong>What is in the data now.</strong><span id="scope-county-note"> The county approvals have not arrived yet.</span> The three appeal examples are real LUBA cases: two county denials that LUBA upheld, and one county approval that LUBA overturned.</p></div></div>
+      <div id="cases-dyn" class="ofs-stack"></div>
+    </div></section>
+
+    <section class="ofs-region" id="appeals" aria-labelledby="h-appeals"><div class="ofs-wrap ofs-stack"><h2 id="h-appeals">How appeals work</h2><p class="ofs-lead">Three of the cases here were appealed. This is what that means.</p>
+      <div class="ofs-cols is-explain"><div class="ofs-card"><h3>How appeals to LUBA work</h3>
+        <!-- VERIFY BEFORE LAUNCH: the 21-day deadline and the affirm / reverse / remand meanings are general knowledge, not yet checked against LUBA's own pages (see docs/site-content.md). -->
+        <ol class="ofs-steps">
+          <li><div><b>The county decides.</b><p>County planning staff, a hearings officer or the board of commissioners approves or denies the permit and writes down its reasons (&ldquo;findings&rdquo;).</p></div></li>
+          <li><div><b>Someone appeals.</b><p>A neighbor, the applicant or a group can appeal to the Land Use Board of Appeals (LUBA), usually within 21 days of the decision.</p></div></li>
+          <li><div><b>LUBA reviews the record.</b><p>LUBA does not hold a new hearing. It reads what the county already had and checks the decision against land use law.</p></div></li>
+          <li><div><b>LUBA rules.</b><p>It can <b>affirm</b> (leave the decision), <b>reverse</b> (overturn it) or <b>remand</b> (send it back to the county to fix). A remand is not the end: the county can decide again.</p></div></li>
+          <li><div><b>Further appeal.</b><p>LUBA&rsquo;s decision can be appealed to the Oregon Court of Appeals. We do not track that step.</p></div></li>
+        </ol>
+        <p class="ofs-small" style="margin:var(--space-4) 0 0">This is a plain-language summary, not legal advice. Check the deadlines with LUBA before relying on them. The three appeal examples on this site show these steps on real cases.</p></div>
+        <div class="ofs-card"><h3>Words used here</h3><dl class="ofs-dl">
+          <div><dt>County records</dt><dd>Approved solar projects on farmland, from the state&rsquo;s list and county documents. Approvals only.</dd></div>
+          <div><dt>Appeal examples</dt><dd>Three cases taken to LUBA, shown on their own to explain how appeals work. They are not a sample of the approvals.</dd></div>
+          <div><dt>Reason given</dt><dd>A ground a decision-maker stated for its decision, copied from the document as a direct quote.</dd></div>
+          <div><dt>Hand-checked</dt><dd>A person read the source and confirmed the reason and its category.</dd></div>
+          <div><dt>Machine-extracted</dt><dd>Software pulled the reason from the document. A person has not confirmed it yet.</dd></div>
+          <div><dt>County outcome</dt><dd>What the county decided at that proceeding.</dd></div>
+          <div><dt>Appeal outcome (where in our records)</dt><dd>What LUBA decided, if that decision is in our records. &ldquo;Not in our records&rdquo; does not mean there was no appeal.</dd></div>
+        </dl></div></div>
+    </div></section>
+
+    <section class="ofs-region" id="method" aria-labelledby="h-method"><div class="ofs-wrap ofs-stack"><h2 id="h-method">Method and credits</h2>
+      <div class="ofs-cols is-two">
+        <div class="ofs-card"><h3>Data sources</h3><ul style="margin:0;padding-left:20px"><li><b>County records</b>: a spreadsheet and about 200 county approval documents (PDFs) provided by the State of Oregon. Approvals only.<span id="county-load-note"> Not loaded yet.</span></li><li><b>LUBA appeal examples</b>: three LUBA opinions chosen to show how an appeal works.</li></ul><p class="ofs-small" style="margin-top:var(--space-3)">The two source types are counted separately and are never combined.</p></div>
+        <div class="ofs-card"><h3>What we assume, and have not checked</h3><ul style="margin:0;padding-left:20px"><li>We understand the approvals are completed, with no appeal pending. We have not verified this.</li><li>We do not know yet whether a county approval can have more than one reason. Counts are of reasons, not of approvals.</li><li>One appeal example (a conditional approval) may also be in the county records. We keep them separate.</li><li>We have not checked which approvals were appealed. &ldquo;Appeal outcome: Not in our records&rdquo; means exactly that.</li></ul></div>
+        <div class="ofs-card"><h3>What is not here</h3><p>Denied projects, except the two county denials inside the appeal examples. The state does not hold that data, so this site cannot say why projects were denied or how often.</p></div>
+        <div class="ofs-card"><h3>County boundaries</h3><p>Boundaries come from the Bureau of Land Management (BLM). They are generalized for display and are <b>not a legal boundary</b>.</p></div>
+        <div class="ofs-card"><h3>How reasons are coded</h3><p>The reasons in the appeal examples were read from the opinions and coded by a person. For the county approvals, a program run on our own computer will read each document, pull out each reason with a direct quote from the text, and propose one of eight categories. Every quote is checked to appear word for word on its page. A person checks some of them. Every reason shows whether it was hand-checked or machine-extracted.</p></div>
+        <div class="ofs-card"><h3>Limits</h3><ul style="margin:0;padding-left:20px"><li>Outcomes are shown as of the time we collected them.</li><li>Synthetic demo data exists only to show the layout.</li></ul></div>
+      </div>
+      <div class="ofs-card"><h3>Credits</h3><p>County boundaries: Bureau of Land Management (BLM), generalized for display, not a legal boundary. County records: State of Oregon. Appeal examples: Land Use Board of Appeals opinions. Data and code: <a href="https://github.com/mattsayleraistuff-collab/OregonFarmlandSolar">project repository</a>.</p></div>
+    </div></section>
   </main>
 
-  <script src="app.js"></script>
+  <footer class="ofs-footer"><div class="ofs-wrap"><p class="ofs-small" style="margin:0 0 var(--space-2)">County boundaries: Bureau of Land Management (BLM), generalized for display. Not a legal boundary. <a href="#method">Method and credits</a></p><p class="ofs-small" style="margin:0">Public data tool. No tracking, no cookies, no third-party requests.</p></div></footer>
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>
