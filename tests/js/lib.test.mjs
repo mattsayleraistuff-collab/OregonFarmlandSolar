@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { test } from "node:test";
 
 import {
-  appealCases, buildMap, chartRows, classFor, countyCounts, countyProjects, dataState,
+  appealCases, buildMap, categoriesInUse, chartRows, classFor, countyCounts, countyProjects, dataState,
   makeProjection, nearestInDirection, outcomeView, parseMode, plural, slug, sourceLine,
 } from "../../site/js/lib.js";
 
@@ -132,4 +132,17 @@ test("sourceLine names the document type and the PDF page", () => {
   const r = c.proceedings.flatMap((p) => p.reasons)[0];
   assert.match(sourceLine(c.documents, r), new RegExp(`page ${r.pdf_page}$`));
   assert.match(sourceLine(c.documents, r), /^(LUBA opinion|Staff report|County decision)/);
+});
+
+test("categoriesInUse drops categories with no reasons but keeps each one's number", () => {
+  const cats = [
+    { id: "a", local: 2, appeal: 0 },
+    { id: "b", local: 0, appeal: 0 },
+    { id: "c", local: 0, appeal: 3 },
+    { id: "d", local: 0, appeal: 0 },
+  ];
+  const both = categoriesInUse(cats, ["local", "appeal"]);
+  assert.deepEqual(both.map((c) => [c.id, c.number]), [["a", 1], ["c", 3]]);
+  assert.deepEqual(categoriesInUse(cats, ["local"]).map((c) => c.id), ["a"]);
+  assert.deepEqual(categoriesInUse(cats.map((c) => ({ ...c, local: 0, appeal: 0 })), ["local", "appeal"]), []);
 });
