@@ -373,7 +373,7 @@ function renderReasons() {
     countyPanel.append(details("Table view: county records", tablewrap("Reasons by category, table view", h("table", { class: "ofs-table" },
       h("caption", {}, "Reasons by category — county records. A decision can have several reasons, or none we could extract, so reasons need not match approvals."),
       h("thead", {}, h("tr", {}, h("th", { scope: "col" }, "Category"), h("th", { scope: "col", class: "num" }, "Given by the county"))),
-      h("tbody", {}, rows.map((r, i) => h("tr", {}, h("th", { scope: "row" }, glyph(cats[i].number, { size: 18 }), " ", r.label), h("td", { class: "num" }, r.count)))),
+      h("tbody", {}, rows.map((r, i) => h("tr", {}, h("th", { scope: "row" }, r.label), h("td", { class: "num" }, r.count)))),
       h("tfoot", {}, h("tr", {}, h("th", { scope: "row" }, "All reasons"), h("td", { class: "num" }, county.reasons)))))));
   }
   out.push(countyPanel);
@@ -397,7 +397,7 @@ function renderReasons() {
     const table = tablewrap("Reasons by category, table view", h("table", { class: "ofs-table" },
       h("caption", {}, "Reasons by category — LUBA appeal examples. A decision can have several reasons, or none we could extract, so reasons need not match cases. Categories with no reasons are not listed."),
       h("thead", {}, h("tr", {}, ["Category", "Given by the county", "Given on appeal", "Reasons"].map((t, i) => h("th", { scope: "col", class: i ? "num" : null }, t)))),
-      h("tbody", {}, cats.map((c) => h("tr", {}, h("th", { scope: "row" }, glyph(c.number, { size: 18 }), " ", c.label), h("td", { class: "num" }, c.local), h("td", { class: "num" }, c.appeal), h("td", { class: "num" }, c.count)))),
+      h("tbody", {}, cats.map((c) => h("tr", {}, h("th", { scope: "row" }, c.label), h("td", { class: "num" }, c.local), h("td", { class: "num" }, c.appeal), h("td", { class: "num" }, c.count)))),
       h("tfoot", {}, h("tr", {}, h("th", { scope: "row" }, "All reasons"), h("td", { class: "num" }, cats.reduce((a, c) => a + c.local, 0)), h("td", { class: "num" }, cats.reduce((a, c) => a + c.appeal, 0)), h("td", { class: "num" }, luba.reasons)))));
     lubaPanel.append(h("div", { class: "ofs-card" },
       h("h3", { style: "margin-bottom:var(--space-2)" }, "LUBA appeal examples: county and appeal reasons"),

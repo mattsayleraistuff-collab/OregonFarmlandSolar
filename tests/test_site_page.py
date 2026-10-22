@@ -145,3 +145,7 @@ def test_categories_with_no_reasons_are_left_out_without_renumbering():
     assert APP.count("categoriesInUse(") == 2
     assert "i + 1" not in APP, "use each category's own number so colours and shapes stay fixed"
     assert "Categories with no reasons are not listed." in APP
+
+
+def test_table_rows_name_the_category_in_text_only_without_an_icon():
+    assert "size: 18" not in APP, "table row headers should not carry a category icon"
