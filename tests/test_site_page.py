@@ -110,3 +110,20 @@ def test_the_pages_workflow_installs_node_before_the_tests():
     for name in ("ci.yml", "pages.yml"):
         text = (REPO_ROOT / ".github" / "workflows" / name).read_text(encoding="utf-8")
         assert "actions/setup-node@v4" in text
+
+
+def test_bold_terms_inside_a_step_do_not_start_a_new_line():
+    css = (SITE / "css" / "site.css").read_text(encoding="utf-8")
+    assert not re.search(r"\.ofs-steps b\s*[,{]", css), "style only the step title, not every <b>"
+    assert re.search(r"\.ofs-steps li > div > b\s*\{[^}]*display:\s*block", css)
+
+
+def test_choosing_a_county_from_the_table_brings_its_card_into_view():
+    table_click = APP[APP.index("table.addEventListener") :]
+    table_click = table_click[: table_click.index("});")]
+    assert "reveal: true" in table_click
+    select_county = APP[APP.index("function selectCounty") : APP.index("function onMapKey")]
+    assert "reveal" in select_county
+    assert "scrollIntoView" in select_county
+    assert 'tabindex: "-1"' in APP[APP.index("function renderCountyDetail") :]
+    assert "preventScroll" in select_county
