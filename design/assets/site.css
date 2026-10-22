@@ -201,7 +201,8 @@ a:focus-visible > .ofs-county, .ofs-county:focus-visible { stroke: var(--focus);
 .ofs-steps { list-style: none; margin: 0; padding: 0; counter-reset: s; display: grid; gap: var(--space-4); }
 .ofs-steps li { counter-increment: s; display: grid; grid-template-columns: 36px 1fr; gap: var(--space-3); }
 .ofs-steps li::before { content: counter(s); width: 32px; height: 32px; border: 2px solid var(--ink); border-radius: 50%; display: grid; place-items: center; font: 700 16px/1 var(--font-sans); }
-.ofs-steps b { display: block; }
+.ofs-steps li > div > b { display: block; }
+#county-detail { scroll-margin-top: var(--space-4); }
 .ofs-steps p { margin: 0; }
 .ofs-dl { margin: 0; display: grid; gap: var(--space-3); }
 .ofs-dl dt { font-weight: 700; }

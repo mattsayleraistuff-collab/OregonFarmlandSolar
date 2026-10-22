@@ -118,3 +118,20 @@ def test_the_luba_chart_is_switched_off_and_the_table_is_shown():
     assert 'import { SHOW_LUBA_CHART, SHOW_QUOTES } from "./config.js";' in APP
     block = APP[APP.index("const cats = luba.categories;") : APP.index("out.push(lubaPanel);")]
     assert "SHOW_LUBA_CHART" in block
+
+
+def test_bold_terms_inside_a_step_do_not_start_a_new_line():
+    css = (SITE / "css" / "site.css").read_text(encoding="utf-8")
+    assert not re.search(r"\.ofs-steps b\s*[,{]", css), "style only the step title, not every <b>"
+    assert re.search(r"\.ofs-steps li > div > b\s*\{[^}]*display:\s*block", css)
+
+
+def test_choosing_a_county_from_the_table_brings_its_card_into_view():
+    table_click = APP[APP.index("table.addEventListener") :]
+    table_click = table_click[: table_click.index("});")]
+    assert "reveal: true" in table_click
+    select_county = APP[APP.index("function selectCounty") : APP.index("function onMapKey")]
+    assert "reveal" in select_county
+    assert "scrollIntoView" in select_county
+    assert 'tabindex: "-1"' in APP[APP.index("function renderCountyDetail") :]
+    assert "preventScroll" in select_county

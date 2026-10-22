@@ -203,4 +203,9 @@ Words are used here the way LUBA uses them, which depends on whose argument is b
 - **Decision or analysis:** the LUBA appeal examples panel shows the reasons-by-category table and no longer shows the mark-by-mark chart or its key. The chart code stays, behind `SHOW_LUBA_CHART` in `site/js/config.js` (set to `true` to restore the chart above a collapsed table).
 - **Why:** with 3 cases and 16 reasons the chart repeated the table without adding to it, and its solid/hatched key was easy to mistake for a map key. The design requires a table view whenever a chart is shown, so with no chart the table is shown directly. This follows the rule to follow our data where it differs from the design.
 - **Limitations / open questions:** revisit the chart when the county approvals are loaded and the numbers are large enough to compare at a glance.
+
+### Site fixes after a first look at the live page (2026-10-21)
+- **Decision or analysis:** (1) choosing a county from the table now scrolls its detail card into view and moves keyboard focus to the card's heading; (2) bold terms inside the "How appeals work" steps no longer start a new line (only each step's title is a block).
+- **Why:** (1) the card updated off screen, so a mouse user had to scroll and a keyboard or screen reader user was not told where the new content was. Moving focus to the heading follows what an in-page link normally does. Choosing from the dropdown or the map leaves focus where it is, because moving it would be disruptive. (2) A rule meant for step titles applied to every bold word in the step text.
+- **Limitations / open questions:** checked in Chromium at desktop and phone widths, not yet in Brave, Firefox or Safari, or with a screen reader.
 - **Pull request:** to be added
