@@ -219,3 +219,9 @@ Words are used here the way LUBA uses them, which depends on whose argument is b
 - **Icons dropped from the tables:** the category icons beside each table row were removed. The row already names the category in text, so the icon added nothing there, and the taxonomy will likely grow past the eight colors and shapes in the design. The icons remain on the chart bars and beside each reason in the appeal examples, where they still help tell categories apart without color; revisit those if the category list grows.
 - **Limitations / open questions:** an empty category in the LUBA examples means "no reason LUBA reviewed", not "no such reason in the county's decision". The county approvals will be coded without the LUBA restriction, so these categories may fill in. The Yamhill reading is from quotes and one page, not a full read.
 - **Pull request:** to be added
+
+### "Open this case" and direct links now scroll to the content (2026-10-22)
+- **Decision or analysis:** choosing "Open this case" in the appeal examples, or loading a link such as `#case-<id>` or `#county-<name>`, now scrolls to the opened case or county card and moves keyboard focus to its heading.
+- **Why:** the case opened below the list of all three cases, mostly off screen, so the link looked broken. This is the same cause as the county table fix earlier. A direct link to a case also left the page at the top.
+- **Limitations / open questions:** checked in Chromium (desktop and phone width). The link from a county card to an appeal example in that county only appears once county records are loaded, so it could not be tried with the current data.
+- **Pull request:** to be added
