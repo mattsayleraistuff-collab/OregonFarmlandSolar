@@ -247,7 +247,7 @@ function renderMap() {
     const a = e.target.closest("a[data-fips]");
     if (!a) return;
     e.preventDefault();
-    selectCounty(a.dataset.fips);
+    selectCounty(a.dataset.fips, { reveal: true });
   });
 
   $("map-dyn").replaceChildren(
@@ -266,7 +266,7 @@ function renderCountyDetail() {
     return;
   }
   const counts = countyCounts(sec);
-  const kids = [h("h3", {}, `${c.name} County`)];
+  const kids = [h("h3", { tabindex: "-1" }, `${c.name} County`)];
   if (counts === null) {
     kids.push(h("p", { style: "margin:0 0 var(--space-3)" }, h("span", { class: "ofs-stat" }, "—"), " ", h("span", { class: "ofs-lead" }, "not loaded yet")), h("p", { class: "ofs-small" }, "County approvals have not been loaded yet. That does not mean there are no solar projects in this county."));
   } else {
@@ -291,7 +291,7 @@ function renderCountyDetail() {
   box.querySelectorAll("a[data-case]").forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); openCase(a.dataset.case, { scroll: true }); }));
 }
 
-function selectCounty(fips, { focus = false } = {}) {
+function selectCounty(fips, { focus = false, reveal = false } = {}) {
   state.selected = fips;
   const c = state.map.find((m) => m.fips === fips);
   history.replaceState(null, "", `${location.pathname}${location.search}#county-${c.slug}`);
@@ -306,6 +306,13 @@ function selectCounty(fips, { focus = false } = {}) {
   const sel = $("county-sel");
   if (sel) sel.value = fips;
   renderCountyDetail();
+  if (reveal) {
+    // From the table the card can be off screen: scroll it into view and move focus to its
+    // heading so keyboard and screen reader users land on the new content too.
+    const box = $("county-detail");
+    box.scrollIntoView({ block: "nearest" });
+    box.querySelector("h3")?.focus({ preventScroll: true });
+  }
 }
 
 function onMapKey(e) {
