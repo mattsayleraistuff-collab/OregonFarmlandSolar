@@ -433,7 +433,7 @@ function renderCases() {
     const a = e.target.closest("a[data-case]");
     if (!a) return;
     e.preventDefault();
-    openCase(a.dataset.case);
+    openCase(a.dataset.case, { scroll: true });
   });
   box.replaceChildren(list, h("div", { id: "case-view" }));
   if (!state.caseId || !cases.some((c) => c.project.id === state.caseId)) state.caseId = null;
@@ -514,10 +514,9 @@ function applyHash() {
   if (!m) return;
   if (m[1] === "county") {
     const c = state.map.find((x) => x.slug === m[2]);
-    if (c) selectCounty(c.fips);
+    if (c) selectCounty(c.fips, { reveal: true });
   } else if (appealCases(section()).some((k) => k.project.id === m[2])) {
-    state.caseId = m[2];
-    renderCase();
+    openCase(m[2], { scroll: true });
   }
 }
 

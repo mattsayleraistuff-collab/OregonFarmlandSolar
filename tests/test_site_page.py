@@ -155,3 +155,17 @@ def test_the_readme_links_to_the_live_site_near_the_top():
     readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8").splitlines()
     top = "\n".join(readme[:6])
     assert "https://mattsayleraistuff-collab.github.io/OregonFarmlandSolar/" in top
+
+
+def test_opening_a_case_from_the_list_scrolls_to_it():
+    click = APP[APP.index('list.addEventListener("click"') :]
+    click = click[: click.index("\n  });")]
+    assert "openCase(a.dataset.case, { scroll: true })" in click
+    css = (SITE / "css" / "site.css").read_text(encoding="utf-8")
+    assert re.search(r"#case-view[^{]*\{[^}]*scroll-margin-top", css)
+
+
+def test_a_link_straight_to_a_county_or_case_scrolls_to_it():
+    apply_hash = APP[APP.index("function applyHash") : APP.index("function wireChrome")]
+    assert "selectCounty(c.fips, { reveal: true })" in apply_hash
+    assert "openCase(m[2], { scroll: true })" in apply_hash
