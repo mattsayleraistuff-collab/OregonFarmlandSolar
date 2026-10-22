@@ -2,7 +2,7 @@
 // Text from data is always set with textContent, never innerHTML, so data cannot inject markup.
 import { SHOW_LUBA_CHART, SHOW_QUOTES } from "./config.js";
 import {
-  appealCases, buildMap, chartRows, classFor, countyCounts, countyProjects, dataState,
+  appealCases, buildMap, categoriesInUse, chartRows, classFor, countyCounts, countyProjects, dataState,
   docLabel, nearestInDirection, outcomeView, parseMode, plural, sourceLine,
 } from "./lib.js";
 
@@ -362,9 +362,9 @@ function renderReasons() {
   if (st === "pending") {
     countyPanel.append(notice("empty", "info", [h("strong", {}, "County approvals have not been loaded yet."), " There is no chart for county records until they are. This is not a count of zero."]));
   } else {
-    const cats = county.categories;
+    const cats = categoriesInUse(county.categories, ["local"]);
     const rows = chartRows(cats, "local");
-    const list = h("ul", { class: "ofs-chartrows", "aria-label": "Reasons by category" }, rows.map((r, i) => chartRowEl(r, i + 1, h("span", { style: "display:flex;width:100%;align-items:center;gap:8px" }, h("span", { style: "display:flex;flex:1;height:26px;min-width:0" }, r.pct > 0 ? h("span", { style: `width:${r.pct}%;background:var(--cat-${i + 1});border:1.5px solid var(--cat-outline);` }) : null), h("span", { class: "ofs-count", style: "min-width:9ch" }, r.count)))));
+    const list = h("ul", { class: "ofs-chartrows", "aria-label": "Reasons by category" }, rows.map((r, i) => chartRowEl(r, cats[i].number, h("span", { style: "display:flex;width:100%;align-items:center;gap:8px" }, h("span", { style: "display:flex;flex:1;height:26px;min-width:0" }, r.pct > 0 ? h("span", { style: `width:${r.pct}%;background:var(--cat-${cats[i].number});border:1.5px solid var(--cat-outline);` }) : null), h("span", { class: "ofs-count", style: "min-width:9ch" }, r.count)))));
     countyPanel.append(frame(h("div", { class: "ofs-card" },
       h("h3", { style: "margin-bottom:var(--space-2)" }, "County records: reasons given for approval"),
       h("p", { class: "ofs-small", style: "margin-bottom:var(--space-3)" }, sourceChip("Source: county records"), ` ${county.n_projects} approvals. A decision can have several reasons, or none we could extract.`),
@@ -373,7 +373,7 @@ function renderReasons() {
     countyPanel.append(details("Table view: county records", tablewrap("Reasons by category, table view", h("table", { class: "ofs-table" },
       h("caption", {}, "Reasons by category — county records. A decision can have several reasons, or none we could extract, so reasons need not match approvals."),
       h("thead", {}, h("tr", {}, h("th", { scope: "col" }, "Category"), h("th", { scope: "col", class: "num" }, "Given by the county"))),
-      h("tbody", {}, rows.map((r, i) => h("tr", {}, h("th", { scope: "row" }, glyph(i + 1, { size: 18 }), " ", r.label), h("td", { class: "num" }, r.count)))),
+      h("tbody", {}, rows.map((r, i) => h("tr", {}, h("th", { scope: "row" }, glyph(cats[i].number, { size: 18 }), " ", r.label), h("td", { class: "num" }, r.count)))),
       h("tfoot", {}, h("tr", {}, h("th", { scope: "row" }, "All reasons"), h("td", { class: "num" }, county.reasons)))))));
   }
   out.push(countyPanel);
@@ -388,16 +388,16 @@ function renderReasons() {
     const denied = cases.filter((c) => c.project.county_outcome === "denied").length;
     const approved = cases.length - denied;
     lubaPanel.append(notice("empty", "info", [h("strong", {}, `Only ${cases.length} appeal examples`), `: ${denied} county denials and ${approved} county ${approved === 1 ? "approval" : "approvals"}. They show how an appeal works. They are not a sample of the approvals, and they cannot say how often approvals are appealed.`]));
-    const cats = luba.categories;
+    const cats = categoriesInUse(luba.categories, ["local", "appeal"]);
     const key = h("ul", { class: "ofs-keyrow", "aria-label": "Chart key" }, h("li", {}, glyph(1), h("span", {}, h("b", {}, "Solid"), " = reason given for the county decision")), h("li", {}, glyph(1, { hatched: true }), h("span", {}, h("b", {}, "Hatched"), " = reason given in the appeal decision")));
-    const rows = h("ul", { class: "ofs-chartrows", "aria-label": "Reasons by category" }, cats.map((c, i) => chartRowEl(c, i + 1, [
-      h("span", { class: "grp" }, h("span", { class: "ofs-count" }, "County: ", h("b", {}, c.local)), " ", h("span", { class: "ofs-marks" }, Array.from({ length: c.local }, () => glyph(i + 1)))),
-      h("span", { class: "grp" }, h("span", { class: "ofs-count" }, "Appeal: ", h("b", {}, c.appeal)), " ", h("span", { class: "ofs-marks" }, Array.from({ length: c.appeal }, () => glyph(i + 1, { hatched: true })))),
+    const rows = h("ul", { class: "ofs-chartrows", "aria-label": "Reasons by category" }, cats.map((c) => chartRowEl(c, c.number, [
+      h("span", { class: "grp" }, h("span", { class: "ofs-count" }, "County: ", h("b", {}, c.local)), " ", h("span", { class: "ofs-marks" }, Array.from({ length: c.local }, () => glyph(c.number)))),
+      h("span", { class: "grp" }, h("span", { class: "ofs-count" }, "Appeal: ", h("b", {}, c.appeal)), " ", h("span", { class: "ofs-marks" }, Array.from({ length: c.appeal }, () => glyph(c.number, { hatched: true })))),
     ])));
     const table = tablewrap("Reasons by category, table view", h("table", { class: "ofs-table" },
-      h("caption", {}, "Reasons by category — LUBA appeal examples. A decision can have several reasons, or none we could extract, so reasons need not match cases."),
+      h("caption", {}, "Reasons by category — LUBA appeal examples. A decision can have several reasons, or none we could extract, so reasons need not match cases. Categories with no reasons are not listed."),
       h("thead", {}, h("tr", {}, ["Category", "Given by the county", "Given on appeal", "Reasons"].map((t, i) => h("th", { scope: "col", class: i ? "num" : null }, t)))),
-      h("tbody", {}, cats.map((c, i) => h("tr", {}, h("th", { scope: "row" }, glyph(i + 1, { size: 18 }), " ", c.label), h("td", { class: "num" }, c.local), h("td", { class: "num" }, c.appeal), h("td", { class: "num" }, c.count)))),
+      h("tbody", {}, cats.map((c) => h("tr", {}, h("th", { scope: "row" }, glyph(c.number, { size: 18 }), " ", c.label), h("td", { class: "num" }, c.local), h("td", { class: "num" }, c.appeal), h("td", { class: "num" }, c.count)))),
       h("tfoot", {}, h("tr", {}, h("th", { scope: "row" }, "All reasons"), h("td", { class: "num" }, cats.reduce((a, c) => a + c.local, 0)), h("td", { class: "num" }, cats.reduce((a, c) => a + c.appeal, 0)), h("td", { class: "num" }, luba.reasons)))));
     lubaPanel.append(h("div", { class: "ofs-card" },
       h("h3", { style: "margin-bottom:var(--space-2)" }, "LUBA appeal examples: county and appeal reasons"),

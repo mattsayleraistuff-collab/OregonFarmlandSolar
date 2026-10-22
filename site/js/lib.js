@@ -72,6 +72,14 @@ export function chartRows(categories, field) {
   }));
 }
 
+/**
+ * Numbers each category by its place in the full list (its colour and shape follow that number),
+ * then drops any category with no reasons in the given fields.
+ */
+export function categoriesInUse(categories, fields) {
+  return categories.map((c, i) => ({ ...c, number: i + 1 })).filter((c) => fields.some((f) => c[f] > 0));
+}
+
 // ---- map ---------------------------------------------------------------------------------
 
 const RAD = Math.PI / 180;

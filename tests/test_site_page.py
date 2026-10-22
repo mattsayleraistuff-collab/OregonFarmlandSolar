@@ -116,7 +116,11 @@ def test_the_luba_chart_is_switched_off_and_the_table_is_shown():
     config = (SITE / "js" / "config.js").read_text(encoding="utf-8")
     assert "export const SHOW_LUBA_CHART = false;" in config
     assert 'import { SHOW_LUBA_CHART, SHOW_QUOTES } from "./config.js";' in APP
-    block = APP[APP.index("const cats = luba.categories;") : APP.index("out.push(lubaPanel);")]
+    block = APP[
+        APP.index("const cats = categoriesInUse(luba.categories") : APP.index(
+            "out.push(lubaPanel);"
+        )
+    ]
     assert "SHOW_LUBA_CHART" in block
 
 
@@ -135,3 +139,9 @@ def test_choosing_a_county_from_the_table_brings_its_card_into_view():
     assert "scrollIntoView" in select_county
     assert 'tabindex: "-1"' in APP[APP.index("function renderCountyDetail") :]
     assert "preventScroll" in select_county
+
+
+def test_categories_with_no_reasons_are_left_out_without_renumbering():
+    assert APP.count("categoriesInUse(") == 2
+    assert "i + 1" not in APP, "use each category's own number so colours and shapes stay fixed"
+    assert "Categories with no reasons are not listed." in APP
