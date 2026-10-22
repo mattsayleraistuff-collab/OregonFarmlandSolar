@@ -110,3 +110,11 @@ def test_the_pages_workflow_installs_node_before_the_tests():
     for name in ("ci.yml", "pages.yml"):
         text = (REPO_ROOT / ".github" / "workflows" / name).read_text(encoding="utf-8")
         assert "actions/setup-node@v4" in text
+
+
+def test_the_luba_chart_is_switched_off_and_the_table_is_shown():
+    config = (SITE / "js" / "config.js").read_text(encoding="utf-8")
+    assert "export const SHOW_LUBA_CHART = false;" in config
+    assert 'import { SHOW_LUBA_CHART, SHOW_QUOTES } from "./config.js";' in APP
+    block = APP[APP.index("const cats = luba.categories;") : APP.index("out.push(lubaPanel);")]
+    assert "SHOW_LUBA_CHART" in block
