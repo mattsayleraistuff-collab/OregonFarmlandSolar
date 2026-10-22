@@ -112,6 +112,14 @@ def test_the_pages_workflow_installs_node_before_the_tests():
         assert "actions/setup-node@v4" in text
 
 
+def test_the_luba_chart_is_switched_off_and_the_table_is_shown():
+    config = (SITE / "js" / "config.js").read_text(encoding="utf-8")
+    assert "export const SHOW_LUBA_CHART = false;" in config
+    assert 'import { SHOW_LUBA_CHART, SHOW_QUOTES } from "./config.js";' in APP
+    block = APP[APP.index("const cats = luba.categories;") : APP.index("out.push(lubaPanel);")]
+    assert "SHOW_LUBA_CHART" in block
+
+
 def test_bold_terms_inside_a_step_do_not_start_a_new_line():
     css = (SITE / "css" / "site.css").read_text(encoding="utf-8")
     assert not re.search(r"\.ofs-steps b\s*[,{]", css), "style only the step title, not every <b>"

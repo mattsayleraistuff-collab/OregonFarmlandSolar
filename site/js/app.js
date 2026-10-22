@@ -1,6 +1,6 @@
 // Oregon Farmland Solar: draws the page from two data files (relative paths, same origin).
 // Text from data is always set with textContent, never innerHTML, so data cannot inject markup.
-import { SHOW_QUOTES } from "./config.js";
+import { SHOW_LUBA_CHART, SHOW_QUOTES } from "./config.js";
 import {
   appealCases, buildMap, chartRows, classFor, countyCounts, countyProjects, dataState,
   docLabel, nearestInDirection, outcomeView, parseMode, plural, sourceLine,
@@ -394,15 +394,16 @@ function renderReasons() {
       h("span", { class: "grp" }, h("span", { class: "ofs-count" }, "County: ", h("b", {}, c.local)), " ", h("span", { class: "ofs-marks" }, Array.from({ length: c.local }, () => glyph(i + 1)))),
       h("span", { class: "grp" }, h("span", { class: "ofs-count" }, "Appeal: ", h("b", {}, c.appeal)), " ", h("span", { class: "ofs-marks" }, Array.from({ length: c.appeal }, () => glyph(i + 1, { hatched: true })))),
     ])));
-    lubaPanel.append(h("div", { class: "ofs-card" },
-      h("h3", { style: "margin-bottom:var(--space-2)" }, "LUBA appeal examples: county and appeal reasons"),
-      h("p", { class: "ofs-small", style: "margin-bottom:var(--space-3)" }, sourceChip("Source: LUBA case"), ` ${cases.length} cases, counted separately from the approvals above. Reasons are coded from the opinions: grounds the county gave (as LUBA recorded them) and grounds LUBA gave.`),
-      key, rows, provenance(luba)));
-    lubaPanel.append(details("Table view: LUBA appeal examples", tablewrap("Reasons by category, table view", h("table", { class: "ofs-table" },
+    const table = tablewrap("Reasons by category, table view", h("table", { class: "ofs-table" },
       h("caption", {}, "Reasons by category — LUBA appeal examples. A decision can have several reasons, or none we could extract, so reasons need not match cases."),
       h("thead", {}, h("tr", {}, ["Category", "Given by the county", "Given on appeal", "Reasons"].map((t, i) => h("th", { scope: "col", class: i ? "num" : null }, t)))),
       h("tbody", {}, cats.map((c, i) => h("tr", {}, h("th", { scope: "row" }, glyph(i + 1, { size: 18 }), " ", c.label), h("td", { class: "num" }, c.local), h("td", { class: "num" }, c.appeal), h("td", { class: "num" }, c.count)))),
-      h("tfoot", {}, h("tr", {}, h("th", { scope: "row" }, "All reasons"), h("td", { class: "num" }, cats.reduce((a, c) => a + c.local, 0)), h("td", { class: "num" }, cats.reduce((a, c) => a + c.appeal, 0)), h("td", { class: "num" }, luba.reasons)))))));
+      h("tfoot", {}, h("tr", {}, h("th", { scope: "row" }, "All reasons"), h("td", { class: "num" }, cats.reduce((a, c) => a + c.local, 0)), h("td", { class: "num" }, cats.reduce((a, c) => a + c.appeal, 0)), h("td", { class: "num" }, luba.reasons)))));
+    lubaPanel.append(h("div", { class: "ofs-card" },
+      h("h3", { style: "margin-bottom:var(--space-2)" }, "LUBA appeal examples: county and appeal reasons"),
+      h("p", { class: "ofs-small", style: "margin-bottom:var(--space-3)" }, sourceChip("Source: LUBA case"), ` ${cases.length} cases, counted separately from the approvals above. Reasons are coded from the opinions: grounds the county gave (as LUBA recorded them) and grounds LUBA gave.`),
+      ...(SHOW_LUBA_CHART ? [key, rows] : [table]), provenance(luba)));
+    if (SHOW_LUBA_CHART) lubaPanel.append(details("Table view: LUBA appeal examples", table));
   }
   out.push(lubaPanel);
   $("reasons-dyn").replaceChildren(...out);
