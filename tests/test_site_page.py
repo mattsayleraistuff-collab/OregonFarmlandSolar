@@ -149,3 +149,9 @@ def test_categories_with_no_reasons_are_left_out_without_renumbering():
 
 def test_table_rows_name_the_category_in_text_only_without_an_icon():
     assert "size: 18" not in APP, "table row headers should not carry a category icon"
+
+
+def test_the_readme_links_to_the_live_site_near_the_top():
+    readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8").splitlines()
+    top = "\n".join(readme[:6])
+    assert "https://mattsayleraistuff-collab.github.io/OregonFarmlandSolar/" in top
