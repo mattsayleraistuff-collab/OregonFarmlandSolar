@@ -1,9 +1,11 @@
 # OregonFarmlandSolar
 
+**Live site: <https://mattsayleraistuff-collab.github.io/OregonFarmlandSolar/>**
+
 ## What it does
 A 2-week sprint project to build a working map and dashboard that tracks the reasons solar-on-farm permits are approved or denied in Oregon.
 
-Status: scaffold only. No data, analysis, or app code yet.
+Status: the website is live with three real LUBA appeal examples; county approvals are not loaded yet (the site shows a pending state for them).
 
 ## Scope and coverage
 This tracks the reasons given in the decisions we have, not every solar-on-farmland permit in Oregon.
